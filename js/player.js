@@ -3,8 +3,6 @@ class Player {
         this.width = 20;
         this.headLength = 20;
         this.bodyLength = 60;
-        //this.x = window.innerWidth/2;
-        //this.y = canvasBottom;
         this.x = canvas.width / 2;
         this.y = canvas.height;
         this.headColor = 'pink';
@@ -12,7 +10,7 @@ class Player {
         this.maxSpeed = 5;
         this.speed = 0;
         this.hookNumber = 1;
-        this.hooks = [new Hook(this.x, this)];
+        this.hooks = [new Hook(this)];
     }
 
     draw(ctx) {
@@ -41,6 +39,8 @@ class Player {
         }
     }
 
+    // Shooting the hook
+    //ToDo : Handle multiple hooks
     shoot() {
         if (this.hookNumber >= 1) {
             this.hookNumber--;

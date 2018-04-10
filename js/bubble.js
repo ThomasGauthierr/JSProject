@@ -20,8 +20,10 @@ class Bubble {
         ctx.fill();
 
         // debug
+        /*
         console.log( "x : " + this.x);
         console.log ("y : " + this.y);
+        */
 
         ctx.restore();
     }

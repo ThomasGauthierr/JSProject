@@ -1,6 +1,6 @@
 class Hook {
-    constructor(x, player)  {
-        this.x = x;
+    constructor(player)  {
+        this.x = 0;
         this.player = player;
         this.size = this.player.bodyLength + this.player.headLength;
         this.color = 'lightgrey';
@@ -14,7 +14,7 @@ class Hook {
             ctx.save();
 
             ctx.fillStyle = this.color;
-            //ctx.fillRect(this.x, canvas.height, this.size, this.width);
+            
             ctx.fillRect(this.x,canvas.height - this.size,this.width, this.size);
             ctx.restore();
         }
@@ -23,17 +23,27 @@ class Hook {
     grow() {
         if (this.isShot) {
             this.size += this.speed;
+
+            // We remove the hook if it reach the canvas
             if (this.size >= canvas.height) {
-                this.isShot = false;
-                player.hookNumber ++;
-                this.size = player.bodyLength + player.headLength;
+                this.remove();   
             }
         }
     }
 
+    // Initializing parameters so the shot goes from
+    // the middle of the player
     shoot(x) {
         this.x = x;
         this.isShot = true;
+    }
+
+    // Function to call when the hook has to be removed, so when
+    // it touches the sky, a ball, or the player dies
+    remove() {
+        this.isShot = false;
+        player.hookNumber ++;
+        this.size = player.bodyLength + player.headLength;
     }
 
 }

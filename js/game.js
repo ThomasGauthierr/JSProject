@@ -1,5 +1,9 @@
+//ToDo : 2 players mode ?
+
 window.onload = init;
 
+// This has to be set to false if the sizes works by percentage
+// WARNING : Not working atm, let it to true :o)
 let pixelPos = true;
 
 let canvas, canvasBottom;
@@ -10,6 +14,7 @@ function init() {
     canvas = document.querySelector("#myCanvas");
     ctx = canvas.getContext("2d");
 
+    // Resizing canvas according to the window size
     if (!pixelPos) {
         resizeCanvas();
 
@@ -18,21 +23,19 @@ function init() {
         canvas.width = "500";
         canvas.height = "500";
     }
-
     canvasBottom = canvas.getBoundingClientRect().bottom;
-
-    //Ecouteurs de clavier
+    // Keyboard listeners
     window.onkeydown = keyDown;
     window.onkeyup = keyUp;
 
+    // Player creation
     player = new Player();
 
-    //creation bubble
+    // Bubble creation
     bub1 = new Bubble(0,0,2);
     bubbles.push(bub1);
 
     requestAnimationFrame(animation);
-
 }
 
 function resizeCanvas() {
@@ -43,24 +46,28 @@ function resizeCanvas() {
 }
 
 function animation() {
-     // 1 on efface
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Clearing the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  // 2 on dessine et on deplace
-  drawAndMoveObjects();
+    //Drawing and moving the objects
+    drawAndMoveObjects();
   
-  // 4 on rappelle la boucle d'animation 60 fois / s
-  requestAnimationFrame(animation);
+    // Animation loop
+    requestAnimationFrame(animation);
 }
 
 function drawAndMoveObjects() {
+    // Drawing and moving bubbles
     bubbles.forEach((bub) => {
         bub.draw();
         bub.move();
-    })
+    });
+
+    // Drawing and moving the player
     player.draw(ctx);
     player.move();
 
+    // Drawing and moving hooks
     player.hooks.forEach(hook => {
         hook.draw(ctx);
         hook.grow();
