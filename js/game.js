@@ -29,7 +29,8 @@ function init() {
     window.onkeyup = keyUp;
 
     // Player creation
-    player = new Player();
+    // Constructor takes number of hooks, 1 by default
+    player = new Player(2);
 
     // Bubble creation
     bub1 = new Bubble(0,0,2);

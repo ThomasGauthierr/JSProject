@@ -1,5 +1,7 @@
 class Hook {
-    constructor(player)  {
+    // WARNING : each hook number of one player has to be different
+    // and have to correspond with its index in his hooks array
+    constructor(player, number)  {
         this.x = 0;
         this.player = player;
         this.size = this.player.bodyLength + this.player.headLength;
@@ -7,6 +9,7 @@ class Hook {
         this.width = 3;
         this.speed = 8;
         this.isShot = false;
+        this.number = number;
     }
 
     draw(ctx) {
@@ -42,7 +45,7 @@ class Hook {
     // it touches the sky, a ball, or the player dies
     remove() {
         this.isShot = false;
-        player.hookNumber ++;
+        this.player.hookNumber ++;
         this.size = player.bodyLength + player.headLength;
     }
 

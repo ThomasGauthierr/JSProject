@@ -1,5 +1,5 @@
 class Player {
-    constructor() {
+    constructor(hookNumber) {
         this.width = 20;
         this.headLength = 20;
         this.bodyLength = 60;
@@ -9,8 +9,12 @@ class Player {
         this.bodyColor = 'black';
         this.maxSpeed = 5;
         this.speed = 0;
-        this.hookNumber = 1;
-        this.hooks = [new Hook(this)];
+        this.hookNumber = hookNumber || 1;
+        this.hooks = [];
+
+        for(let i = 0; i < hookNumber; i++) {
+            this.hooks.push(new Hook(this, i));
+        }
     }
 
     draw(ctx) {
@@ -40,12 +44,26 @@ class Player {
     }
 
     // Shooting the hook
-    //ToDo : Handle multiple hooks
     shoot() {
         if (this.hookNumber >= 1) {
+            this.hooks[this.findAvailableHook()].shoot(this.x + (this.width - this.hooks[0].width)/2);
             this.hookNumber--;
-            this.hooks[this.hookNumber].shoot(this.x + (this.width - this.hooks[0].width)/2);
         }
+    }
+
+    //Find one hook which is not thrown yet
+    findAvailableHook() {
+        let i = 0;
+        let availableHook = 0;
+
+        this.hooks.forEach(hook => {
+            if (!hook.isShot) {
+                availableHook = i;
+            }
+            i++;
+        });
+
+        return availableHook;
     }
 
 }
