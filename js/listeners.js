@@ -2,21 +2,42 @@ function keyDown(evt) {
     let code = evt.code;
 
     switch (code) {
+        //** Player 1 **//
         // Left arrow => moving left
         case 'ArrowLeft':
-            player.speed = - player.maxSpeed;
+        players[0].speed = - players[0].maxSpeed;
             break;
         // Right arrow => moving right
         case 'ArrowRight':
-            if (player.x <= canvas.width - player.width) {
-                player.speed = player.maxSpeed; 
+            if (players[0].x <= canvas.width - players[0].width) {
+                players[0].speed = players[0].maxSpeed; 
             } else {
-                x = canvas.width - player.width;
+                x = canvas.width - players[0].width;
+            }
+            break;
+        // Numpad + => Shooting the hook
+        case 'NumpadAdd':
+            players[0].shoot();
+            break;
+
+
+        //** Player 2 **//
+        // A (azerty) or Q (qwerty) => moving left
+        case 'KeyQ':
+            players[1].speed = - players[1].maxSpeed;
+            break;
+        // E => moving right
+        case 'KeyE':
+            if (players[1].x <= canvas.width - players[1].width) {
+                players[1].speed = players[1].maxSpeed; 
+            } else {
+                x = canvas.width - players[1].width;
             }
             break;
         // Spacebar => Shooting the hook
         case 'Space':
-            player.shoot();
+        players[1].shoot();
+
         default :
             break;
     }
@@ -26,15 +47,28 @@ function keyUp(evt) {
     let code = evt.code;
 
     switch (code) {
+        //** Player 1 **//
+        // Left Arrow
         case 'ArrowLeft':
-        player.speed = 0;
+        players[0].speed = 0;
         break;
-    // Right arrow
-    case 'ArrowRight':
-        player.speed = 0; 
+        // Right arrow
+        case 'ArrowRight':
+            players[0].speed = 0; 
+            break;
+
+        //** Player 2 **//
+        //A (azerty) or Q (qwerty)
+        case 'KeyQ':
+        players[1].speed = 0;
         break;
-    default :
-        break;
+        // E
+        case 'KeyE':
+            players[1].speed = 0; 
+            break;
+
+        default :
+            break;
     }
 
 }

@@ -1,5 +1,3 @@
-//ToDo : 2 players mode ?
-
 window.onload = init;
 
 // This has to be set to false if the sizes works by percentage
@@ -7,7 +5,7 @@ window.onload = init;
 let pixelPos = true;
 
 let canvas, canvasBottom;
-let player;
+let players = [];
 let bubbles = [];
 
 function init() {
@@ -29,8 +27,11 @@ function init() {
     window.onkeyup = keyUp;
 
     // Player creation
-    // Constructor takes number of hooks, 1 by default
-    player = new Player(2);
+    // Constructor takes number of hooks (1 by default),
+    // then optionnaly the initial x coord
+    // and a body color (black by default)
+    players.push(new Player(2, canvas.width/2 + 80));
+    players.push(new Player(2, canvas.width/2 - 80, 'red'));
 
     // Bubble creation
     bub1 = new Bubble(0,0,2);
@@ -64,13 +65,15 @@ function drawAndMoveObjects() {
         bub.move();
     });
 
-    // Drawing and moving the player
-    player.draw(ctx);
-    player.move();
+    // Drawing and moving the players
+    players.forEach(player => {
+        // Drawing and moving hooks
+        player.hooks.forEach(hook => {
+            hook.draw(ctx);
+            hook.grow();
+        });
 
-    // Drawing and moving hooks
-    player.hooks.forEach(hook => {
-        hook.draw(ctx);
-        hook.grow();
+        player.draw(ctx);
+        player.move();
     });
 }

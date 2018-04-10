@@ -46,7 +46,7 @@ class Hook {
     remove() {
         this.isShot = false;
         this.player.hookNumber ++;
-        this.size = player.bodyLength + player.headLength;
+        this.size = this.player.bodyLength + this.player.headLength;
     }
 
 }

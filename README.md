@@ -41,6 +41,10 @@ Percez et evitez les bulles pour survivre !!!
     1. deux joueurs sur le meme ecran ?
     2. ecran scindé ?
 
+## Contrôles
+- Joueur 1 : flèche gauche (gauche), flèche droite (droite), numpad + (tirer)
+- Joueur 2 : A (gauche), E (droite), espace (tirer)
+
 ## Rendu
 
 première semaine de mai
