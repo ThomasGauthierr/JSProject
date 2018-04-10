@@ -4,6 +4,7 @@ let pixelPos = true;
 
 let canvas, canvasBottom;
 let player;
+let bubbles = [];
 
 function init() {
     canvas = document.querySelector("#myCanvas");
@@ -25,6 +26,10 @@ function init() {
     window.onkeyup = keyUp;
 
     player = new Player();
+
+    //creation bubble
+    bub1 = new Bubble(0,0,2);
+    bubbles.push(bub1);
 
     requestAnimationFrame(animation);
 
@@ -49,6 +54,10 @@ function animation() {
 }
 
 function drawAndMoveObjects() {
+    bubbles.forEach((bub) => {
+        bub.draw();
+        bub.move();
+    })
     player.draw(ctx);
     player.move();
 }

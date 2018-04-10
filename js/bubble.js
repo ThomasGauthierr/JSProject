@@ -15,7 +15,7 @@ class Bubble {
 
         ctx.strokeStyle = this.couleur;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+        ctx.arc(this.x, this.y, this.r*10, 0, 2 * Math.PI, false);
         ctx.lineWidth = 3;  
         ctx.fill();
 
