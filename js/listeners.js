@@ -1,6 +1,6 @@
 function keyDown(evt) {
     let code = evt.code;
-    
+
     switch (code) {
         // Left arrow
         case 'ArrowLeft':
@@ -8,8 +8,15 @@ function keyDown(evt) {
             break;
         // Right arrow
         case 'ArrowRight':
-            player.speed = player.maxSpeed; 
+            if (player.x <= canvas.width - player.width) {
+                player.speed = player.maxSpeed; 
+            } else {
+                x = canvas.width - player.width;
+            }
             break;
+        case 'Space': 
+            console.log("pewpewpew");
+            player.shoot();
         default :
             break;
     }

@@ -11,6 +11,8 @@ class Player {
         this.bodyColor = 'black';
         this.maxSpeed = 5;
         this.speed = 0;
+        this.hookNumber = 1;
+        this.hooks = [new Hook(this.x, this)];
     }
 
     draw(ctx) {
@@ -27,6 +29,23 @@ class Player {
 
     move() {
         this.x += this.speed;
+
+        if (this.x < 0) {
+            this.x = 0;
+            this.speed = 0;
+        }
+
+        if (this.x > (canvas.width - this.width)) {
+            this.x = canvas.width - this.width;
+            this.speed = 0;
+        }
+    }
+
+    shoot() {
+        if (this.hookNumber >= 1) {
+            this.hookNumber--;
+            this.hooks[this.hookNumber].shoot(this.x + (this.width - this.hooks[0].width)/2);
+        }
     }
 
 }

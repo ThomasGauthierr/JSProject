@@ -51,4 +51,9 @@ function animation() {
 function drawAndMoveObjects() {
     player.draw(ctx);
     player.move();
+
+    player.hooks.forEach(hook => {
+        hook.draw(ctx);
+        hook.grow();
+    });
 }
