@@ -14,6 +14,7 @@ Percez et evitez les bulles pour survivre !!!
     1. longueur l
     2. vitesse v
     3. dès que contact / fin de l :  reviens dans le gun
+    4. contact si bulle touche cable
 
 - Bulle : 
     1. vie
@@ -23,9 +24,22 @@ Percez et evitez les bulles pour survivre !!!
 
 - niveau :
     1. nombre de bulles
+    2. temps imparti
+
+- joueur :
+    1. score ( temps restant a la completion du niveau )
+    2. nombre de vies
 
 - Bonus / Malus ?
+    1. vitesse harpon
+    2. vigne si harpon touche plafon
 
+- Fenetre :
+    Taille fixe dans un premier temps, toutes les cooronnees en pourcent ensuite pour gerer le resize
+
+- Mode deux joueurs :
+    1. deux joueurs sur le meme ecran ?
+    2. ecran scindé ?
 
 ## Rendu
 
