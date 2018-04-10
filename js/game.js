@@ -2,23 +2,31 @@ window.onload = init;
 
 let pixelPos = true;
 
-let canvas;
+let canvas, canvasBottom;
+let player;
 
 function init() {
     canvas = document.querySelector("#myCanvas");
+    ctx = canvas.getContext("2d");
 
     if (!pixelPos) {
-    resizeCanvas();
+        resizeCanvas();
 
-    window.addEventListener('resize', resizeCanvas, false);
+        window.addEventListener('resize', resizeCanvas, false);
     } else {
         canvas.width = "500";
         canvas.height = "500";
     }
+
+    canvasBottom = canvas.getBoundingClientRect().bottom;
+
     //Ecouteurs de clavier
     window.onkeydown = keyDown;
     window.onkeyup = keyUp;
 
+    player = new Player();
+
+    requestAnimationFrame(animation);
 
 }
 
@@ -27,4 +35,20 @@ function resizeCanvas() {
 
     canvas.width = window.innerWidth * 0.95;
     canvas.height = window.innerHeight * 0.95;
+}
+
+function animation() {
+     // 1 on efface
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // 2 on dessine et on deplace
+  drawAndMoveObjects();
+  
+  // 4 on rappelle la boucle d'animation 60 fois / s
+  requestAnimationFrame(animation);
+}
+
+function drawAndMoveObjects() {
+    player.draw(ctx);
+    player.move();
 }
