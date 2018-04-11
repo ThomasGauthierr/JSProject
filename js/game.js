@@ -94,5 +94,6 @@ function checkCollisions(){
  
     // check between elements
     harponBubbleCollisionTest();
+    playerBubbleCollisionTest();
     // no collisions btween bubbles
 }

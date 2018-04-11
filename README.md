@@ -32,7 +32,8 @@ Percez et evitez les bulles pour survivre !!!
 
 - Bonus / Malus ?
     1. vitesse harpon
-    2. vigne si harpon touche plafon
+    2. vigne si harpon touche plafond
+    3. nombre de harpons par joueur
 
 - Fenetre :
     Taille fixe dans un premier temps, toutes les cooronnees en pourcent ensuite pour gerer le resize
@@ -57,7 +58,6 @@ presentation orale
 - Mouvement bulle rebondissante
 - Collisions :
     - bulle/joueur
-    - Harpon/bulle
     - Plafond/bulle (?)
     - Bulle/élément décor
 - Division bulles
