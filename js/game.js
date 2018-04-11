@@ -50,10 +50,13 @@ function resizeCanvas() {
 function animation() {
     // Clearing the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
+
     //Drawing and moving the objects
     drawAndMoveObjects();
-  
+    
+     // checking collisions
+    checkCollisions();
+
     // Animation loop
     requestAnimationFrame(animation);
 }
@@ -75,5 +78,32 @@ function drawAndMoveObjects() {
 
         player.draw(ctx);
         player.move();
+    });
+}
+
+function checkCollisions(){
+    // check with sides
+    wallsBubbleCollisionTest();
+ 
+    // check between elements
+    // no collisions btween bubbles
+}
+
+function wallsBubbleCollisionTest(){
+    bubbles.forEach(element => {
+            if (element.x - element.r <= 0){
+                element.x = element.r;
+                element.vitesseX = - element.vitesseX;
+            } else if (element.x + element.r >= canvas.width ){
+                element.x = canvas.width - element.r;
+                element.vitesseX = - element.vitesseX;
+            }
+            if (element.y <= element.r){
+                element.y = element.r;
+                element.vitesseY = - element.vitesseY;
+            } else if (element.y >= canvas.height - element.r){
+                element.y = canvas.height - element.r;
+                element.vitesseY = - element.vitesseY;
+            }
     });
 }

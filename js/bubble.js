@@ -3,7 +3,7 @@ class Bubble {
         this.x = x || 0;
         this.y = y || 0;
         this.vie = vie || 1;
-        this.r = vie;
+        this.r = vie * 10;
         this.couleur = couleur ||'red';
         this.vitesseX = vitessex || 1;
         this.vitesseY = 3; // gravité
@@ -15,7 +15,7 @@ class Bubble {
 
         ctx.strokeStyle = this.couleur;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r*10, 0, 2 * Math.PI, false);
+        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
         ctx.lineWidth = 3;  
         ctx.fill();
 
