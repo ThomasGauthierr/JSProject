@@ -1,5 +1,6 @@
 #myCanvas {
     border:1px solid;
+    visibility: hidden;
 }
 
 #canvasContainer {
@@ -10,4 +11,5 @@
 #canvasTimer {
   border: 1px solid black;
   margin-top: 30px;
+  visibility: hidden;
 }

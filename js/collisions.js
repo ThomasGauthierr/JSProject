@@ -37,6 +37,7 @@ function playerBubbleCollisionTest( player ){
                 playr.life -= 1;
                 playr.maxSpeed = 0;
                 playr.speed = 0;
+                chronoStop();
                 console.log("collision player_bubble");
                 //TODO : restart level 
             }

@@ -52,7 +52,6 @@ première semaine de mai
 presentation orale
 
 ## ToDo :
-- Chronomètre 
 - Score
 - Menus
 - Mouvement bulle rebondissante

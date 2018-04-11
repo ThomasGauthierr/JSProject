@@ -1,10 +1,4 @@
-window.onload = init;
 
-// This has to be set to false if the sizes works by percentage
-// WARNING : Not working atm, let it to true :o)
-let pixelPos = true;
-
-let canvas, canvasTimer, canvasBottom;
 let players = [];
 let bubbles = [];
 
@@ -12,26 +6,8 @@ let timer;
 
 let currentLevel = 1;
 
-function init() {
-    canvas = document.querySelector("#myCanvas");
-    ctx = canvas.getContext("2d");
-
-    canvasTimer = document.querySelector("#canvasTimer");
-
-    // Resizing canvas according to the window size
-    if (!pixelPos) {
-        resizeCanvas();
-
-        window.addEventListener('resize', resizeCanvas, false);
-    } else {
-        canvas.width = "500";
-        canvas.height = "500";
-
-        canvasTimer.width = canvas.width;
-        canvasTimer.height = "25";
-    }
-    canvasBottom = canvas.getBoundingClientRect().bottom;
-    // Keyboard listeners
+function initGame() {
+   // Keyboard listeners
     window.onkeydown = keyDown;
     window.onkeyup = keyUp;
 
@@ -45,6 +21,10 @@ function init() {
     // Bubble creation
     bub1 = new Bubble(0,0,2);
     bubbles.push(bub1);
+
+    //Displaying canvas
+    canvas.style.visibility = "visible";
+    canvasTimer.style.visibility = "visible";
 
     //Timer
     chronoStart();

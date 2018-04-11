@@ -70,5 +70,28 @@ function keyUp(evt) {
         default :
             break;
     }
+}
 
+function mouseMenu(evt) {
+
+    let rect = canvas.getBoundingClientRect();
+
+    let posX = evt.clientX - rect.left;
+    let posY = evt.clientY - rect.top;
+
+    if (posX >= posXButton1P &&
+        posX <= posXButton1P + widthButton1P &&
+        posY >= posYButton1P &&
+        posY <= posYButton1P + heighthButton1P)
+    {
+        initGame();
+    }
+
+    if (posX >= posXButton2P &&
+        posX <= posXButton2P + widthButton2P &&
+        posY >= posYButton2P &&
+        posY <= posYButton2P + heighthButton2P)
+    {
+        initGame();
+    }
 }
