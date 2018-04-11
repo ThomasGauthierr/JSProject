@@ -10,6 +10,7 @@ class Hook {
         this.speed = 8;
         this.isShot = false;
         this.number = number;
+        this.damage = 1;
     }
 
     draw(ctx) {
@@ -45,8 +46,9 @@ class Hook {
     // it touches the sky, a ball, or the player dies
     remove() {
         this.isShot = false;
+        console.log ("hook at x =  " + this.x);
         this.player.hookNumber ++;
-        this.size = this.player.bodyLength + this.player.headLength;
+        this.size = this.player.totalHeight;
     }
 
 }

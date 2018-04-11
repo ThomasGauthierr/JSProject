@@ -1,9 +1,9 @@
 class Bubble {
-    constructor (x,y,vie,couleur,vitessex){
+    constructor (x,y,life,couleur,vitessex){
         this.x = x || 0;
         this.y = y || 0;
-        this.vie = vie || 1;
-        this.r = vie * 10;
+        this.life = life || 1;
+        this.r = life * 10;
         this.couleur = couleur ||'red';
         this.vitesseX = vitessex || 1;
         this.vitesseY = 3; // gravité

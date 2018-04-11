@@ -11,6 +11,7 @@ class Player {
         this.speed = 0;
         this.hookNumber = hookNumber || 1;
         this.hooks = [];
+        this.totalHeight = this.bodyLength + this.headLength;
 
         for(let i = 0; i < hookNumber; i++) {
             this.hooks.push(new Hook(this, i));

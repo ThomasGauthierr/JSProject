@@ -64,8 +64,10 @@ function animation() {
 function drawAndMoveObjects() {
     // Drawing and moving bubbles
     bubbles.forEach((bub) => {
-        bub.draw();
-        bub.move();
+        if (bub.life > 0){
+            bub.draw();
+            bub.move();
+        }
     });
 
     // Drawing and moving the players
@@ -86,24 +88,6 @@ function checkCollisions(){
     wallsBubbleCollisionTest();
  
     // check between elements
+    harponBubbleCollisionTest();
     // no collisions btween bubbles
-}
-
-function wallsBubbleCollisionTest(){
-    bubbles.forEach(element => {
-            if (element.x - element.r <= 0){
-                element.x = element.r;
-                element.vitesseX = - element.vitesseX;
-            } else if (element.x + element.r >= canvas.width ){
-                element.x = canvas.width - element.r;
-                element.vitesseX = - element.vitesseX;
-            }
-            if (element.y <= element.r){
-                element.y = element.r;
-                element.vitesseY = - element.vitesseY;
-            } else if (element.y >= canvas.height - element.r){
-                element.y = canvas.height - element.r;
-                element.vitesseY = - element.vitesseY;
-            }
-    });
 }
