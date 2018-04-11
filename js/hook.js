@@ -5,7 +5,7 @@ class Hook {
         this.x = 0;
         this.player = player;
         this.size = this.player.bodyLength + this.player.headLength;
-        this.color = 'lightgrey';
+        this.color = this.player.hookColor;
         this.width = 3;
         this.speed = 8;
         this.isShot = false;

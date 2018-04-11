@@ -49,3 +49,18 @@ Percez et evitez les bulles pour survivre !!!
 
 première semaine de mai
 presentation orale
+
+## ToDo :
+- Chronomètre 
+- Score
+- Menus
+- Mouvement bulle rebondissante
+- Collisions :
+    - bulle/joueur
+    - Harpon/bulle
+    - Plafond/bulle (?)
+    - Bulle/élément décor
+- Division bulles
+- Affichage vie/score...
+- Génération de niveaux
+- Design général

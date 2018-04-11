@@ -29,9 +29,9 @@ function init() {
     // Player creation
     // Constructor takes number of hooks (1 by default),
     // then optionnaly the initial x coord
-    // and a body color (black by default)
+    // a body color and the hook color
     players.push(new Player(2, canvas.width/2 + 80));
-    players.push(new Player(2, canvas.width/2 - 80, 'red'));
+    players.push(new Player(2, canvas.width/2 - 80, 'red', 'orange'));
 
     // Bubble creation
     bub1 = new Bubble(0,0,2);
