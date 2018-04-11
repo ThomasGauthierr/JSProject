@@ -47,17 +47,20 @@ function playerBubbleCollisionTest( player ){
 function harponBubbleCollisionTest(){
     players.forEach(player => {
         player.hooks.forEach(hook => {
-            bubbles.forEach(bubble => {
-                if (hook.x <= bubble.x + bubble.r  && hook.x >= bubble.x-bubble.r){
-                    // si x hook compris dans x bubble alors on verifie y
-                    if ( (bubble.y + bubble.r) >= (canvas.height - hook.size)){
-                        // hit procedure
-                        bubble.life -= hook.damage;
-                        hook.remove();
-                        player.score += 100 + 50 * (currentLevel - 1);
+
+            if (hook.isShot) {
+                bubbles.forEach(bubble => {
+                    if (hook.x <= bubble.x + bubble.r  && hook.x >= bubble.x-bubble.r){
+                        // si x hook compris dans x bubble alors on verifie y
+                        if ( (bubble.y + bubble.r) >= (canvas.height - hook.size)){
+                            //hit procedure
+                            bubble.life -= hook.damage;
+                            hook.remove();
+                            player.score += 100 + 50 * (currentLevel - 1);
+                        }
                     }
-                }
-            });
+                });
+            }
         });
     });
 }

@@ -61,6 +61,5 @@ presentation orale
     - Plafond/bulle (?)
     - Bulle/élément décor
 - Division bulles
-- Affichage vie/score...
 - Génération de niveaux
 - Design général

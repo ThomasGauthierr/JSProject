@@ -4,15 +4,19 @@ window.onload = init;
 // WARNING : Not working atm, let it to true :o)
 let pixelPos = true;
 
-let canvas, canvasBottom;
+let canvas, canvasTimer, canvasBottom;
 let players = [];
 let bubbles = [];
+
+let timer;
 
 let currentLevel = 1;
 
 function init() {
     canvas = document.querySelector("#myCanvas");
     ctx = canvas.getContext("2d");
+
+    canvasTimer = document.querySelector("#canvasTimer");
 
     // Resizing canvas according to the window size
     if (!pixelPos) {
@@ -22,6 +26,9 @@ function init() {
     } else {
         canvas.width = "500";
         canvas.height = "500";
+
+        canvasTimer.width = canvas.width;
+        canvasTimer.height = "25";
     }
     canvasBottom = canvas.getBoundingClientRect().bottom;
     // Keyboard listeners
@@ -39,6 +46,8 @@ function init() {
     bub1 = new Bubble(0,0,2);
     bubbles.push(bub1);
 
+    //Timer
+    chronoStart();
     requestAnimationFrame(animation);
 }
 
@@ -56,8 +65,11 @@ function animation() {
     //Drawing and moving the objects
     drawAndMoveObjects();
     
-     // checking collisions
+    // checking collisions
     checkCollisions();
+
+    // Draw timer
+    drawTimer();
 
     // Animation loop
     requestAnimationFrame(animation);

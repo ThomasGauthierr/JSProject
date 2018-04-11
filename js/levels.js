@@ -1,0 +1,1 @@
+let levelTime = 30000;
