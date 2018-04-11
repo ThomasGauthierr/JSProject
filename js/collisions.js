@@ -36,6 +36,7 @@ function harponBubbleCollisionTest(){
                     if ( (bubble.y + bubble.r) >= (canvas.height - hook.size)){
                         bubble.life -= hook.damage;
                         hook.remove();
+                        player.score += 100 + 50 * (currentLevel - 1);
                     }
                 }
             });

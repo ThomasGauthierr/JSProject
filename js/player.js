@@ -12,6 +12,8 @@ class Player {
         this.speed = 0;
         this.hookNumber = hookNumber || 1;
         this.hooks = [];
+        this.lives = 5;
+        this.score = 0;
         this.totalHeight = this.bodyLength + this.headLength;
 
         for(let i = 0; i < hookNumber; i++) {

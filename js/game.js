@@ -8,6 +8,8 @@ let canvas, canvasBottom;
 let players = [];
 let bubbles = [];
 
+let currentLevel = 1;
+
 function init() {
     canvas = document.querySelector("#myCanvas");
     ctx = canvas.getContext("2d");
@@ -81,6 +83,9 @@ function drawAndMoveObjects() {
         player.draw(ctx);
         player.move();
     });
+
+    drawInGameTexts(ctx, 0);
+    drawInGameTexts(ctx, 1);
 }
 
 function checkCollisions(){
