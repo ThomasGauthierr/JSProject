@@ -3,6 +3,7 @@
 let pixelPos = true;
 
 let canvas, canvasTimer, canvasBottom;
+let ctx, ctxTimer;
 
 window.onload = init;
 
@@ -17,11 +18,16 @@ let heighthButton2P = heighthButton1P
 
 let numberOfPlayers = 0;
 
-function init() {
-    canvas = document.querySelector("#myCanvas");
-    ctx = canvas.getContext("2d");
+let state;
 
+function init() {
+    state = "mainMenu";
+
+    canvas = document.querySelector("#myCanvas");
     canvasTimer = document.querySelector("#canvasTimer");
+
+    ctx = canvas.getContext("2d");
+    ctxTimer = canvasTimer.getContext("2d");
 
     // Resizing canvas according to the window size
     if (!pixelPos) {
@@ -42,14 +48,17 @@ function init() {
     
     window.onmousedown = mouseMenu;
 
-    mainMenu();
+    canvas.style.visibility = "visible";  
+    canvasTimer.style.visibility = "hidden";  
 
-    //initGame();
+    requestAnimationFrame(mainMenuAnimation);
 }
 
-function mainMenu() {  
-    
+function drawMainMenu() {
     ctx.save();
+
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvasTimer.width, canvasTimer.height);
     
     ctx.fillStyle = 'black';
     ctx.fillRect(posXButton1P - 3, posYButton1P - 3, widthButton1P + 6, heighthButton1P + 6);
@@ -74,7 +83,16 @@ function mainMenu() {
     ctx.fillText("2 players", posXButton2P + 55, posYButton2P + 32);
     
     ctx.restore();
+}
 
-    canvas.style.visibility = "visible";
-    canvasTimer.style.visibility = "hidden";
+function mainMenuAnimation() {
+    //Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    //Draw menu
+    drawMainMenu();
+
+    if (state == "mainMenu") {
+        requestAnimationFrame(mainMenuAnimation);
+    }
 }

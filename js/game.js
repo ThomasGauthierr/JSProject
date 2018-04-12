@@ -1,12 +1,16 @@
-
-let players = [];
-let bubbles = [];
+let players;
+let bubbles;
 
 let timer;
 
 let currentLevel = 1;
 
 function initGame1Player() {
+    state = "game";
+
+    players = [];
+    bubbles = [];
+
     // Keyboard listeners
      window.onkeydown = keyDown;
      window.onkeyup = keyUp;
@@ -22,15 +26,18 @@ function initGame1Player() {
      bubbles.push(bub1);
  
      //Displaying canvas
-     canvas.style.visibility = "visible";
      canvasTimer.style.visibility = "visible";
  
      //Timer
      chronoStart();
-     requestAnimationFrame(animation);
+     requestAnimationFrame(gameAnimation);
  }
 
  function initGame2Players() {
+     state = "game";
+    players = [];
+    bubbles = [];
+
     // Keyboard listeners
      window.onkeydown = keyDown;
      window.onkeyup = keyUp;
@@ -47,12 +54,11 @@ function initGame1Player() {
      bubbles.push(bub1);
  
      //Displaying canvas
-     canvas.style.visibility = "visible";
      canvasTimer.style.visibility = "visible";
  
      //Timer
      chronoStart();
-     requestAnimationFrame(animation);
+     requestAnimationFrame(gameAnimation);
  }
 
 function resizeCanvas() {
@@ -62,9 +68,10 @@ function resizeCanvas() {
     canvas.height = window.innerHeight * 0.95;
 }
 
-function animation() {
+function gameAnimation() {
     // Clearing the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctxTimer.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
 
     //Drawing and moving the objects
     drawAndMoveObjects();
@@ -76,7 +83,9 @@ function animation() {
     drawTimer();
 
     // Animation loop
-    requestAnimationFrame(animation);
+    if (state == "game") {
+        requestAnimationFrame(gameAnimation);
+    }
 }
 
 function drawAndMoveObjects() {
@@ -110,5 +119,19 @@ function checkCollisions(){
     // check between elements
     harponBubbleCollisionTest();
     playerBubbleCollisionTest();
-    // no collisions btween bubbles
+    // no collisions between bubbles
+}
+
+function endGame() {
+    let message = "End of the game\n";
+    message += "Score player 1 : " + players[0].score;
+    
+    if (numberOfPlayers == 2) {
+        message += "\nScore player 2 : " + players[1].score;
+    }
+
+    alert(message)
+
+    canvasTimer.style.visibility = "hidden";
+    state = "mainMenu";
 }

@@ -10,25 +10,25 @@ function chrono() {
     currentTime = (60000 * diff.getMinutes() +
         1000 * diff.getSeconds() + 
         diff.getMilliseconds());
-    timerID = setTimeout("chrono()", 1);
+
+    if (currentTime - levelTime >= 0) {
+        endGame();
+        requestAnimationFrame(mainMenuAnimation);
+    } else {    
+        timerID = setTimeout("chrono()", 1);
+    }
 }
 
 function drawTimer() {
+    ctxTimer.save();
 
-    let ctx = canvasTimer.getContext("2d");
-
-    ctx.save();
-      
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvasTimer.width, canvasTimer.height);
-
-    ctx.fillStyle = 'red';
-    ctx.fillRect(0, 0, canvasTimer.width,
+    ctxTimer.fillStyle = 'red';
+    ctxTimer.fillRect(0, 0, canvasTimer.width,
         canvasTimer.length * (1 - currentTime / levelTime ));
 
-    ctx.fillRect(0,0,canvasTimer.width * (1 - currentTime/levelTime),canvasTimer.height);
+    ctxTimer.fillRect(0,0,canvasTimer.width * (1 - currentTime/levelTime),canvasTimer.height);
 
-    ctx.restore();
+    ctxTimer.restore();
 }
 
 function chronoStart(){

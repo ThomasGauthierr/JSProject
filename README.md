@@ -56,9 +56,11 @@ presentation orale
 - Menus
 - Mouvement bulle rebondissante
 - Collisions :
-    - bulle/joueur
+    - bulle/joueur (revoir collisions avec le corps)
     - Plafond/bulle (?)
     - Bulle/élément décor
 - Division bulles
 - Génération de niveaux
+- Conditions de fin de niveau
 - Design général
+- Sauvegarde meilleurs scores

@@ -1,1 +1,1 @@
-let levelTime = 30000;
+let levelTime = 10000;
