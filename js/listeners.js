@@ -17,26 +17,34 @@ function keyDown(evt) {
             break;
         // Numpad + => Shooting the hook
         case 'NumpadAdd':
-            players[0].shoot();
+            if (numberOfPlayers == 2) 
+                players[0].shoot();
             break;
 
 
         //** Player 2 **//
         // A (azerty) or Q (qwerty) => moving left
-        case 'KeyQ':
-            players[1].speed = - players[1].maxSpeed;
+        case 'KeyQ':            
+            if (numberOfPlayers == 2) 
+                players[1].speed = - players[1].maxSpeed;
             break;
         // E => moving right
-        case 'KeyE':
-            if (players[1].x <= canvas.width - players[1].width) {
-                players[1].speed = players[1].maxSpeed; 
-            } else {
-                x = canvas.width - players[1].width;
+        case 'KeyE':            
+            if (numberOfPlayers == 2) { 
+                if (players[1].x <= canvas.width - players[1].width) {
+                    players[1].speed = players[1].maxSpeed; 
+                } else {
+                    x = canvas.width - players[1].width;
+                }
             }
             break;
         // Spacebar => Shooting the hook
-        case 'Space':
-        players[1].shoot();
+        case 'Space':        
+            if (numberOfPlayers == 2) 
+                players[1].shoot();
+            else 
+                players[0].shoot();   
+            break;
 
         default :
             break;
@@ -60,11 +68,13 @@ function keyUp(evt) {
         //** Player 2 **//
         //A (azerty) or Q (qwerty)
         case 'KeyQ':
-        players[1].speed = 0;
-        break;
+            if (numberOfPlayers == 2) 
+                players[1].speed = 0;
+            break;
         // E
-        case 'KeyE':
-            players[1].speed = 0; 
+        case 'KeyE':        
+            if (numberOfPlayers == 2) 
+                players[1].speed = 0; 
             break;
 
         default :
@@ -84,7 +94,8 @@ function mouseMenu(evt) {
         posY >= posYButton1P &&
         posY <= posYButton1P + heighthButton1P)
     {
-        initGame();
+        numberOfPlayers = 1;
+        initGame1Player();
     }
 
     if (posX >= posXButton2P &&
@@ -92,6 +103,7 @@ function mouseMenu(evt) {
         posY >= posYButton2P &&
         posY <= posYButton2P + heighthButton2P)
     {
-        initGame();
+        numberOfPlayers = 2;
+        initGame2Players();
     }
 }
