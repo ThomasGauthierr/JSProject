@@ -15,6 +15,8 @@ let posYButton2P = 270;
 let widthButton2P = widthButton1P;
 let heighthButton2P = heighthButton1P
 
+let numberOfPlayers = 0;
+
 function init() {
     canvas = document.querySelector("#myCanvas");
     ctx = canvas.getContext("2d");
