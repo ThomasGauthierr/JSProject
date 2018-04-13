@@ -20,7 +20,12 @@ let numberOfPlayers = 0;
 
 let state;
 
+let highscore1P;
+let highscore2P;
+
 function init() {
+    initCookies();
+
     state = "mainMenu";
 
     canvas = document.querySelector("#myCanvas");
@@ -37,7 +42,6 @@ function init() {
     } else {
         canvas.width = "500";
         canvas.height = "500";
-
         canvasTimer.width = canvas.width;
         canvasTimer.height = "25";
     }
@@ -49,7 +53,7 @@ function init() {
     window.onmousedown = mouseMenu;
 
     canvas.style.visibility = "visible";  
-    canvasTimer.style.visibility = "hidden";  
+    canvasTimer.style.visibility = "hidden";
 
     requestAnimationFrame(mainMenuAnimation);
 }

@@ -132,6 +132,29 @@ function endGame() {
         message += "\nScore player 2 : " + players[1].score;
     }
 
+    if (numberOfPlayers == 1) {
+        if (players[0].score > highscore1P) {
+            highscore1P = players[0].score;
+            document.cookie = "highscore1P="+highscore1P+";expires=Tue, 01 Jan 2019 00:00:01 GMT";
+            message += "\nYou just set highscore !";
+        }
+    } else {
+       if (players[0].score > highscore2P &&
+           players[0].score > players[1].score) {
+            highscore2P = players[0].score;
+            document.cookie = "highscore2P="+highscore2P+";expires=Tue, 01 Jan 2019 00:00:01 GMT";
+            message += "\nPlayer 1 just set a new highscore !";
+        }
+        
+       if (players[1].score > highscore2P &&
+           players[1].score > players[0].score) {
+            highscore2P = players[1].score;
+            document.cookie = "highscore2P="+highscore2P+";expires=Tue, 01 Jan 2019 00:00:01 GMT";
+            message += "\nPlayer 2 just set a new highscore !";
+        }
+
+    }
+
     alert(message)
 
     canvasTimer.style.visibility = "hidden";

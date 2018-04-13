@@ -89,21 +89,23 @@ function mouseMenu(evt) {
     let posX = evt.clientX - rect.left;
     let posY = evt.clientY - rect.top;
 
-    if (posX >= posXButton1P &&
-        posX <= posXButton1P + widthButton1P &&
-        posY >= posYButton1P &&
-        posY <= posYButton1P + heighthButton1P)
-    {
-        numberOfPlayers = 1;
-        initGame1Player();
-    }
+    if (state == "mainMenu") {
+        if (posX >= posXButton1P &&
+            posX <= posXButton1P + widthButton1P &&
+            posY >= posYButton1P &&
+            posY <= posYButton1P + heighthButton1P)
+        {
+            numberOfPlayers = 1;
+            initGame1Player();
+        }
 
-    if (posX >= posXButton2P &&
-        posX <= posXButton2P + widthButton2P &&
-        posY >= posYButton2P &&
-        posY <= posYButton2P + heighthButton2P)
-    {
-        numberOfPlayers = 2;
-        initGame2Players();
+        if (posX >= posXButton2P &&
+            posX <= posXButton2P + widthButton2P &&
+            posY >= posYButton2P &&
+            posY <= posYButton2P + heighthButton2P)
+        {
+            numberOfPlayers = 2;
+            initGame2Players();
+        }
     }
 }

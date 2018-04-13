@@ -59,7 +59,7 @@ presentation orale
     - [ ] Plafond/bulle (?)
     - [ ] Bulle/élément décor
     - [x] harpon bulle
-- [ ] Division bulles
+- [ ] Division bulles --> supprimer ancienne bulle
 - [ ] Génération de niveaux
 - [x] Chrono/score
 - [ ] Conditions de fin de niveau
@@ -68,3 +68,6 @@ presentation orale
 - Affichage :
     - [x] vie
     - [x] score
+- Conditions de fin de niveau
+- Sons
+- Design général
