@@ -92,8 +92,8 @@ function drawAndMoveObjects() {
     // Drawing and moving bubbles
     bubbles.forEach((bub) => {
         if (bub.life > 0){
-            bub.draw();
             bub.move();
+            bub.draw();
         }
     });
 
@@ -123,6 +123,7 @@ function checkCollisions(){
 }
 
 function endGame() {
+    chronoStop();
     let message = "End of the game\n";
     message += "Score player 1 : " + players[0].score;
     
