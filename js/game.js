@@ -105,8 +105,9 @@ function drawAndMoveObjects() {
             hook.draw(ctx);
             hook.grow();
         });
-        player.draw(ctx);
         player.move();
+        player.draw(ctx);
+
         drawInGameTexts(ctx, i);
         i++;
     });

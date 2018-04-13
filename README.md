@@ -52,15 +52,19 @@ première semaine de mai
 presentation orale
 
 ## ToDo :
-- Score
-- Menus
-- Mouvement bulle rebondissante
+- [x] Menus
+- [ ] Mouvement bulle rebondissante
 - Collisions :
-    - bulle/joueur (revoir collisions avec le corps)
-    - Plafond/bulle (?)
-    - Bulle/élément décor
-- Division bulles
-- Génération de niveaux
-- Conditions de fin de niveau
-- Design général
-- Sauvegarde meilleurs scores
+    - [x] bulle/joueur
+    - [ ] Plafond/bulle (?)
+    - [ ] Bulle/élément décor
+    - [x] harpon bulle
+- [ ] Division bulles
+- [ ] Génération de niveaux
+- [x] Chrono/score
+- [ ] Conditions de fin de niveau
+- [ ] Design général
+- [ ] Sauvegarde meilleurs scores
+- Affichage :
+    - [x] vie
+    - [x] score

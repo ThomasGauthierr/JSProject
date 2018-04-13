@@ -42,7 +42,7 @@ function playerBubbleCollisionTest( player ){
             // body hit
             else if (dist_centerRect_c <= (playr.totalHeight/2 + bubl.r)){
                 console.log("in zone");
-                if (bubl.x - bubl.r <= playr.x + playr.width && bubl.x + bubl.r >= playr.x){
+                if (bubl.x - bubl.r < playr.x + playr.width && bubl.x + bubl.r > playr.x){
                     console.log ("body hit");
                     bubblePlayerCollisionHandler(playr,bubl);
                 }
