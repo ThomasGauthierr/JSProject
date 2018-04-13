@@ -12,7 +12,7 @@ function chrono() {
         diff.getMilliseconds());
 
     if (currentTime - levelTime >= 0) {
-        endGame();
+        loseGame();
         requestAnimationFrame(mainMenuAnimation);
     } else {    
         timerID = setTimeout("chrono()", 1);

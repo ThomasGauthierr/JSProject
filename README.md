@@ -64,10 +64,9 @@ presentation orale
 - [x] Chrono/score
 - [ ] Conditions de fin de niveau
 - [ ] Design général
-- [ ] Sauvegarde meilleurs scores
+- [x] Sauvegarde meilleurs scores
 - Affichage :
     - [x] vie
     - [x] score
-- Conditions de fin de niveau
-- Sons
-- Design général
+- [ ] Sons
+- [ ] Design général

@@ -73,10 +73,11 @@ function harponBubbleCollisionTest(){
 function bubblePlayerCollisionHandler(player,bubble){
     bubble.vitesseX = 0;
     bubble.vitesseY = 0;
-    player.life -= 1;
+    player.lives -= 1;
     player.maxSpeed = 0;
     player.speed = 0;
-    endGame();
+
+    loseGame();
 }
 
 function harponBubbleCollisionHandler(player, hook, bubble){

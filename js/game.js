@@ -1,5 +1,6 @@
 let players;
 let bubbles;
+let obstacles;
 
 let timer;
 
@@ -34,9 +35,8 @@ function initGame1Player() {
  }
 
  function initGame2Players() {
-     state = "game";
+    state = "game";
     players = [];
-    bubbles = [];
 
     // Keyboard listeners
      window.onkeydown = keyDown;
@@ -49,10 +49,9 @@ function initGame1Player() {
      players.push(new Player(2, canvas.width/2 + 80));
      players.push(new Player(2, canvas.width/2 - 80, 'red', 'orange'));
  
-     // Bubble creation
-     bub1 = new Bubble(0,0,2);
-     bubbles.push(bub1);
- 
+    //Initiating level
+    level1();
+
      //Displaying canvas
      canvasTimer.style.visibility = "visible";
  
@@ -111,6 +110,7 @@ function drawAndMoveObjects() {
         drawInGameTexts(ctx, i);
         i++;
     });
+    drawHighScore(ctx);
 }
 
 function checkCollisions(){
@@ -123,7 +123,7 @@ function checkCollisions(){
     // no collisions between bubbles
 }
 
-function endGame() {
+function loseGame() {
     chronoStop();
     let message = "End of the game\n";
     message += "Score player 1 : " + players[0].score;
@@ -159,4 +159,27 @@ function endGame() {
 
     canvasTimer.style.visibility = "hidden";
     state = "mainMenu";
+    currentLevel = 1;
+
+    requestAnimationFrame(mainMenuAnimation);
+}
+
+function resetLevel() {
+    switch (currentLevel) {
+        case (1) :
+            level1();
+            break;
+        case (2) :
+            level2();
+            break;
+        case (3) :
+            level3();
+            break;
+    }
+}
+
+function nextLevel() {
+    //ToDo : add points related to remaining points
+    currentLevel ++;
+    resetLevel();
 }
