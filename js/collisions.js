@@ -11,12 +11,12 @@ function wallsBubbleCollisionTest(){
             }
 
         // haut bas
-            if (element.y <= element.r){
+            if (element.y - element.r <= 0){
                 element.y = element.r;
                 element.vitesseY = - element.vitesseY;
             } else if (element.y >= canvas.height - element.r){
                 element.y = canvas.height - element.r;
-                element.vitesseY = - element.vitesseY;
+                element.reboundGround();
             }
     });
 }
@@ -36,14 +36,11 @@ function playerBubbleCollisionTest( player ){
 
             // head hit
             if (dist_Hg_r <= bubl.r || dist_Hd_c <= bubl.r){
-                console.log("head hit")
                 bubblePlayerCollisionHandler(playr,bubl);
             }
             // body hit
             else if (dist_centerRect_c <= (playr.totalHeight/2 + bubl.r)){
-                console.log("in zone");
                 if (bubl.x - bubl.r < playr.x + playr.width && bubl.x + bubl.r > playr.x){
-                    console.log ("body hit");
                     bubblePlayerCollisionHandler(playr,bubl);
                 }
             }

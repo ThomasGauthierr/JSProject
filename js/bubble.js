@@ -5,9 +5,9 @@ class Bubble {
         this.life = life || 1;
         this.r = life * 10;
         this.couleur = couleur ||'red';
-        this.vitesseX = vitessex || 1;
-        this.vitesseY = 3;
-        this.vitesseYMin = 2;
+        this.vitesseX = vitessex || 2;
+        this.vitesseY = 1;
+        this.vitesseYMin = 25;
     }
 
     draw(){
@@ -30,13 +30,17 @@ class Bubble {
     }
 
     move(){
-        this.applyGravity();
+        this.vitesseY += gravity;
         // mouvement
         this.x = this.x + this.vitesseX;
         this.y = this.y + this.vitesseY;
     }
 
-    applyGravity(){
-        this.vitesseY += gravity;
+    reboundGround(){
+        this.vitesseY = - this.vitesseY;
+        if (Math.abs(this.vitesseY) <= this.vitesseYMin){
+            console.log("vitess dans zone")
+            this.vitesseY = - this.vitesseYMin;
+        }
     }
 }
