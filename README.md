@@ -56,17 +56,17 @@ presentation orale
 - [x] Mouvement bulle rebondissante
 - Collisions :
     - [x] bulle/joueur
-    - [ ] Plafond/bulle (?)
+    - [x] Plafond/bulle (?)
     - [ ] Bulle/élément décor
     - [x] harpon bulle
 - [x] Division bulles
 - [ ] Génération de niveaux
 - [x] Chrono/score
-- [ ] Conditions de fin de niveau
+- [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
 - [ ] Design général
 - [x] Sauvegarde meilleurs scores
 - Affichage :
     - [x] vie
     - [x] score
 - [ ] Sons
-- [ ] Design général
+- [ ] jouabilité (vitesse balles, difficulté des niveaux)

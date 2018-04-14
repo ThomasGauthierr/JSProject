@@ -2,6 +2,7 @@ let players;
 let bubbles;
 let obstacles;
 let gravity;
+let bubbleCount = 0;
 
 let timer;
 
@@ -11,8 +12,6 @@ function initGame1Player() {
     state = "game";
 
     players = [];
-    bubbles = [];
-    gravity = 2;
 
     // Keyboard listeners
      window.onkeydown = keyDown;
@@ -73,6 +72,11 @@ function gameAnimation() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctxTimer.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
 
+    // check bubblecount
+    if (bubbleCount <= 0){
+        loseGame();
+    }
+
     //Drawing and moving the objects
     drawAndMoveObjects();
     
@@ -121,7 +125,6 @@ function checkCollisions(){
     // check between elements
     harponBubbleCollisionTest();
     playerBubbleCollisionTest();
-    // no collisions between bubbles
 }
 
 function loseGame() {
@@ -183,4 +186,9 @@ function nextLevel() {
     //ToDo : add points related to remaining points
     currentLevel ++;
     resetLevel();
+}
+
+function addBubble(bubble){
+    bubbles.push(bubble);
+    bubbleCount += 1;
 }
