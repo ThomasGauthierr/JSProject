@@ -53,13 +53,13 @@ presentation orale
 
 ## ToDo :
 - [x] Menus
-- [ ] Mouvement bulle rebondissante
+- [x] Mouvement bulle rebondissante
 - Collisions :
     - [x] bulle/joueur
     - [ ] Plafond/bulle (?)
     - [ ] Bulle/élément décor
     - [x] harpon bulle
-- [ ] Division bulles --> supprimer ancienne bulle
+- [x] Division bulles
 - [ ] Génération de niveaux
 - [x] Chrono/score
 - [ ] Conditions de fin de niveau

@@ -24,9 +24,8 @@ function initGame1Player() {
      // a body color and the hook color
      players.push(new Player(2, canvas.width/2));
  
-     // Bubble creation
-     bub1 = new Bubble(0,0,2);
-     bubbles.push(bub1);
+       //Initiating level
+       level1();
  
      //Displaying canvas
      canvasTimer.style.visibility = "visible";

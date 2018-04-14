@@ -79,6 +79,9 @@ function bubblePlayerCollisionHandler(player,bubble){
 
 function harponBubbleCollisionHandler(player, hook, bubble){
     bubble.life -= hook.damage;
+    bubble.vitesseY = - bubble.vitesseY;
+    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, -bubble.vitesseX,bubble.vitesseY);
+    bubbles.push(rejeton);
     hook.remove();
     player.score += 100 + 50 * (currentLevel - 1);
     // si il n'y a plus de bulles => end game
