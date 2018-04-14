@@ -14,6 +14,8 @@ function wallsBubbleCollisionTest(){
             if (element.y - element.r <= 0){
                 element.y = element.r;
                 element.vitesseY = - element.vitesseY;
+                element.life -= 1;
+                bubbleSplit(element);
             } else if (element.y >= canvas.height - element.r){
                 element.y = canvas.height - element.r;
                 element.reboundGround();
@@ -80,10 +82,18 @@ function bubblePlayerCollisionHandler(player,bubble){
 function harponBubbleCollisionHandler(player, hook, bubble){
     bubble.life -= hook.damage;
     bubble.vitesseY = - bubble.vitesseY;
-    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, -bubble.vitesseX,bubble.vitesseY);
-    bubbles.push(rejeton);
+    if (bubble.life >= 1){
+        bubbleSplit(bubble);
+    }else {
+        // remove bubble from game
+    }
     hook.remove();
     player.score += 100 + 50 * (currentLevel - 1);
     // si il n'y a plus de bulles => end game
+}
+
+function bubbleSplit(bubble){
+    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),bubble.vitesseY);
+    bubbles.push(rejeton);   
 }
                     

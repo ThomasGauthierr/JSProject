@@ -40,7 +40,6 @@ class Bubble {
     reboundGround(){
         this.vitesseY = - this.vitesseY;
         if (Math.abs(this.vitesseY) <= this.vitesseYMin){
-            console.log("vitess dans zone")
             this.vitesseY = - this.vitesseYMin;
         }
     }

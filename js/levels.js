@@ -4,7 +4,7 @@ function level1() {
     bubbles = [];
      
      // Bubble creation
-     bubbles.push(new Bubble(0,0,2));
+     bubbles.push(new Bubble(0,100,2));
 }
 
 function level2() {
