@@ -1,6 +1,7 @@
 let players;
 let bubbles;
 let obstacles;
+let gravity;
 
 let timer;
 
@@ -11,6 +12,7 @@ function initGame1Player() {
 
     players = [];
     bubbles = [];
+    gravity = 2;
 
     // Keyboard listeners
      window.onkeydown = keyDown;

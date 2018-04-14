@@ -6,7 +6,8 @@ class Bubble {
         this.r = life * 10;
         this.couleur = couleur ||'red';
         this.vitesseX = vitessex || 1;
-        this.vitesseY = 3; // gravité
+        this.vitesseY = 3;
+        this.vitesseYMin = 2;
     }
 
     draw(){
@@ -29,8 +30,13 @@ class Bubble {
     }
 
     move(){
+        this.applyGravity();
         // mouvement
         this.x = this.x + this.vitesseX;
         this.y = this.y + this.vitesseY;
+    }
+
+    applyGravity(){
+        this.vitesseY += gravity;
     }
 }
