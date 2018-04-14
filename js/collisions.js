@@ -86,7 +86,7 @@ function harponBubbleCollisionHandler(player, hook, bubble){
         bubbleSplit(bubble);
     }else {
         // remove bubble from game
-        bubbleCount -= 1;
+        deleteBubble(bubble);
     }
     hook.remove();
     player.score += 100 + 50 * (currentLevel - 1);
@@ -95,6 +95,11 @@ function harponBubbleCollisionHandler(player, hook, bubble){
 
 function bubbleSplit(bubble){
     rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),bubble.vitesseY);
-    addBubble(rejeton);   
+    bubbles.push(rejeton);   
+}
+
+function deleteBubble(bubble){
+    var index = bubbles.indexOf(bubble);
+    bubbles.splice(index,1);
 }
                     

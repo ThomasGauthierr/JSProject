@@ -2,7 +2,6 @@ let players;
 let bubbles;
 let obstacles;
 let gravity;
-let bubbleCount = 0;
 
 let timer;
 
@@ -73,7 +72,7 @@ function gameAnimation() {
     ctxTimer.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
 
     // check bubblecount
-    if (bubbleCount <= 0){
+    if (bubbles.length <= 0){
         loseGame();
     }
 
@@ -186,9 +185,4 @@ function nextLevel() {
     //ToDo : add points related to remaining points
     currentLevel ++;
     resetLevel();
-}
-
-function addBubble(bubble){
-    bubbles.push(bubble);
-    bubbleCount += 1;
 }
