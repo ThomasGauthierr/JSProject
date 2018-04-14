@@ -54,19 +54,29 @@ presentation orale
 ## ToDo :
 - [x] Menus
 - [x] Mouvement bulle rebondissante
+- [ ] Génération de niveaux
+- [x] Chrono/score
+- [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
+- [x] Sauvegarde meilleurs scores
+- [ ] jouabilité (vitesse balles, difficulté des niveaux, bonus ?)
+
 - Collisions :
     - [x] bulle/joueur
     - [x] Plafond/bulle (?)
     - [ ] Bulle/élément décor
     - [x] harpon bulle
-- [x] Division bulles
-- [ ] Génération de niveaux
-- [x] Chrono/score
-- [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
-- [ ] Design général
-- [x] Sauvegarde meilleurs scores
+    - [x] Division bulles
+
 - Affichage :
     - [x] vie
     - [x] score
-- [ ] Sons
-- [ ] jouabilité (vitesse balles, difficulté des niveaux)
+    - [ ] Design général
+
+- Sons :
+    - [ ] balle/harpon
+    - [ ] joueur/balle
+    - [ ] musique de fond au menu
+    - [ ] musique de fond partie
+    - [ ] musique fin de level
+    - [ ] musique fin de game
+

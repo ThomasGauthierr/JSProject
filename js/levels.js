@@ -2,13 +2,13 @@ let levelTime = 10000;
 
 function initlevel(){
     bubbles = [];
-    gravity = 2; // a changer suivant la jouabilité
+    gravity = 1 // a changer suivant la jouabilité
 }
 
 function level1() {
     initlevel();
      // Bubble creation
-    bubbles.push(new Bubble(0,100,2));
+    bubbles.push(new Bubble(0,100,3));
 }
 
 function level2() {

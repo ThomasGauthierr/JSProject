@@ -94,7 +94,12 @@ function harponBubbleCollisionHandler(player, hook, bubble){
 }
 
 function bubbleSplit(bubble){
-    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),bubble.vitesseY);
+    if (bubble.vitesseY > 0 ){
+        var newVitsY = - (bubble.vitesseY);
+    }else {
+        var newVitsY = bubble.vitesseY;
+    }
+    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),newVitsY);
     bubbles.push(rejeton);   
 }
 
