@@ -2,6 +2,7 @@ let players;
 let bubbles;
 let obstacles;
 let gravity;
+var wait;
 
 let timer;
 
@@ -28,8 +29,6 @@ function initGame1Player() {
      //Displaying canvas
      canvasTimer.style.visibility = "visible";
  
-     //Timer
-     chronoStart();
      requestAnimationFrame(gameAnimation);
  }
 
@@ -73,7 +72,7 @@ function gameAnimation() {
 
     // check bubblecount
     if (bubbles.length <= 0){
-        loseGame();
+        winGame();
     }
 
     //Drawing and moving the objects
@@ -167,6 +166,16 @@ function loseGame() {
     requestAnimationFrame(mainMenuAnimation);
 }
 
+function winGame(){
+    chronoStop();
+    // transition
+    let message = "Ready ?";
+    
+    wait = setTimeout(alert(message),5000);
+    nextLevel();
+    
+}
+
 function resetLevel() {
     switch (currentLevel) {
         case (1) :
@@ -178,6 +187,8 @@ function resetLevel() {
         case (3) :
             level3();
             break;
+        default :
+            loseGame();
     }
 }
 

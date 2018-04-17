@@ -48,13 +48,16 @@ Percez et evitez les bulles pour survivre !!!
 
 ## Rendu
 
-première semaine de mai
+15/05 
 presentation orale
+code source
+demo
 
 ## ToDo :
 - [x] Menus
 - [x] Mouvement bulle rebondissante
 - [ ] Génération de niveaux
+- [ ] transition de niveaux
 - [x] Chrono/score
 - [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
 - [x] Sauvegarde meilleurs scores
@@ -69,7 +72,8 @@ presentation orale
 
 - Affichage :
     - [x] vie
-    - [x] score
+    - [ ] score : ajouter temps restant au score ( implique animation)
+    - [ ] afficher si win ou pas a la fin d'un niveau
     - [ ] Design général
 
 - Sons :

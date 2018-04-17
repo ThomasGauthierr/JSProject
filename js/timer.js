@@ -37,5 +37,10 @@ function chronoStart(){
 }
 
 function chronoStop(){
+    convertToScore();
 	clearTimeout(timerID);
+}
+
+function convertToScore(){
+    
 }

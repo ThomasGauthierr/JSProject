@@ -81,7 +81,6 @@ function bubblePlayerCollisionHandler(player,bubble){
 
 function harponBubbleCollisionHandler(player, hook, bubble){
     bubble.life -= hook.damage;
-    bubble.vitesseY = - bubble.vitesseY;
     if (bubble.life >= 1){
         bubbleSplit(bubble);
     }else {
@@ -94,12 +93,10 @@ function harponBubbleCollisionHandler(player, hook, bubble){
 }
 
 function bubbleSplit(bubble){
-    if (bubble.vitesseY > 0 ){
-        var newVitsY = - (bubble.vitesseY);
-    }else {
-        var newVitsY = bubble.vitesseY;
+    if (bubble.vitesseY > 0 ){ // descente
+        bubble.vitesseY = - bubble.vitesseY;
     }
-    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),newVitsY);
+    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),bubble.vitesseY);
     bubbles.push(rejeton);   
 }
 
