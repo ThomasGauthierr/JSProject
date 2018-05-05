@@ -5,17 +5,19 @@ let currentTime = 0
 let timerID = 0
 
 function chrono() {
-    let diff = new Date() - start;
-    diff = new Date(diff);
-    currentTime = (60000 * diff.getMinutes() +
-        1000 * diff.getSeconds() + 
-        diff.getMilliseconds());
+    if (state == "game") {
+        let diff = new Date() - start;
+        diff = new Date(diff);
+        currentTime = (60000 * diff.getMinutes() +
+            1000 * diff.getSeconds() + 
+            diff.getMilliseconds());
 
-    if (currentTime - levelTime >= 0) {
-        loseGame();
-        requestAnimationFrame(mainMenuAnimation);
-    } else {    
-        timerID = setTimeout("chrono()", 1);
+        if (currentTime - levelTime >= 0) {
+            loseGame();
+            requestAnimationFrame(mainMenuAnimation);
+        } else {    
+            timerID = setTimeout("chrono()", 1);
+        }
     }
 }
 

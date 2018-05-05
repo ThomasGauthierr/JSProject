@@ -73,10 +73,22 @@ function bubblePlayerCollisionHandler(player,bubble){
     bubble.vitesseX = 0;
     bubble.vitesseY = 0;
     player.lives -= 1;
-    player.maxSpeed = 0;
     player.speed = 0;
 
-    loseGame();
+    if (numberOfPlayers == 1) {
+        if (player.lives == 0) {
+            loseGame();
+        } else {
+            let message = "Remaining lives : " + player.lives + "\n" +
+                            "Ready ?";
+            alert(message);
+            resetLevel();
+        }
+    } else {
+        if (players[0].lives == 0 && players[1].lives == 0) {
+            loseGame();
+        }
+    }
 }
 
 function harponBubbleCollisionHandler(player, hook, bubble){

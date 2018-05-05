@@ -2,7 +2,7 @@ let levelTime = 10000;
 
 function initlevel(){
     bubbles = [];
-    gravity = 1 // a changer suivant la jouabilité
+    gravity = 1; // a changer suivant la jouabilité
 
     chronoStart();
 }

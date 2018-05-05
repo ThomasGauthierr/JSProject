@@ -171,12 +171,22 @@ function winGame(){
     // transition
     let message = "Ready ?";
     
-    wait = setTimeout(alert(message),5000);
+    alert(message);
     nextLevel();
     
 }
 
 function resetLevel() {
+
+    //Repositionning players
+    if (numberOfPlayers == 1) {
+        players[0].x = canvas.width/2;
+    } else {
+        players[0].x = canvas.width/2 - 80;
+        players[1].x = canvas.width/2 + 80;
+    }
+
+    //Reinitialisating bubbles
     switch (currentLevel) {
         case (1) :
             level1();
