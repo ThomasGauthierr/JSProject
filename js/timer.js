@@ -21,7 +21,7 @@ function chrono() {
                 }
             });
 
-            loseGame();
+            loseGame(0);
             requestAnimationFrame(mainMenuAnimation);
         } else {    
             timerID = setTimeout("chrono()", 1);

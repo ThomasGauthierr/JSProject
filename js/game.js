@@ -125,7 +125,7 @@ function checkCollisions(){
     playerBubbleCollisionTest();
 }
 
-function loseGame() {
+function loseGame(remainingTime) {
     if (numberOfPlayers == 1) {
         if (players[0].lives == 0) {
             endGame();
@@ -140,6 +140,13 @@ function loseGame() {
             endGame();
         } else if ((!players[0].dead && players[1].dead) || (players[0].dead && !players[1].dead)){
             //Do nothing if one of them is still alive
+            if (remainingTime == 0) {
+                let message = "Remaining lives player 1 : " + players[0].lives + "\n" +
+                                "Remaining lives player 2 : " + players[1].lives + "\n" +
+                                "Ready ?";
+                alert(message);
+                resetLevel();
+            }
         } else {
             let message = "Remaining lives player 1 : " + players[0].lives + "\n" +
                             "Remaining lives player 2 : " + players[1].lives + "\n" +
