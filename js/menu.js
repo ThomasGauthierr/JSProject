@@ -7,14 +7,7 @@ let ctx, ctxTimer;
 
 window.onload = init;
 
-let posXButton1P = 150;
-let posYButton1P = 170;
-let widthButton1P = 200;
-let heighthButton1P = 50;
-let posXButton2P = posXButton1P;
-let posYButton2P = 270;
-let widthButton2P = widthButton1P;
-let heighthButton2P = heighthButton1P
+let posXButton1P,posYButton1P,widthButton1P,heighthButton1P,posXButton2P,posYButton2P,widthButton2P, heighthButton2P;
 
 let numberOfPlayers = 0;
 
@@ -37,14 +30,18 @@ function init() {
     // Resizing canvas according to the window size
     if (!pixelPos) {
         resizeCanvas();
+        buttonsPositionning();
 
         window.addEventListener('resize', resizeCanvas, false);
     } else {
-        canvas.width = "500";
-        canvas.height = "500";
+        canvas.width = "1000";
+        canvas.height = "600";
         canvasTimer.width = canvas.width;
         canvasTimer.height = "25";
     }
+
+    buttonsPositionning();
+
     canvasBottom = canvas.getBoundingClientRect().bottom;
 
     window.onkeydown = null;
@@ -59,6 +56,7 @@ function init() {
 }
 
 function drawMainMenu() {
+    console.log("button 1 X = " + posXButton1P);
     ctx.save();
 
     ctx.fillStyle = 'white';
@@ -100,4 +98,21 @@ function mainMenuAnimation() {
     if (state == "mainMenu") {
         requestAnimationFrame(mainMenuAnimation);
     }
+}
+
+function buttonsPositionning(){
+    let gap = 100;
+    let nbButtons = 2;
+    let widthButton = 200;
+    let heightButton = 50;
+
+    posXButton1P = canvas.width / 2 - widthButton /2;
+    posYButton1P = 170; 
+    widthButton1P = widthButton;
+    heighthButton1P = heightButton;
+
+    posXButton2P = posXButton1P;
+    posYButton2P = posYButton1P + heightButton + gap;
+    widthButton2P = widthButton1P;
+    heighthButton2P = heighthButton1P;
 }

@@ -29,7 +29,7 @@ class Hook {
             this.size += this.speed;
 
             // We remove the hook if it reach the canvas
-            if (this.size >= canvas.height) {
+            if (this.size >= canvas.height - ceiling.height) {
                 this.remove();   
             }
         }

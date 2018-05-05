@@ -29,11 +29,12 @@ function initGame1Player() {
  
      //Displaying canvas
      canvasTimer.style.visibility = "visible";
+
  
      requestAnimationFrame(gameAnimation);
- }
+}
 
- function initGame2Players() {
+function initGame2Players() {
     state = "game";
     players = [];
     ceiling = new Ceiling();
@@ -58,7 +59,7 @@ function initGame1Player() {
      //Timer
      chronoStart();
      requestAnimationFrame(gameAnimation);
- }
+}
 
 function resizeCanvas() {
     let canvas = document.querySelector('#myCanvas');
@@ -101,6 +102,10 @@ function drawAndMoveObjects() {
         }
     });
 
+    // ceiling 
+    ceiling.draw(ctx);
+    ceiling.move();
+
     // Drawing and moving the players
     let i = 0;
     players.forEach(player => {
@@ -116,9 +121,6 @@ function drawAndMoveObjects() {
         i++;
     });
 
-    // ceiling 
-    ceiling.draw(ctx);
-    ceiling.move();
     // other decor elements
     decor.forEach(element => {
         element.draw(ctx);

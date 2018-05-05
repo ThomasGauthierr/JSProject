@@ -3,7 +3,7 @@ class Ceiling {
         this.moving = move || false;
         this.x = 0;
         this.y = 0;
-        this.vitesse = 1;
+        this.vitesse = 0.5;
         this.height = 0;
         this.color = "grey";
     }
