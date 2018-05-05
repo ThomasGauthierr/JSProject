@@ -84,7 +84,7 @@ function ceilingPlayerCollision(ceil){
 function bubbleCeilingCollision(ceil){
     bubbles.forEach(bubl => {
         if (bubl.y - bubl.r <= ceil.y + ceil.height ){
-            console.log("collision plafond balle");
+            bubbleCeilingCollisionHandler(bubl,ceil);
         }
         
     });
@@ -105,7 +105,6 @@ function harponBubbleCollisionHandler(player, hook, bubble){
     if (bubble.life >= 1){
         bubbleSplit(bubble);
     }else {
-        // remove bubble from game
         deleteBubble(bubble);
     }
     hook.remove();
@@ -123,12 +122,21 @@ function playerCeilingCollisionHandler(player,ceil){
     loseGame();
 }
 
+function bubbleCeilingCollisionHandler(bubble,ceil){
+    bubble.life -=1;
+    if (bubble.life >= 1){
+        bubbleSplit(bubble);
+    }
+    else {
+        deleteBubble(bubble);
+    }
+}
 
 function bubbleSplit(bubble){
     if (bubble.vitesseY > 0 ){ // descente
         bubble.vitesseY = - bubble.vitesseY;
     }
-    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),bubble.vitesseY);
+    rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - bubble.vitesseX,bubble.vitesseY);
     bubbles.push(rejeton);
 }
 
