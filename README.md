@@ -72,7 +72,7 @@ demo
 
 - Affichage :
     - [x] vie
-    - [ ] score : ajouter temps restant au score ( implique animation)
+    - [ ] score : ajouter temps restant au score (implique animation)
     - [ ] afficher si win ou pas a la fin d'un niveau
     - [ ] Design général
 
@@ -83,4 +83,8 @@ demo
     - [ ] musique de fond partie
     - [ ] musique fin de level
     - [ ] musique fin de game
+
+- Bugs à corriger :
+    - [ ] Vitesse X de la balle devient 0 quand elle touche un joueur
+    - [ ] Vitesses X des rejetons différentes (un va + vite que l'autre)
 

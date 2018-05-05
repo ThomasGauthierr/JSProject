@@ -3,6 +3,7 @@ let start = 0
 let end = 0
 let currentTime = 0
 let timerID = 0
+let chronoEnd;
 
 function chrono() {
     if (state == "game") {
@@ -12,7 +13,14 @@ function chrono() {
             1000 * diff.getSeconds() + 
             diff.getMilliseconds());
 
-        if (currentTime - levelTime >= 0) {
+        if (currentTime - levelTime >= 0 && !chronoEnd) {
+            chronoEnd = true;
+            players.forEach(p => {
+                if (!p.dead) {
+                    p.lives--;
+                }
+            });
+
             loseGame();
             requestAnimationFrame(mainMenuAnimation);
         } else {    
@@ -35,6 +43,7 @@ function drawTimer() {
 
 function chronoStart(){
     start = new Date();
+    chronoEnd = false;
     chrono();
 }
 

@@ -26,24 +26,27 @@ function wallsBubbleCollisionTest(){
 function playerBubbleCollisionTest( player ){
     bubbles.forEach(bubl => {
         players.forEach(playr => {
-            // coins hd et hg
-            // dist = sqrt((xb - xa)²+(yb-ya)²);
+            if (!playr.dead) {
 
-            var dist_Hg_r = Math.sqrt(Math.pow(bubl.x - playr.x ,2) + Math.pow(bubl.y - (playr.y - playr.totalHeight),2));
-            var dist_Hd_c = Math.sqrt(Math.pow(bubl.x - playr.x - playr.width ,2) + Math.pow(bubl.y - (playr.y- playr.totalHeight),2));
-            // si length player >= width player
-            var centerRectX = playr.x - playr.width / 2;
-            var centerRectY = playr.y - playr.totalHeight/2;
-            var dist_centerRect_c = Math.sqrt(Math.pow(bubl.x - centerRectX,2) + Math.pow(bubl.y - centerRectY,2));
+                // coins hd et hg
+                // dist = sqrt((xb - xa)²+(yb-ya)²);
 
-            // head hit
-            if (dist_Hg_r <= bubl.r || dist_Hd_c <= bubl.r){
-                bubblePlayerCollisionHandler(playr,bubl);
-            }
-            // body hit
-            else if (dist_centerRect_c <= (playr.totalHeight/2 + bubl.r)){
-                if (bubl.x - bubl.r < playr.x + playr.width && bubl.x + bubl.r > playr.x){
+                var dist_Hg_r = Math.sqrt(Math.pow(bubl.x - playr.x ,2) + Math.pow(bubl.y - (playr.y - playr.totalHeight),2));
+                var dist_Hd_c = Math.sqrt(Math.pow(bubl.x - playr.x - playr.width ,2) + Math.pow(bubl.y - (playr.y- playr.totalHeight),2));
+                // si length player >= width player
+                var centerRectX = playr.x - playr.width / 2;
+                var centerRectY = playr.y - playr.totalHeight/2;
+                var dist_centerRect_c = Math.sqrt(Math.pow(bubl.x - centerRectX,2) + Math.pow(bubl.y - centerRectY,2));
+
+                // head hit
+                if (dist_Hg_r <= bubl.r || dist_Hd_c <= bubl.r){
                     bubblePlayerCollisionHandler(playr,bubl);
+                }
+                // body hit
+                else if (dist_centerRect_c <= (playr.totalHeight/2 + bubl.r)){
+                    if (bubl.x - bubl.r < playr.x + playr.width && bubl.x + bubl.r > playr.x){
+                        bubblePlayerCollisionHandler(playr,bubl);
+                    }
                 }
             }
         });
@@ -74,21 +77,9 @@ function bubblePlayerCollisionHandler(player,bubble){
     bubble.vitesseY = 0;
     player.lives -= 1;
     player.speed = 0;
+    player.dead = true;
 
-    if (numberOfPlayers == 1) {
-        if (player.lives == 0) {
-            loseGame();
-        } else {
-            let message = "Remaining lives : " + player.lives + "\n" +
-                            "Ready ?";
-            alert(message);
-            resetLevel();
-        }
-    } else {
-        if (players[0].lives == 0 && players[1].lives == 0) {
-            loseGame();
-        }
-    }
+    loseGame();
 }
 
 function harponBubbleCollisionHandler(player, hook, bubble){
@@ -109,7 +100,7 @@ function bubbleSplit(bubble){
         bubble.vitesseY = - bubble.vitesseY;
     }
     rejeton = new Bubble(bubble.x,bubble.y,bubble.life,bubble.couleur, - (bubble.vitesseX + 5),bubble.vitesseY);
-    bubbles.push(rejeton);   
+    bubbles.push(rejeton);
 }
 
 function deleteBubble(bubble){

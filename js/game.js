@@ -44,8 +44,8 @@ function initGame1Player() {
      // Constructor takes number of hooks (1 by default),
      // then optionnaly the initial x coord
      // a body color and the hook color
-     players.push(new Player(2, canvas.width/2 + 80));
-     players.push(new Player(2, canvas.width/2 - 80, 'red', 'orange'));
+     players.push(new Player(2, canvas.width/2 - 80));
+     players.push(new Player(2, canvas.width/2 + 80, 'red', 'orange'));
  
     //Initiating level
     level1();
@@ -126,6 +126,31 @@ function checkCollisions(){
 }
 
 function loseGame() {
+    if (numberOfPlayers == 1) {
+        if (players[0].lives == 0) {
+            endGame();
+        } else {
+            let message = "Remaining lives : " + players[0].lives + "\n" +
+                            "Ready ?";
+            setTimeout(alert(message),5000);
+            resetLevel();
+        }
+    } else {
+        if (players[0].lives == 0 && players[1].lives == 0) {
+            endGame();
+        } else if ((!players[0].dead && players[1].dead) || (players[0].dead && !players[1].dead)){
+            //Do nothing if one of them is still alive
+        } else {
+            let message = "Remaining lives player 1 : " + players[0].lives + "\n" +
+                            "Remaining lives player 2 : " + players[1].lives + "\n" +
+                            "Ready ?";
+            alert(message);
+            resetLevel();
+        }
+    }
+}
+
+function endGame() {
     chronoStop();
     let message = "End of the game\n";
     message += "Score player 1 : " + players[0].score;
@@ -169,9 +194,7 @@ function loseGame() {
 function winGame(){
     chronoStop();
     // transition
-    let message = "Ready ?";
-    
-    alert(message);
+
     nextLevel();
     
 }
@@ -181,9 +204,13 @@ function resetLevel() {
     //Repositionning players
     if (numberOfPlayers == 1) {
         players[0].x = canvas.width/2;
+        players[0].dead = false;
     } else {
+        console.log(players[0].lives != 0);
         players[0].x = canvas.width/2 - 80;
         players[1].x = canvas.width/2 + 80;
+        players[0].dead = (players[0].lives == 0);
+        players[1].dead = (players[1].lives == 0);
     }
 
     //Reinitialisating bubbles
@@ -198,12 +225,18 @@ function resetLevel() {
             level3();
             break;
         default :
-            loseGame();
+            endGame();
     }
 }
 
 function nextLevel() {
     //ToDo : add points related to remaining points
     currentLevel ++;
+
+    if (currentLevel <= maxLevel) {
+        let message = "Ready ?";    
+        alert(message);
+    }
+
     resetLevel();
 }

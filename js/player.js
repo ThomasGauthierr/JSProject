@@ -15,6 +15,7 @@ class Player {
         this.lives = 5;
         this.score = 0;
         this.totalHeight = this.bodyLength + this.headLength;
+        this.dead = false;
 
         for(let i = 0; i < hookNumber; i++) {
             this.hooks.push(new Hook(this, i));
@@ -22,36 +23,42 @@ class Player {
     }
 
     draw(ctx) {
-        ctx.save();
-      
-        ctx.fillStyle = this.bodyColor;
-        ctx.fillRect(this.x, this.y - this.bodyLength, this.width, this.bodyLength);
-      
-        ctx.fillStyle = this.headColor;
-        ctx.fillRect(this.x, this.y - (this.headLength + this.bodyLength), this.headLength, this.width);
+        if (!this.dead) {
+            ctx.save();
+        
+            ctx.fillStyle = this.bodyColor;
+            ctx.fillRect(this.x, this.y - this.bodyLength, this.width, this.bodyLength);
+        
+            ctx.fillStyle = this.headColor;
+            ctx.fillRect(this.x, this.y - (this.headLength + this.bodyLength), this.headLength, this.width);
 
-        ctx.restore();
+            ctx.restore();
+        }
     }
 
     move() {
-        this.x += this.speed;
+        if (!this.dead) {
+            this.x += this.speed;
 
-        if (this.x < 0) {
-            this.x = 0;
-            this.speed = 0;
-        }
+            if (this.x < 0) {
+                this.x = 0;
+                this.speed = 0;
+            }
 
-        if (this.x > (canvas.width - this.width)) {
-            this.x = canvas.width - this.width;
-            this.speed = 0;
+            if (this.x > (canvas.width - this.width)) {
+                this.x = canvas.width - this.width;
+                this.speed = 0;
+            }
         }
     }
 
     // Shooting the hook
     shoot() {
-        if (this.hookNumber >= 1) {
-            this.hooks[this.findAvailableHook()].shoot(this.x + (this.width - this.hooks[0].width)/2);
-            this.hookNumber--;
+        if (!this.dead) {    
+            if (this.hookNumber >= 1) {
+                this.hooks[this.findAvailableHook()].shoot(this.x + (this.width - this.hooks[0].width)/2);
+                this.hookNumber--;
+            }
         }
     }
 
