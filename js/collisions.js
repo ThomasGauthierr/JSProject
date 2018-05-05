@@ -56,7 +56,6 @@ function playerBubbleCollisionTest( player ){
 function harponBubbleCollisionTest(){
     players.forEach(player => {
         player.hooks.forEach(hook => {
-
             if (hook.isShot) {
                 bubbles.forEach(bubble => {
                     if (hook.x <= bubble.x + bubble.r  && hook.x >= bubble.x-bubble.r){
@@ -76,7 +75,7 @@ function ceilingPlayerCollision(ceil){
     if (ceil.moving){
         players.forEach(p => {
             if (canvas.height - p.totalHeight <= ceil.height){
-                console.log(" collision player/ceil");
+                playerCeilingCollisionHandler(p,ceil);
             }
         });
     }
@@ -114,9 +113,14 @@ function harponBubbleCollisionHandler(player, hook, bubble){
     // si il n'y a plus de bulles => end game
 }
 
-function ceilingCollisionHandler(){
-    ceiling.moving = false;
-    // lose life and game
+function playerCeilingCollisionHandler(player,ceil){
+    ceil.moving = false;
+    ceil.vitess = 0;
+    player.lives -=1;
+    player.speed = 0;
+    player.dead = true;
+
+    loseGame();
 }
 
 
