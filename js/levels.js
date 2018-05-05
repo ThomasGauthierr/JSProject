@@ -6,6 +6,8 @@ function initlevel(){
     gravity = 1; // a changer suivant la jouabilité
     ceiling.reset();
     decor = [];
+    decor.push(new Wall(canvas.width,0,0,canvas.height,"blue"));
+    decor.push(new Wall(0,0,0,canvas.height,"blue"));
     chronoStart();
 }
 
@@ -13,13 +15,14 @@ function level1() {
     initlevel();
     ceiling.moving = true;
      // Bubble creation
-    bubbles.push(new Bubble(0,100,2));
-   // decor.push(new ceiling(true));
+    bubbles.push(new Bubble(200,100,2));
+    decor.push(new Wall(canvas.width/2,0,40,canvas.height,"blue"));
 }
 
 function level2() {
     initlevel();
      // Bubble creation
+     console.log("size decor [] = " + decor.length);
     bubbles.push(new Bubble(0,10,2));
     bubbles.push(new Bubble(50,10,1));
 }

@@ -56,7 +56,6 @@ function init() {
 }
 
 function drawMainMenu() {
-    console.log("button 1 X = " + posXButton1P);
     ctx.save();
 
     ctx.fillStyle = 'white';

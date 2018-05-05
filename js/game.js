@@ -94,6 +94,16 @@ function gameAnimation() {
 }
 
 function drawAndMoveObjects() {
+    // other decor elements
+    decor.forEach(element => {
+        element.draw(ctx);
+    });
+
+    // ceiling 
+    ceiling.draw(ctx);
+    ceiling.move();
+
+
     // Drawing and moving bubbles
     bubbles.forEach((bub) => {
         if (bub.life > 0){
@@ -101,10 +111,6 @@ function drawAndMoveObjects() {
             bub.draw();
         }
     });
-
-    // ceiling 
-    ceiling.draw(ctx);
-    ceiling.move();
 
     // Drawing and moving the players
     let i = 0;
@@ -121,10 +127,7 @@ function drawAndMoveObjects() {
         i++;
     });
 
-    // other decor elements
-    decor.forEach(element => {
-        element.draw(ctx);
-    });
+
 
     drawHighScore(ctx);
 }
