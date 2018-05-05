@@ -113,6 +113,11 @@ function drawAndMoveObjects() {
         drawInGameTexts(ctx, i);
         i++;
     });
+
+    decorElements.forEach(elem => {
+        elem.move();
+        elem.draw(ctx);
+    });
     drawHighScore(ctx);
 }
 

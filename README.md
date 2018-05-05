@@ -65,8 +65,7 @@ demo
 
 - Collisions :
     - [x] bulle/joueur
-    - [x] Plafond/bulle (?)
-    - [ ] Bulle/élément décor
+    - [x] Plafond/bulle
     - [x] harpon bulle
     - [x] Division bulles
 

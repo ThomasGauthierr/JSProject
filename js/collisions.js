@@ -69,6 +69,18 @@ function harponBubbleCollisionTest(){
     });
 }
 
+function ceilingPlayerCollision(player,ceil){
+    if ( ceil.height >= canvas.height-player.totalHeight){
+        ceilingCollisionHandler();
+    }
+}
+
+function ceilingFloorCollision(ceil){
+    if (ceil.height >= canvas.height){
+        ceilingCollisionHandler();
+    }
+}
+
 function bubblePlayerCollisionHandler(player,bubble){
     bubble.vitesseX = 0;
     bubble.vitesseY = 0;
@@ -103,6 +115,12 @@ function harponBubbleCollisionHandler(player, hook, bubble){
     player.score += 100 + 50 * (currentLevel - 1);
     // si il n'y a plus de bulles => end game
 }
+
+function ceilingCollisionHandler(){
+    ceiling.moving = false;
+    // lose life and game
+}
+
 
 function bubbleSplit(bubble){
     if (bubble.vitesseY > 0 ){ // descente
