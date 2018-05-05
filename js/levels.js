@@ -4,15 +4,17 @@ let maxLevel = 3;
 function initlevel(){
     bubbles = [];
     gravity = 1; // a changer suivant la jouabilité
-    decorElements = [];
+    ceiling.reset();
+    decor = [];
     chronoStart();
 }
 
 function level1() {
     initlevel();
+    ceiling.moving = true;
      // Bubble creation
     bubbles.push(new Bubble(0,100,2));
-    decorElements.push(new ceiling(true));
+   // decor.push(new ceiling(true));
 }
 
 function level2() {

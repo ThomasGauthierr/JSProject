@@ -1,5 +1,6 @@
 let players;
 let bubbles;
+let ceiling;
 let obstacles;
 let gravity;
 var wait;
@@ -12,7 +13,7 @@ function initGame1Player() {
     state = "game";
 
     players = [];
-
+    ceiling = new Ceiling();
     // Keyboard listeners
      window.onkeydown = keyDown;
      window.onkeyup = keyUp;
@@ -35,6 +36,7 @@ function initGame1Player() {
  function initGame2Players() {
     state = "game";
     players = [];
+    ceiling = new Ceiling();
 
     // Keyboard listeners
      window.onkeydown = keyDown;
@@ -114,10 +116,14 @@ function drawAndMoveObjects() {
         i++;
     });
 
-    decorElements.forEach(elem => {
-        elem.move();
-        elem.draw(ctx);
+    // ceiling 
+    ceiling.draw(ctx);
+    ceiling.move();
+    // other decor elements
+    decor.forEach(element => {
+        element.draw(ctx);
     });
+
     drawHighScore(ctx);
 }
 
@@ -128,6 +134,9 @@ function checkCollisions(){
     // check between elements
     harponBubbleCollisionTest();
     playerBubbleCollisionTest();
+
+    bubbleCeilingCollision(ceiling);
+    ceilingPlayerCollision(ceiling);
 }
 
 function loseGame(remainingTime) {
@@ -224,6 +233,12 @@ function resetLevel() {
         players[0].dead = (players[0].lives == 0);
         players[1].dead = (players[1].lives == 0);
     }
+    players.forEach(p => {
+        p.hooks.forEach(hook => {
+            hook.remove();
+        });
+        
+    });
 
     //Reinitialisating bubbles
     switch (currentLevel) {

@@ -72,16 +72,23 @@ function harponBubbleCollisionTest(){
     });
 }
 
-function ceilingPlayerCollision(player,ceil){
-    if ( ceil.height >= canvas.height-player.totalHeight){
-        ceilingCollisionHandler();
+function ceilingPlayerCollision(ceil){
+    if (ceil.moving){
+        players.forEach(p => {
+            if (canvas.height - p.totalHeight <= ceil.height){
+                console.log(" collision player/ceil");
+            }
+        });
     }
 }
 
-function ceilingFloorCollision(ceil){
-    if (ceil.height >= canvas.height){
-        ceilingCollisionHandler();
-    }
+function bubbleCeilingCollision(ceil){
+    bubbles.forEach(bubl => {
+        if (bubl.y - bubl.r <= ceil.y + ceil.height ){
+            console.log("collision plafond balle");
+        }
+        
+    });
 }
 
 function bubblePlayerCollisionHandler(player,bubble){

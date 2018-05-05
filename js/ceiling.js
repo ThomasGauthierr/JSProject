@@ -1,4 +1,4 @@
-class ceiling {
+class Ceiling {
     constructor (move){
         this.moving = move || false;
         this.x = 0;
@@ -21,5 +21,9 @@ class ceiling {
         if (this.moving){
             this.height += this.vitesse;
         }
+    }
+
+    reset(){
+        this.height = 0;
     }
 }

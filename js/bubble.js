@@ -11,7 +11,6 @@ class Bubble {
     }
 
     draw(){
-        // dessine bulle
         ctx.save();
 
         ctx.strokeStyle = this.couleur;
@@ -21,18 +20,11 @@ class Bubble {
         ctx.lineWidth = 3;  
         ctx.fill();
 
-        // debug
-        /*
-        console.log( "x : " + this.x);
-        console.log ("y : " + this.y);
-        */
-
         ctx.restore();
     }
 
     move(){
         this.vitesseY += gravity;
-        // mouvement
         this.x = this.x + this.vitesseX;
         this.y = this.y + this.vitesseY;
     }
