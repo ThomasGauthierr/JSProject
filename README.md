@@ -68,6 +68,7 @@ demo
     - [x] Plafond/bulle
     - [x] harpon bulle
     - [x] Division bulles
+    - [x] All / Murs
 
 - Affichage :
     - [x] vie
@@ -84,6 +85,6 @@ demo
     - [ ] musique fin de game
 
 - Bugs à corriger :
-    - [ ] Vitesse X de la balle devient 0 quand elle touche un joueur
+    - [x] Vitesse X de la balle devient 0 quand elle touche un joueur
     - [ ] Vitesses X des rejetons différentes (un va + vite que l'autre)
 

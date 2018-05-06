@@ -8,6 +8,7 @@ function initlevel(){
     decor = [];
     decor.push(new Wall(canvas.width,0,10,canvas.height,"blue"));
     decor.push(new Wall(-10,0,10,canvas.height,"blue"));
+    playersAlive = players.length;
     chronoStart();
 }
 

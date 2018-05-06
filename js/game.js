@@ -3,6 +3,7 @@ let bubbles;
 let ceiling;
 let obstacles;
 let gravity;
+let playersAlive;
 var wait;
 
 let timer;
@@ -73,10 +74,7 @@ function gameAnimation() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctxTimer.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
 
-    // check bubblecount
-    if (bubbles.length <= 0){
-        winGame();
-    }
+    checkGameState();
 
     //Drawing and moving the objects
     drawAndMoveObjects();
@@ -272,4 +270,15 @@ function nextLevel() {
     }
 
     resetLevel();
+}
+
+function  checkGameState(){
+    // check bubblecount
+    if (bubbles.length <= 0){
+        winGame();
+    }
+
+    if (playersAlive <= 0){
+        loseGame();
+    }
 }
