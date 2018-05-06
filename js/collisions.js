@@ -1,25 +1,40 @@
 
 function wallsBubbleCollisionTest(){
-    bubbles.forEach(element => {
+    bubbles.forEach(bub => {
+        decor.forEach(elemDecor => {
         // gauche droite
-            if (element.x - element.r <= 0){
-                element.x = element.r;
-                element.vitesseX = - element.vitesseX;
-            } else if (element.x + element.r >= canvas.width ){
-                element.x = canvas.width - element.r;
-                element.vitesseX = - element.vitesseX;
+            if (bub.x - bub.r <= elemDecor.x + elemDecor.width && bub.x + bub.r >= elemDecor.x){
+                if (bub.vitesseX < 0){
+                    // si vient de la droite
+                    bub.x = elemDecor.x + elemDecor.width + bub.r;
+                }else {
+                    //si vient de la gauche
+                    bub.x = elemDecor.x - bub.r;
+                }
+                bub.vitesseX = - bub.vitesseX;
             }
 
-        // haut bas
-            if (element.y - element.r <= 0){
-                element.y = element.r;
-                element.vitesseY = - element.vitesseY;
-                element.life -= 1;
-                bubbleSplit(element);
-            } else if (element.y >= canvas.height - element.r){
-                element.y = canvas.height - element.r;
-                element.reboundGround();
+
+        });
+        //cas du sol
+        if (bub.y + bub.vitesseY >= canvas.height - bub.r){
+            bub.y = canvas.height - bub.r;
+            bub.reboundGround();
+        }
+    });
+}
+
+function wallsPLayersCollisionTest(){
+    decor.forEach(element => {
+        players.forEach(plyr => {
+            if (plyr.x <= element.x + element.width && plyr.x >= element.x){
+                plyr.x = element.x + element.width;
+                plyr.speed = -plyr.speed;
+            }else if (plyr.x + plyr.width > element.x && plyr.x + plyr.width < element.x + element.width){
+                plyr.x = element.x - plyr.width;
+                plyr.speed = -plyr.speed;
             }
+        });
     });
 }
 

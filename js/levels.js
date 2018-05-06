@@ -6,8 +6,8 @@ function initlevel(){
     gravity = 1; // a changer suivant la jouabilité
     ceiling.reset();
     decor = [];
-    decor.push(new Wall(canvas.width,0,0,canvas.height,"blue"));
-    decor.push(new Wall(0,0,0,canvas.height,"blue"));
+    decor.push(new Wall(canvas.width,0,10,canvas.height,"blue"));
+    decor.push(new Wall(-10,0,10,canvas.height,"blue"));
     chronoStart();
 }
 

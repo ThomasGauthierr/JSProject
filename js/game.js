@@ -22,7 +22,7 @@ function initGame1Player() {
      // Constructor takes number of hooks (1 by default),
      // then optionnaly the initial x coord
      // a body color and the hook color
-     players.push(new Player(2, canvas.width/2));
+     players.push(new Player(2, canvas.width/6));
  
        //Initiating level
        level1();
@@ -135,6 +135,7 @@ function drawAndMoveObjects() {
 function checkCollisions(){
     // check with sides
     wallsBubbleCollisionTest();
+    wallsPLayersCollisionTest();
  
     // check between elements
     harponBubbleCollisionTest();

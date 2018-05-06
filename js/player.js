@@ -3,7 +3,7 @@ class Player {
         this.width = 20;
         this.headLength = 20;
         this.bodyLength = 60;
-        this.x = x || canvas.width / 2;
+        this.x = x || canvas.width / 6;
         this.y = canvas.height;
         this.headColor = 'pink';
         this.bodyColor = bodyColor || 'black';
@@ -39,16 +39,6 @@ class Player {
     move() {
         if (!this.dead) {
             this.x += this.speed;
-
-            if (this.x < 0) {
-                this.x = 0;
-                this.speed = 0;
-            }
-
-            if (this.x > (canvas.width - this.width)) {
-                this.x = canvas.width - this.width;
-                this.speed = 0;
-            }
         }
     }
 
