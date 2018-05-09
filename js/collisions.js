@@ -29,10 +29,10 @@ function wallsPLayersCollisionTest(){
         players.forEach(plyr => {
             if (plyr.x <= element.x + element.width && plyr.x >= element.x){
                 plyr.x = element.x + element.width;
-                plyr.speed = -plyr.speed;
+                plyr.speed = 0;
             }else if (plyr.x + plyr.width > element.x && plyr.x + plyr.width < element.x + element.width){
                 plyr.x = element.x - plyr.width;
-                plyr.speed = -plyr.speed;
+                plyr.speed = 0;
             }
         });
     });
