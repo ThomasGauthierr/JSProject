@@ -1,10 +1,8 @@
 class Player {
-    constructor(playerNumber, hookNumber, x, bodyColor, hookColor) {
+    constructor(playerNumber, hookNumber, x, hookColor) {
         this.width = 65;
         this.x = x || canvas.width / 6;
         this.y = canvas.height;
-        this.headColor = 'pink';
-        this.bodyColor = bodyColor || 'gray';
         this.hookColor = hookColor || 'lightgrey';
         this.maxSpeed = 5;
         this.speed = 0;
