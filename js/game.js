@@ -237,7 +237,6 @@ function resetLevel() {
         players[0].x = canvas.width / 2;
         players[0].dead = false;
     } else {
-        console.log(players[0].lives != 0);
         players[0].x = canvas.width / 2 - 80;
         players[1].x = canvas.width / 2 + 80;
         players[0].dead = (players[0].lives == 0);

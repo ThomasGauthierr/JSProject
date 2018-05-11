@@ -42,26 +42,14 @@ function playerBubbleCollisionTest( player ){
     bubbles.forEach(bubl => {
         players.forEach(playr => {
             if (!playr.dead) {
+                let x0 = playr.x;
+                let y0 = playr.y;
+                let x1 = playr.x + playr.width;
+                let y1 = playr.y + playr.totalHeight;
 
-                // coins hd et hg
-                // dist = sqrt((xb - xa)²+(yb-ya)²);
-
-                var dist_Hg_r = Math.sqrt(Math.pow(bubl.x - playr.x ,2) + Math.pow(bubl.y - (playr.y - playr.totalHeight),2));
-                var dist_Hd_c = Math.sqrt(Math.pow(bubl.x - playr.x - playr.width ,2) + Math.pow(bubl.y - (playr.y- playr.totalHeight),2));
-                // si length player >= width player
-                var centerRectX = playr.x - playr.width / 2;
-                var centerRectY = playr.y - playr.totalHeight/2;
-                var dist_centerRect_c = Math.sqrt(Math.pow(bubl.x - centerRectX,2) + Math.pow(bubl.y - centerRectY,2));
-
-                // head hit
-                if (dist_Hg_r <= bubl.r || dist_Hd_c <= bubl.r){
+                if (bubl.x + bubl.r >= x0 && bubl.x - bubl.r <= x1 &&
+                    bubl.y + bubl.r >= y0 && bubl.x - bubl.r <= y1) {
                     bubblePlayerCollisionHandler(playr,bubl);
-                }
-                // body hit
-                else if (dist_centerRect_c <= (playr.totalHeight/2 + bubl.r)){
-                    if (bubl.x - bubl.r < playr.x + playr.width && bubl.x + bubl.r > playr.x){
-                        bubblePlayerCollisionHandler(playr,bubl);
-                    }
                 }
             }
         });

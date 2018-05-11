@@ -53,7 +53,6 @@ function Sprite(spritesheet, x, y, width, height, nbImages, nbFramesOfAnimationB
 	}
 
 	this.renderMoving = function(x, y, scale) {
-		console.log("render moving")
 		// renders animated sprite, changed every nbTicksBetweenRedraws
 		// the frame number
 		
@@ -73,14 +72,12 @@ function Sprite(spritesheet, x, y, width, height, nbImages, nbFramesOfAnimationB
 		}
 	};
 	this.render = function(x, y, scale) {
-		console.log("render not moving    x : " + x, "     y : " + y)
 		// draws always frame 0, static position
 		this.spriteImages[0].render(x - 7, y - SPRITE_HEIGHT, scale);
 	};
 }
 function initSprites(spritesheet, spriteWidth, spriteHeight, nbLinesOfSprites, 
 						  nbSpritesPerLine, playerNumber) { 
-	console.log("init sprites")
    
     // sprite extraction
    	for(let i= 0; i < nbLinesOfSprites; i++) {
