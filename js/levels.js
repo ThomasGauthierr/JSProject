@@ -27,7 +27,7 @@ function initlevel() {
 
 function level1() {
     initlevel();
-    ceiling.moving = true;
+    ceiling.moving = false;
     // Bubble creation
     bubbles.push(new Bubble(200, 100, 2));
     decor.push(new Wall(canvas.width / 2, 0, 40, canvas.height, "blue"));

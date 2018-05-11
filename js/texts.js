@@ -1,3 +1,9 @@
+let heartImage = new Image();
+heartImage.src = "res/heart.png";
+
+let emptyHeart = new Image();
+emptyHeart.src = "res/empty_heart.png";
+
 function drawInGameTexts(ctx, playerIndex) {
     drawName(ctx, playerIndex);
     drawScore(ctx, playerIndex);
@@ -13,7 +19,7 @@ function drawName(ctx, playerIndex) {
     if (playerIndex == 0) {
         posX = 10;
     } else {
-        posX = 410;
+        posX = 925;
     }
 
     ctx.fillText("Player " + (playerIndex + 1), posX, posY);
@@ -29,7 +35,7 @@ function drawScore(ctx, playerIndex) {
     if (playerIndex == 0) {
         posX = 10;
     } else {
-        posX = 410;
+        posX = 925;
     }
 
     ctx.fillText("score : " + players[playerIndex].score, posX, posY);
@@ -37,19 +43,32 @@ function drawScore(ctx, playerIndex) {
 }
 
 function drawLives(ctx, playerIndex) {
-    ctx.save();
-    ctx.font = "12pt Calibri";
-    
-    let posX, posY = 44;
+        ctx.save();
+
+    let img = new Image();
+    let posX;
+    let posY = 44;
+    let heartHeight = 30;
+    let heartWidth = heartHeight;
 
     if (playerIndex == 0) {
         posX = 10;
     } else {
-        posX = 410;
+        posX = 810;
     }
-    
-    ctx.fillText("lives : " + players[playerIndex].lives, posX, posY);
+
+    for(let i = 1; i <= 5; i++) {
+        if (players[playerIndex].lives >= i) {
+            img = heartImage;
+        } else {
+            img = emptyHeart;
+        }
+
+        ctx.drawImage(img, posX, posY, heartHeight, heartWidth);
+        posX += 35;
+    }
     ctx.restore();
+    
 }
 
 function drawHighScore(ctx) {

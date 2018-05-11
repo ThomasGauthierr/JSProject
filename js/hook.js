@@ -4,7 +4,7 @@ class Hook {
     constructor(player, number)  {
         this.x = 0;
         this.player = player;
-        this.size = this.player.bodyLength + this.player.headLength;
+        this.size = this.player.totalHeight;
         this.color = this.player.hookColor;
         this.width = 5;
         this.speed = 8;
