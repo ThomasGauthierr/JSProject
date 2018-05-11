@@ -1,5 +1,4 @@
 let players;
-let playersALive;
 let bubbles;
 let ceiling;
 let obstacles;
@@ -80,11 +79,6 @@ function gameAnimation() {
     if (bubbles.length <= 0) {
         winGame();
     }
-
-    if (playersAlive <= 0){
-        loseGame();
-    }
-
     //Drawing and moving the objects
     drawAndMoveObjects();
 

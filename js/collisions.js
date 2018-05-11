@@ -97,15 +97,13 @@ function bubblePlayerCollisionHandler(player,bubble){
     /* before 
     bubble.vitesseX = 0;
     bubble.vitesseY = 0;
-    player.lives -= 1;
     player.speed = 0;
-    player.dead = true;
-
-    loseGame();
     */
     player.lives -= 1;
     player.dead = true;
-    playersAlive -= 1;
+
+    loseGame();
+    
 }
 
 function harponBubbleCollisionHandler(player, hook, bubble){
