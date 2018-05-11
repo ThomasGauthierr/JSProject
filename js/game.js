@@ -23,7 +23,7 @@ function initGame1Player() {
     // Constructor takes number of hooks (1 by default),
     // then optionnaly the initial x coord
     // a body color and the hook color
-    players.push(new Player(1, 2, canvas.width / 2));
+    players.push(new Player(1, 2, canvas.width / 2, '#7572ff'));
 
     //Initiating level
     level1();
@@ -47,8 +47,8 @@ function initGame2Players() {
     // Constructor takes player number, number of hooks (1 by default),
     // then optionnaly the initial x coord
     // a body color and the hook color
-    players.push(new Player(1, 2, canvas.width / 2 - 80));
-    players.push(new Player(2, 2, canvas.width / 2 + 80, 'red', 'orange'));
+    players.push(new Player(1, 2, canvas.width / 2 - 80, '#7572ff'));
+    players.push(new Player(2, 2, canvas.width / 2 + 80, 'orange'));
 
     //Initiating level
     level1();

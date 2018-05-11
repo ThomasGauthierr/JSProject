@@ -43,7 +43,7 @@ function keyDown(evt) {
             }
             break;
         // Spacebar => Shooting the hook
-        case 'NumpadAdd':        
+        case 'ControlRight':        
             if (numberOfPlayers == 2) {
                 players[1].shoot(); 
             }

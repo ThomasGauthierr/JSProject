@@ -13,6 +13,10 @@ function initlevel() {
     opacity = 1;
     drawTransitionText();
 
+    players.forEach(p => {
+        p.speed = 0;
+    });
+
     chronoStart();
 }
 

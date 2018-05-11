@@ -6,7 +6,7 @@ class Hook {
         this.player = player;
         this.size = this.player.bodyLength + this.player.headLength;
         this.color = this.player.hookColor;
-        this.width = 3;
+        this.width = 5;
         this.speed = 8;
         this.isShot = false;
         this.number = number;
