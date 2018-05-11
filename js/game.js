@@ -132,7 +132,7 @@ function drawAndMoveObjects() {
         i++;
     });
 
-    drawTransitionText();
+    drawTransitionText("");
     drawHighScore(ctx);
 }
 

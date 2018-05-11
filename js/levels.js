@@ -11,9 +11,10 @@ function initlevel() {
     decor.push(new Wall(-10, 0, 10, canvas.height, "blue"));
     playersAlive = players.length;
     opacity = 1;
-    drawTransitionText();
-
-    chronoStart();
+    transition = true;
+    if (!transition){
+        chronoStart();
+    }
 }
 
 function level1() {
@@ -40,11 +41,16 @@ function level3() {
     bubbles.push(new Bubble(10, 50, 1));
 }
 
-function drawTransitionText() {
+function drawTransitionText(message) {
     ctx.save();
+    if (message == ""){
+        message = "Readyyyy";
+    }
 
     if (opacity > 0){
         opacity -= 0.01;
+    }else {
+        transition = false;
     }
     ctx.lineWidth = 5;
     ctx.fillStyle = "rgba(0, 255, 255, " + opacity + ")";
@@ -52,7 +58,7 @@ function drawTransitionText() {
     // font for all text drawing
     ctx.font = 'italic 48pt Calibri';
     // Draw a message above the rectangles
-    ctx.fillText("Be Ready !", canvas.width/3, canvas.height/3);
+    ctx.fillText(message, canvas.width/3, canvas.height/3);
     
     ctx.restore();
 }
