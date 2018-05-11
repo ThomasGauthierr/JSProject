@@ -11,12 +11,11 @@ function initlevel() {
     decor.push(new Wall(-10, 0, 10, canvas.height, "blue"));
     playersAlive = players.length;
     opacity = 1;
-<<<<<<< HEAD
     transition = true;
     if (!transition){
         chronoStart();
     }
-=======
+
     drawTransitionText();
 
     players.forEach(p => {
@@ -24,7 +23,6 @@ function initlevel() {
     });
 
     chronoStart();
->>>>>>> a171ba0dc3c72224dcea84963231e3c7642b3d89
 }
 
 function level1() {
