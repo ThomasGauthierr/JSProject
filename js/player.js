@@ -1,8 +1,8 @@
 class Player {
-    constructor(hookNumber, x, bodyColor, hookColor) {
-        this.width = 20;
-        this.headLength = 20;
-        this.bodyLength = 60;
+    constructor(playerNumber, hookNumber, x, bodyColor, hookColor) {
+        this.width = 70;
+        this.headLength = 0;
+        this.bodyLength = 100;
         this.x = x || canvas.width / 6;
         this.y = canvas.height;
         this.headColor = 'pink';
@@ -16,6 +16,20 @@ class Player {
         this.score = 0;
         this.totalHeight = this.bodyLength + this.headLength;
         this.dead = false;
+        this.dir = DIR_RIGHT;
+        this.spritesheet = new Image();
+        this.playerNumber = playerNumber;
+        if (playerNumber == 1) {
+            console.log("player1")
+            this.spritesheet.src = "sprites/Player1.png";
+            console.log(this.spritesheet.src)
+        } else {
+            this.spritesheet.src = "sprites/Player2.png";
+        }
+    
+        
+        initSprites(this.spritesheet, SPRITE_WIDTH, SPRITE_HEIGHT, 
+                    NB_DIRECTIONS, NB_FRAMES_PER_POSTURE, playerNumber);     
 
         for(let i = 0; i < hookNumber; i++) {
             this.hooks.push(new Hook(this, i));
@@ -24,6 +38,7 @@ class Player {
 
     draw(ctx) {
         if (!this.dead) {
+            /*
             ctx.save();
         
             ctx.fillStyle = this.bodyColor;
@@ -33,6 +48,21 @@ class Player {
             ctx.fillRect(this.x, this.y - (this.headLength + this.bodyLength), this.headLength, this.width);
 
             ctx.restore();
+            */
+           if (this.speed != 0) {
+                if (this.playerNumber == 1) {
+                    spritesPlayer1[this.dir].renderMoving(this.x, this.y, 1);
+                } else {
+                    spritesPlayer2[this.dir].renderMoving(this.x, this.y, 1);
+                }
+            } else {
+                if (this.playerNumber == 1) {
+                    spritesPlayer1[this.dir].render(this.x, this.y, 1);
+                } else {
+                    spritesPlayer2[this.dir].render(this.x, this.y, 1);
+                }
+           }
+           
         }
     }
 
