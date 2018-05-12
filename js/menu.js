@@ -72,6 +72,10 @@ function drawMainMenu() {
     drawBackGround();
     
     ctx.fillStyle = 'black';
+    ctx.font = '80pt bubble';
+    ctx.fillText("Bubble", 290, 120);
+    ctx.fillText("Trouble", 250, 230)
+    
     ctx.fillRect(posXButton1P - 3, posYButton1P - 3, widthButton1P + 6, heighthButton1P + 6);
     
     ctx.fillStyle = 'orange';
@@ -110,13 +114,13 @@ function mainMenuAnimation() {
 }
 
 function buttonsPositionning(){
-    let gap = 100;
+    let gap = 60;
     let nbButtons = 2;
     let widthButton = 200;
     let heightButton = 50;
 
     posXButton1P = canvas.width / 2 - widthButton /2;
-    posYButton1P = 170; 
+    posYButton1P = 310; 
     widthButton1P = widthButton;
     heighthButton1P = heightButton;
 
