@@ -11,6 +11,7 @@ let currentLevel = 1;
 
 function initGame1Player() {
     state = "game";
+    loadSoundEffects();
 
     players = [];
     ceiling = new Ceiling();
@@ -126,7 +127,6 @@ function drawAndMoveObjects() {
         i++;
     });
 
-    drawTransitionText("");
     drawHighScore(ctx);
 }
 

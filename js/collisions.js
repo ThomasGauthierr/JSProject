@@ -13,8 +13,6 @@ function wallsBubbleCollisionTest(){
                 }
                 bub.vitesseX = - bub.vitesseX;
             }
-
-
         });
         //cas du sol
         if (bub.y + bub.vitesseY >= canvas.height - bub.r){
@@ -46,7 +44,7 @@ function playerBubbleCollisionTest( player ){
                 let y0 = playr.y;
                 let x1 = playr.x + playr.width;
                 let y1 = playr.y + playr.totalHeight;
-
+                    
                 if (bubl.x + bubl.r >= x0 && bubl.x - bubl.r <= x1 &&
                     bubl.y + bubl.r >= y0 && bubl.x - bubl.r <= y1) {
                     bubblePlayerCollisionHandler(playr,bubl);
@@ -115,7 +113,9 @@ function harponBubbleCollisionHandler(player, hook, bubble){
     }
     hook.remove();
     player.score += 100 + 50 * (currentLevel - 1);
-    // si il n'y a plus de bulles => end game
+
+    playSound(bubblePop);
+
 }
 
 function playerCeilingCollisionHandler(player,ceil){
