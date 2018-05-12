@@ -36,6 +36,8 @@ function initGame1Player() {
 
 function initGame2Players() {
     state = STATE_GAME;
+    loadSoundEffects();
+
     players = [];
     ceiling = new Ceiling();
 

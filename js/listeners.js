@@ -1,7 +1,6 @@
 function keyDown(evt) {
     let code = evt.code;
 
-
     switch (code) {
         //** Player 1 **//
         // Left arrow => moving left
@@ -64,15 +63,16 @@ function keyDown(evt) {
                 resetLevel();
             } else {
                 //Ignore it if not needed
-                break;
             }
+            break;
         }
 
-        case 'R' : 
-            if (state == STATE_TRANSITION_OVER) {
+        case 'Semicolon' : 
+            if (state == STATE_TRANSITION_LOSE) {
                 state = mainMenuAnimation;
                 requestAnimationFrame(mainMenuAnimation);
             }
+            break;
 
         default :
             break;
