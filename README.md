@@ -78,13 +78,12 @@ demo
 
 - Sons :
     - [x] balle/harpon
-    - [ ] joueur/balle
-    - [ ] musique de fond au menu
-    - [ ] musique de fond partie
-    - [ ] musique fin de level
-    - [ ] musique fin de game
+    - [x] joueur/balle
+    - [x] musique de fond au menu
+    - [x] musique de fond partie
+    - [x] musique fin de level
+    - [x] musique fin de game
+    - [ ] bouton mute ?
 
 - Bugs à corriger :
-    - [x] Vitesse X de la balle devient 0 quand elle touche un joueur
-    - [x] Vitesses X des rejetons différentes (un va + vite que l'autre)
-
+    - [ ] 

@@ -12,7 +12,8 @@ function drawInGameTexts(ctx, playerIndex) {
 
 function drawName(ctx, playerIndex) {
     ctx.save();
-    ctx.font = "12pt Calibri bold";
+    ctx.font = "16pt Calibri bold";
+    ctx.fillStyle = 'yellow';
 
     let posX, posY = 15;
 
@@ -28,7 +29,8 @@ function drawName(ctx, playerIndex) {
 
 function drawScore(ctx, playerIndex) {
     ctx.save();
-    ctx.font = "12pt Calibri";
+    ctx.font = "16pt Calibri";
+    ctx.fillStyle = 'yellow';
 
     let posX, posY = 30;
 
@@ -43,7 +45,7 @@ function drawScore(ctx, playerIndex) {
 }
 
 function drawLives(ctx, playerIndex) {
-        ctx.save();
+    ctx.save();
 
     let img = new Image();
     let posX;
@@ -57,7 +59,7 @@ function drawLives(ctx, playerIndex) {
         posX = 810;
     }
 
-    for(let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 5; i++) {
         if (players[playerIndex].lives >= i) {
             img = heartImage;
         } else {
@@ -68,14 +70,14 @@ function drawLives(ctx, playerIndex) {
         posX += 35;
     }
     ctx.restore();
-    
+
 }
 
 function drawHighScore(ctx) {
     ctx.save();
-    ctx.font = "12pt Calibri";
-
-    let posX = canvas.width/2 - 70;
+    ctx.font = "24pt Calibri";
+    ctx.fillStyle = 'yellow';
+    let posX = canvas.width / 2 - 70;
     let posY = 25;
 
     let message = "Highscore : ";

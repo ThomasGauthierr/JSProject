@@ -36,7 +36,7 @@ function drawTransition(newHighScore) {
         title = "Game over";
         posXTitle = 140;
         if (numberOfPlayers == 1) {
-            instructions1 = "Score P1 : 500" //+ players[0].score;
+            instructions1 = "Score P1 : " + players[0].score;
             instructions1posX = 300;
             if (newHighScore != undefined) {
                 instructions1 += " (new highscore)";
@@ -45,9 +45,9 @@ function drawTransition(newHighScore) {
             instructions2 = "Press enter to leave";
             instructions2posX = 260;
         } else {    
-            instructions1 = "Score P1 : 500"//+ players[0].score;
+            instructions1 = "Score P1 : " + players[0].score;
             instructions1posX = 300;
-            instructions2 = "Score P2 : 500"// + players[1].score;
+            instructions2 = "Score P2 : " + players[1].score;
             instructions2posX = 300;
 
             if (newHighScore == 1) {                
