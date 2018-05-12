@@ -60,6 +60,8 @@ function drawMainMenu() {
 
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvasTimer.width, canvasTimer.height);
+
+    drawBackGround();
     
     ctx.fillStyle = 'black';
     ctx.fillRect(posXButton1P - 3, posYButton1P - 3, widthButton1P + 6, heighthButton1P + 6);
@@ -114,4 +116,32 @@ function buttonsPositionning(){
     posYButton2P = posYButton1P + heightButton + gap;
     widthButton2P = widthButton1P;
     heighthButton2P = heighthButton1P;
+}
+
+function drawBackGround() {
+    //First row
+    ctx.drawImage(bricksBackground, 0, 0, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, 0, canvas.height/4, canvas.width/4, canvas.height/4) 
+    ctx.drawImage(bricksBackground, 0, canvas.height/2, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, 0, 3*canvas.height/4, canvas.width/4, canvas.height/4)
+    
+    //Second row
+    ctx.drawImage(bricksBackground, canvas.width/4, 0, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, canvas.width/4, canvas.height/4, canvas.width/4, canvas.height/4) 
+    ctx.drawImage(bricksBackground, canvas.width/4, canvas.height/2, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, canvas.width/4, 3*canvas.height/4, canvas.width/4, canvas.height/4)
+
+    //Third row
+    ctx.drawImage(bricksBackground, canvas.width/2, 0, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, canvas.width/2, canvas.height/4, canvas.width/4, canvas.height/4) 
+    ctx.drawImage(bricksBackground, canvas.width/2, canvas.height/2, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, canvas.width/2, 3*canvas.height/4, canvas.width/4, canvas.height/4)
+    
+    //Fourth row
+    ctx.drawImage(bricksBackground, 3*canvas.width/4, 0, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, 3*canvas.width/4, canvas.height/4, canvas.width/4, canvas.height/4) 
+    ctx.drawImage(bricksBackground, 3*canvas.width/4, canvas.height/2, canvas.width/4, canvas.height/4)
+    ctx.drawImage(bricksBackground, 3*canvas.width/4, 3*canvas.height/4, canvas.width/4, canvas.height/4)
+
+    
 }

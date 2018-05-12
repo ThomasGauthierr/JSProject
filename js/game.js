@@ -80,6 +80,10 @@ function gameAnimation() {
     if (bubbles.length <= 0) {
         winGame();
     }
+
+    //Drawing background
+    drawBackGround();
+
     //Drawing and moving the objects
     drawAndMoveObjects();
 
