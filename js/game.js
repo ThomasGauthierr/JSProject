@@ -197,7 +197,7 @@ function loseGame(remainingTime) {
 
 function endGame() {
     chronoStop();
-    
+    playSound(gameOverSound);
     let message = "End of the game\n";
     message += "Score player 1 : " + players[0].score;
 

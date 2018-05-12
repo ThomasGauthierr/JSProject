@@ -99,6 +99,7 @@ function bubblePlayerCollisionHandler(player,bubble){
     */
     player.lives -= 1;
     player.dead = true;
+    playSound(playerHit);
 
     loseGame();
     
