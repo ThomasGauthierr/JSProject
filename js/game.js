@@ -10,7 +10,7 @@ let timer;
 let currentLevel = 1;
 
 function initGame1Player() {
-    state = "game";
+    state = STATE_GAME;
     loadSoundEffects();
 
     players = [];
@@ -35,7 +35,7 @@ function initGame1Player() {
 }
 
 function initGame2Players() {
-    state = "game";
+    state = STATE_GAME;
     players = [];
     ceiling = new Ceiling();
 
@@ -94,7 +94,7 @@ function gameAnimation() {
     drawTimer();
 
     // Animation loop
-    if (state == "game") {
+    if (state == STATE_GAME) {
         requestAnimationFrame(gameAnimation);
     }
 }
@@ -214,7 +214,7 @@ function endGame() {
     alert(message)
 
     canvasTimer.style.visibility = "hidden";
-    state = "mainMenu";
+    state = STATE_MAIN_MENU;
     currentLevel = 1;
 
     requestAnimationFrame(mainMenuAnimation);

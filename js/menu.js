@@ -13,13 +13,21 @@ let numberOfPlayers = 0;
 
 let state;
 
+let STATE_MAIN_MENU = 0;
+let STATE_GAME = 1;
+let STATE_TRANSITION_WIN = 2;
+let STATE_TRANSITION_LOSE = 3;
+let STATE_TRANSITION_OVER = 4;
+
+
+
 let highscore1P;
 let highscore2P;
 
 function init() {
     initCookies();
 
-    state = "mainMenu";
+    state = STATE_MAIN_MENU;
 
     canvas = document.querySelector("#myCanvas");
     canvasTimer = document.querySelector("#canvasTimer");
@@ -96,7 +104,7 @@ function mainMenuAnimation() {
     //Draw menu
     drawMainMenu();
 
-    if (state == "mainMenu") {
+    if (state == STATE_MAIN_MENU) {
         requestAnimationFrame(mainMenuAnimation);
     }
 }

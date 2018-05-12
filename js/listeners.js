@@ -92,7 +92,7 @@ function mouseMenu(evt) {
     let posX = evt.clientX - rect.left;
     let posY = evt.clientY - rect.top;
 
-    if (state == "mainMenu") {
+    if (state == STATE_MAIN_MENU) {
         if (posX >= posXButton1P &&
             posX <= posXButton1P + widthButton1P &&
             posY >= posYButton1P &&

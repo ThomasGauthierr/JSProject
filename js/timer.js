@@ -6,7 +6,7 @@ let timerID = 0
 let chronoEnd;
 
 function chrono() {
-    if (state == "game") {
+    if (state == STATE_GAME) {
         let diff = new Date() - start;
         diff = new Date(diff);
         currentTime = (60000 * diff.getMinutes() +
