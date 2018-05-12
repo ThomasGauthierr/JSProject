@@ -7,9 +7,10 @@ var wait;
 
 let timer;
 
-let currentLevel = 1;
+let currentLevel;
 
 function initGame1Player() {
+    currentLevel = 1;
     state = STATE_GAME;
     loadSoundEffects();
 
@@ -35,6 +36,7 @@ function initGame1Player() {
 }
 
 function initGame2Players() {
+    currentLevel = 1;
     state = STATE_GAME;
     loadSoundEffects();
 

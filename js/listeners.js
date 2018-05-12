@@ -69,7 +69,7 @@ function keyDown(evt) {
 
         case 'Semicolon' : 
             if (state == STATE_TRANSITION_LOSE) {
-                state = mainMenuAnimation;
+                state = STATE_MAIN_MENU;
                 requestAnimationFrame(mainMenuAnimation);
             }
             break;
@@ -116,7 +116,7 @@ function mouseMenu(evt) {
 
     let posX = evt.clientX - rect.left;
     let posY = evt.clientY - rect.top;
-
+    console.log(state);
     if (state == STATE_MAIN_MENU) {
         if (posX >= posXButton1P &&
             posX <= posXButton1P + widthButton1P &&
