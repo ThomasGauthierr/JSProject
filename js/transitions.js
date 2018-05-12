@@ -2,6 +2,9 @@ let bricksBackground = new Image();
 bricksBackground.src = "res/bricks.png";
 
 function drawTransition(newHighScore) {
+    
+    canvasTimer.style.visibility = "hidden";
+
     ctx.save();
 
     drawBackGround();
@@ -16,20 +19,20 @@ function drawTransition(newHighScore) {
 
     if (state == STATE_TRANSITION_WIN) {
         title = "  Success !";
-        instructions1 = "Next level : 3";
+        instructions1 = "Next level : " + currentLevel;
         instructions1posX = 380;
         instructions2 = "Press enter when ready";
         instructions2posX = 250;
     } else if (state == STATE_TRANSITION_LOSE) {
         title = "  Failure !";
-        instructions1 = "Press R to restart";
-        instructions1posX = 270;
+        instructions1 = "Press enter to restart";
+        instructions1posX = 230;
         instructions2 = "Press M to stop";
         instructions2posX = 285;
     } else {
         title = "Game over";
         if (numberOfPlayers == 1) {
-            instructions1 = "Score P1 : 500";
+            instructions1 = "Score P1 : " + players[0].score;
             instructions1posX = 300;
             if (newHighScore != undefined) {
                 instructions1 += " (new highscore)";
@@ -38,9 +41,9 @@ function drawTransition(newHighScore) {
             instructions2 = "Press enter to leave";
             instructions2posX = 260;
         } else {    
-            instructions1 = "Score P1 : 5020";
+            instructions1 = "Score P1 : " + players[0].score;
             instructions1posX = 300;
-            instructions2 = "Score P2 : 5020";
+            instructions2 = "Score P2 : " + players[1].score;
             instructions2posX = 260;
 
             if (newHighScore == 1) {                

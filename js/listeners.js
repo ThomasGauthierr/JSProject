@@ -1,6 +1,7 @@
 function keyDown(evt) {
     let code = evt.code;
 
+
     switch (code) {
         //** Player 1 **//
         // Left arrow => moving left
@@ -48,6 +49,30 @@ function keyDown(evt) {
                 players[1].shoot(); 
             }
             break;
+
+        case 'Enter' : {
+            if (state == STATE_TRANSITION_LOSE) {
+                state = STATE_GAME;
+                resetLevel();
+
+            } else if (state == STATE_TRANSITION_OVER) {
+                state = STATE_MAIN_MENU;
+                requestAnimationFrame(mainMenuAnimation);
+
+            } else if (state == STATE_TRANSITION_WIN) {
+                state = STATE_GAME;
+                resetLevel();
+            } else {
+                //Ignore it if not needed
+                break;
+            }
+        }
+
+        case 'R' : 
+            if (state == STATE_TRANSITION_OVER) {
+                state = mainMenuAnimation;
+                requestAnimationFrame(mainMenuAnimation);
+            }
 
         default :
             break;

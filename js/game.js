@@ -72,29 +72,30 @@ function resizeCanvas() {
 }
 
 function gameAnimation() {
-    // Clearing the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctxTimer.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
-
-    // check bubblecount
-    if (bubbles.length <= 0) {
-        winGame();
-    }
-
-    //Drawing background
-    drawBackGround();
-
-    //Drawing and moving the objects
-    drawAndMoveObjects();
-
-    // checking collisions
-    checkCollisions();
-
-    // Draw timer
-    drawTimer();
-
-    // Animation loop
     if (state == STATE_GAME) {
+        // Clearing the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctxTimer.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
+
+        // check bubblecount
+        if (bubbles.length <= 0) {
+            winGame();
+            return;
+        }
+
+        //Drawing background
+        drawBackGround();
+
+        //Drawing and moving the objects
+        drawAndMoveObjects();
+
+        // checking collisions
+        checkCollisions();
+
+        // Draw timer
+        drawTimer();
+
+        // Animation loop
         requestAnimationFrame(gameAnimation);
     }
 }
@@ -154,8 +155,10 @@ function loseGame(remainingTime) {
         } else {
             let message = "Remaining lives : " + players[0].lives + "\n" +
                 "Ready ?";
-            setTimeout(alert(message), 5000);
-            resetLevel();
+            state = STATE_TRANSITION_LOSE;
+            drawTransition();
+            //setTimeout(alert(message), 5000);
+            //resetLevel();
         }
     } else {
         if (players[0].lives == 0 && players[1].lives == 0) {
@@ -163,26 +166,38 @@ function loseGame(remainingTime) {
         } else if ((!players[0].dead && players[1].dead) || (players[0].dead && !players[1].dead)) {
             //Do nothing if one of them is still alive
             if (remainingTime == 0) {
+                /*
                 let message = "Remaining lives player 1 : " + players[0].lives + "\n" +
                     "Remaining lives player 2 : " + players[1].lives + "\n" +
                     "Ready ?";
                 alert(message);
                 resetLevel();
+                */
+                state = STATE_TRANSITION_LOSE;
+                drawTransition();
             }
         } else {
+            /*
             let message = "Remaining lives player 1 : " + players[0].lives + "\n" +
                 "Remaining lives player 2 : " + players[1].lives + "\n" +
                 "Ready ?";
             alert(message);
             resetLevel();
+            */
+           
+           state = STATE_TRANSITION_LOSE;
+           drawTransition();
         }
     }
 }
 
 function endGame() {
     chronoStop();
+    
     let message = "End of the game\n";
     message += "Score player 1 : " + players[0].score;
+
+    let highscorePlayer;
 
     if (numberOfPlayers == 2) {
         message += "\nScore player 2 : " + players[1].score;
@@ -193,6 +208,7 @@ function endGame() {
             highscore1P = players[0].score;
             document.cookie = "highscore1P=" + highscore1P + ";expires=Tue, 01 Jan 2019 00:00:01 GMT";
             message += "\nYou just set highscore !";
+            highscorePlayer = 1;
         }
     } else {
         if (players[0].score > highscore2P &&
@@ -200,6 +216,7 @@ function endGame() {
             highscore2P = players[0].score;
             document.cookie = "highscore2P=" + highscore2P + ";expires=Tue, 01 Jan 2019 00:00:01 GMT";
             message += "\nPlayer 1 just set a new highscore !";
+            highscorePlayer = 1;
         }
 
         if (players[1].score > highscore2P &&
@@ -207,28 +224,39 @@ function endGame() {
             highscore2P = players[1].score;
             document.cookie = "highscore2P=" + highscore2P + ";expires=Tue, 01 Jan 2019 00:00:01 GMT";
             message += "\nPlayer 2 just set a new highscore !";
+            highscorePlayer = 2;
         }
 
     }
 
-    alert(message)
+    //alert(message)
 
     canvasTimer.style.visibility = "hidden";
-    state = STATE_MAIN_MENU;
+    //state = STATE_MAIN_MENU;
     currentLevel = 1;
 
-    requestAnimationFrame(mainMenuAnimation);
+    state = STATE_TRANSITION_OVER;
+    drawTransition(highscorePlayer);
+
+
+    //requestAnimationFrame(mainMenuAnimation);
 }
 
 function winGame() {
-    chronoStop();
-    // transition
 
-    nextLevel();
+    currentLevel++;
 
+    if (currentLevel > maxLevel) {
+        state = STATE_TRANSITION_OVER;
+    } else {        
+        state = STATE_TRANSITION_WIN;
+    }
+
+    drawTransition();
 }
 
 function resetLevel() {
+    chronoStop();
 
     //Repositionning players
     if (numberOfPlayers == 1) {
@@ -259,18 +287,19 @@ function resetLevel() {
             level3();
             break;
         default:
-            endGame();
+            //endGame();
+            state = STATE_TRANSITION_OVER;
+            drawTransition();
     }
+
+    canvasTimer.style.visibility = "visible";
+
+    requestAnimationFrame(gameAnimation);
 }
 
 function nextLevel() {
     //ToDo : add points related to remaining points
     currentLevel++;
-
-    if (currentLevel <= maxLevel) {
-        let message = "Ready ?";
-        alert(message);
-    }
 
     resetLevel();
 }
