@@ -1,8 +1,8 @@
 let heartImage = new Image();
-heartImage.src = "res/heart.png";
+heartImage.src = "assets/heart.png";
 
 let emptyHeart = new Image();
-emptyHeart.src = "res/empty_heart.png";
+emptyHeart.src = "assets/empty_heart.png";
 
 function drawInGameTexts(ctx, playerIndex) {
     drawName(ctx, playerIndex);

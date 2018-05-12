@@ -16,14 +16,16 @@
 
 @font-face {
   font-family: "8Bit";
-  src: url("../res/8-Bit\ Madness.ttf")
+  src: url("../assets/ Madness.ttf")
 }
 
 @font-face {
   font-family: "8Bit2";
-  src: url("../res/thin_pixel-7.ttf")
+  src: url("../assets//thin_pixel-7.ttf")
 }
+
 
 body {
   background-color: rgb(172, 114, 87);
+  font-family: 'Press Start 2P', cursive;
 }

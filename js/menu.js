@@ -78,9 +78,9 @@ function drawMainMenu() {
     ctx.fillRect(posXButton1P, posYButton1P, widthButton1P, heighthButton1P);
     
     ctx.fillStyle = 'black';
-    ctx.font = "20pt Calibri bold";
+    ctx.font = '15pt "Press Start 2P"';
 
-    ctx.fillText("1 player", posXButton1P + 55, posYButton1P + 32);
+    ctx.fillText("1 player", posXButton1P + 25, posYButton1P + 35);
 
     ctx.fillStyle = 'black';
     ctx.fillRect(posXButton2P - 3, posYButton2P - 3, widthButton2P + 6, heighthButton2P + 6);
@@ -89,9 +89,9 @@ function drawMainMenu() {
     ctx.fillRect(posXButton2P, posYButton2P, widthButton2P, heighthButton2P);
     
     ctx.fillStyle = 'black';
-    ctx.font = "20pt Calibri bold";
+    ctx.font = '15pt "Press Start 2P"';
 
-    ctx.fillText("2 players", posXButton2P + 55, posYButton2P + 32);
+    ctx.fillText("2 players", posXButton2P + 15, posYButton2P + 35);
     
     ctx.restore();
 }

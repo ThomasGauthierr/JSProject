@@ -1,5 +1,5 @@
 let bricksBackground = new Image();
-bricksBackground.src = "res/bricks.png";
+bricksBackground.src = "assets/bricks.png";
 
 function drawTransition(newHighScore) {
     
@@ -11,28 +11,32 @@ function drawTransition(newHighScore) {
 
     let title, instructions1, instructions2, instructions3;
     let instructions1posX, instructions2posX, instructions3posX;
+    let posXTitle, posYTitle;
 
-    ctx.font = "150px sans-serif";
-    ctx.fillStyle = "lightgrey";
-    let posX = 110;
-    let posY = 250;
+    ctx.font = '80px "Press Start 2P"';
+    ctx.fillStyle = "white";
+    
+    posYTitle = 200;
 
     if (state == STATE_TRANSITION_WIN) {
         title = "  Success !";
+        posXTitle = 20;
         instructions1 = "Next level : " + currentLevel;
         instructions1posX = 380;
         instructions2 = "Press enter when ready";
         instructions2posX = 250;
     } else if (state == STATE_TRANSITION_LOSE) {
         title = "  Failure !";
+        posXTitle = 20;
         instructions1 = "Press enter to restart";
         instructions1posX = 230;
         instructions2 = "Press M to stop";
         instructions2posX = 285;
     } else {
         title = "Game over";
+        posXTitle = 140;
         if (numberOfPlayers == 1) {
-            instructions1 = "Score P1 : " + players[0].score;
+            instructions1 = "Score P1 : 500" //+ players[0].score;
             instructions1posX = 300;
             if (newHighScore != undefined) {
                 instructions1 += " (new highscore)";
@@ -41,10 +45,10 @@ function drawTransition(newHighScore) {
             instructions2 = "Press enter to leave";
             instructions2posX = 260;
         } else {    
-            instructions1 = "Score P1 : " + players[0].score;
+            instructions1 = "Score P1 : 500"//+ players[0].score;
             instructions1posX = 300;
-            instructions2 = "Score P2 : " + players[1].score;
-            instructions2posX = 260;
+            instructions2 = "Score P2 : 500"// + players[1].score;
+            instructions2posX = 300;
 
             if (newHighScore == 1) {                
                 instructions1 += " (new highscore)";
@@ -57,25 +61,25 @@ function drawTransition(newHighScore) {
             }
 
             instructions3 = "Press enter to leave";
-            instructions3posX = 260;
+            instructions3posX = 240;
         }
     }
-    ctx.fillText(title, posX, posY);
+    ctx.fillText(title, posXTitle, posYTitle);
 
     
-    ctx.font = "50px sans-serif";
+    ctx.font = '25px "Press Start 2P"';
     ctx.fillStyle = "white";
-    posY = 350;
-    ctx.fillText(instructions1, instructions1posX, posY);
-    posY += 70;
+    let posYInstructions = 300;
+    ctx.fillText(instructions1, instructions1posX, posYInstructions);
+    posYInstructions += 40;
 
     if (instructions2 != undefined) {
-        ctx.fillText(instructions2, instructions2posX, posY);
-        posY += 100;
+        ctx.fillText(instructions2, instructions2posX, posYInstructions);
+        posYInstructions += 100;
     }
 
     if (instructions3 != undefined) {
-        ctx.fillText(instructions3, instructions3posX, posY);
+        ctx.fillText(instructions3, instructions3posX, posYInstructions);
     }
 
     ctx.restore();
