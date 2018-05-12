@@ -273,10 +273,7 @@ function resetLevel() {
         players[1].dead = (players[1].lives == 0);
     }
     players.forEach(p => {
-        p.hooks.forEach(hook => {
-            hook.remove();
-        });
-
+        p.reinitHooks();
     });
 
     //Reinitialisating bubbles

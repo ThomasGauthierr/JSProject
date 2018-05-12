@@ -7,6 +7,7 @@ class Player {
         this.maxSpeed = 5;
         this.speed = 0;
         this.hookNumber = hookNumber || 1;
+        this.initHookNumber = hookNumber;
         this.hooks = [];
         this.lives = 5;
         this.score = 0;
@@ -80,4 +81,16 @@ class Player {
         return availableHook;
     }
 
+    reinitHooks() {
+        this.hooks = [];
+        this.hookNumber = this.initHookNumber;
+        for(let i = 0; i < this.hookNumber; i++) {
+            this.hooks.push(new Hook(this, i));
+        }
+    }
+
+    setHookNumber(hookNumber) {
+        this.initHookNumber = hookNumber;
+        this.reinitHooks();
+    }
 }

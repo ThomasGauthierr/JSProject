@@ -57,7 +57,7 @@ demo
 - [x] Menus
 - [x] Mouvement bulle rebondissante
 - [ ] Génération de niveaux
-- [ ] transition de niveaux
+- [x] transition de niveaux
 - [x] Chrono/score
 - [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
 - [x] Sauvegarde meilleurs scores
@@ -73,11 +73,11 @@ demo
 - Affichage :
     - [x] vie
     - [ ] score : ajouter temps restant au score (implique animation)
-    - [ ] afficher si win ou pas a la fin d'un niveau
-    - [ ] Design général
+    - [x] afficher si win ou pas a la fin d'un niveau
+    - [x] Design général
 
 - Sons :
-    - [ ] balle/harpon
+    - [x] balle/harpon
     - [ ] joueur/balle
     - [ ] musique de fond au menu
     - [ ] musique de fond partie
@@ -86,5 +86,5 @@ demo
 
 - Bugs à corriger :
     - [x] Vitesse X de la balle devient 0 quand elle touche un joueur
-    - [ ] Vitesses X des rejetons différentes (un va + vite que l'autre)
+    - [x] Vitesses X des rejetons différentes (un va + vite que l'autre)
 

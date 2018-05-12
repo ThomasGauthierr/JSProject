@@ -37,5 +37,5 @@ function level3() {
     // Bubble creation
     bubbles.push(new Bubble(60, 30, 1));
     bubbles.push(new Bubble(50, 30, 1));
-    bubbles.push(new Bubble(10, 50, 1));
+    bubbles.push(new Bubble(30, 50, 1));
 }
