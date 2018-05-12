@@ -55,7 +55,9 @@ function keyDown(evt) {
                 resetLevel();
 
             } else if (state == STATE_TRANSITION_OVER) {
+                stopSound(gameOverSound);
                 state = STATE_MAIN_MENU;
+                playSound(menuMusic);
                 requestAnimationFrame(mainMenuAnimation);
 
             } else if (state == STATE_TRANSITION_WIN) {
@@ -123,6 +125,7 @@ function mouseMenu(evt) {
             posY <= posYButton1P + heighthButton1P)
         {
             numberOfPlayers = 1;
+            stopSound(menuMusic);
             initGame1Player();
         }
 
@@ -132,6 +135,7 @@ function mouseMenu(evt) {
             posY <= posYButton2P + heighthButton2P)
         {
             numberOfPlayers = 2;
+            stopSound(menuMusic);
             initGame2Players();
         }
     }

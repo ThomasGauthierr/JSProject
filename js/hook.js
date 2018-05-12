@@ -40,11 +40,13 @@ class Hook {
     shoot(x) {
         this.x = x;
         this.isShot = true;
+        playSound(throwSound);
     }
 
     // Function to call when the hook has to be removed, so when
     // it touches the sky, a ball, or the player dies
     remove() {
+        stopSound(throwSound);
         this.isShot = false;
         this.player.hookNumber ++;
         this.size = this.player.totalHeight;

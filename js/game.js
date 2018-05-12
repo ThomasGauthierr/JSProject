@@ -12,7 +12,7 @@ let currentLevel;
 function initGame1Player() {
     currentLevel = 1;
     state = STATE_GAME;
-    loadSoundEffects();
+    playSound(inGameMusic);
 
     players = [];
     ceiling = new Ceiling();
@@ -38,7 +38,7 @@ function initGame1Player() {
 function initGame2Players() {
     currentLevel = 1;
     state = STATE_GAME;
-    loadSoundEffects();
+    playSound(inGameMusic);
 
     players = [];
     ceiling = new Ceiling();
@@ -155,6 +155,7 @@ function checkCollisions() {
 function loseGame(remainingTime) {
     if (numberOfPlayers == 1) {
         if (players[0].lives == 0) {
+            playSound(gameOverSound);
             endGame();
         } else {
             let message = "Remaining lives : " + players[0].lives + "\n" +
@@ -166,6 +167,7 @@ function loseGame(remainingTime) {
         }
     } else {
         if (players[0].lives == 0 && players[1].lives == 0) {
+            playSound(gameOverSound);
             endGame();
         } else if ((!players[0].dead && players[1].dead) || (players[0].dead && !players[1].dead)) {
             //Do nothing if one of them is still alive
@@ -196,8 +198,8 @@ function loseGame(remainingTime) {
 }
 
 function endGame() {
+    stopSound(inGameMusic);
     chronoStop();
-    playSound(gameOverSound);
     let message = "End of the game\n";
     message += "Score player 1 : " + players[0].score;
 
@@ -251,6 +253,7 @@ function winGame() {
     currentLevel++;
 
     if (currentLevel > maxLevel) {
+        stopSound(inGameMusic);
         state = STATE_TRANSITION_OVER;
     } else {        
         state = STATE_TRANSITION_WIN;

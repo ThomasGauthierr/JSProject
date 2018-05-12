@@ -64,6 +64,7 @@ class Player {
                 this.hookNumber--;
             }
         }
+        
     }
 
     //Find one hook which is not thrown yet

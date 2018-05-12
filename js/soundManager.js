@@ -17,55 +17,42 @@ function loadSoundEffects() {
         }
     });
 
+    throwSound = new Howl({
+        urls: ['sounds/hookDeploy.mp3']
+    })
+
     gameOverSound = new Howl({
         urls: ['sounds/hellodarkness.mp3'],
         onload: function () {
             console.log("Loaded darkness ");
+        },
+    })
+
+    menuMusic = new Howl({
+        urls: ['sounds/introMusic.mp3'],
+        loop: true,
+        onload: function(){
+            console.log("menu Music loaded");
         }
     })
-    
+
+    inGameMusic = new Howl({
+        urls: ['sounds/inGame.wav'],
+        loop: true
+    })
 }
 
 function playSound(soundEffect) {
     soundEffect.play();
 }
 
-function menuMusic() {
-    // play background music of menu
-    let audioPlayer = document.querySelector("#menuPlayer");
-    audioPlayer.play();
+function stopSound(soundEffect){
+    soundEffect.stop();
 }
 
-function gameMusic() {
-    // in game background music
-    let audioPlayer = document.querySelector("#ingamePlayer");
-    audioPlayer.play();
-}
-
-function gameOverMusic(){
-    // gameover music
-    let audioPlayer = document.querySelector("#gameOverPLayer");
-    audioPlayer.play();
-}
-
-function pauseMenuBackgroundMusic() {
-    let audioPlayer = document.querySelector("#menuPlayer");
-    audioPlayer.pause();
-}
-
-function pauseIngameBackgroundMusic() {
-    let audioPlayer = document.querySelector("#ingamePlayer");
-    audioPlayer.pause();
-}
-
-function pauseGameOverMusic(){
-    let audioPlayer = document.querySelector("#gameOverPLayer");
-    audioPlayer.pause();
-}
-
-function muteAll(){
+function muteAll() {
     // mute all sound after click on button "mute"
-    
+
     // TODO
 }
 

@@ -23,10 +23,13 @@ let STATE_TRANSITION_OVER = 4;
 
 let highscore1P;
 let highscore2P;
+loadSoundEffects();
+
 
 function init() {
     initCookies();
 
+    playSound(menuMusic);
     state = STATE_MAIN_MENU;
 
     canvas = document.querySelector("#myCanvas");
