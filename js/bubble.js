@@ -1,3 +1,6 @@
+let bubbleImage = new Image();
+bubbleImage.src = "assets/bubble.png";
+
 class Bubble {
     constructor (x,y,life,couleur,vitessex,vitessey){
         this.x = x || 0;
@@ -14,11 +17,14 @@ class Bubble {
         ctx.save();
 
         ctx.strokeStyle = this.couleur;
-        this.r = this.life * 10;
+        this.r = this.life * 20;
+        /*
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
         ctx.lineWidth = 3;  
         ctx.fill();
+        */
+        ctx.drawImage(bubbleImage, this.x - this.r, this.y - this.r, this.r*2, this.r*2);
 
         ctx.restore();
     }

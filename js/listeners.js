@@ -116,7 +116,6 @@ function mouseMenu(evt) {
 
     let posX = evt.clientX - rect.left;
     let posY = evt.clientY - rect.top;
-    console.log(state);
     if (state == STATE_MAIN_MENU) {
         if (posX >= posXButton1P &&
             posX <= posXButton1P + widthButton1P &&

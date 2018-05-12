@@ -28,14 +28,14 @@ function level1() {
 function level2() {
     initlevel();
     // Bubble creation
-    bubbles.push(new Bubble(60, 10, 2));
-    bubbles.push(new Bubble(50, 10, 1));
+    bubbles.push(new Bubble(60, 30, 2));
+    bubbles.push(new Bubble(50, 30, 1));
 }
 
 function level3() {
     initlevel();
     // Bubble creation
-    bubbles.push(new Bubble(60, 10, 1));
-    bubbles.push(new Bubble(50, 10, 1));
+    bubbles.push(new Bubble(60, 30, 1));
+    bubbles.push(new Bubble(50, 30, 1));
     bubbles.push(new Bubble(10, 50, 1));
 }
