@@ -2,21 +2,21 @@ let bubbleImage = new Image();
 bubbleImage.src = "assets/bubble.png";
 
 class Bubble {
-    constructor (x,y,life,couleur,vitessex,vitessey){
+    constructor (x,y,life,vitessex,vitessey){
         this.x = x || 0;
         this.y = y || 0;
         this.life = life || 1;
-        this.r = this.life * 20;
-        this.couleur = couleur ||'red';
+        this.r = this.life * 20;        
         this.vitesseX = vitessex || 2;
+        if (vitessex == 0) {
+            this.vitesseX = 0;
+        }
         this.vitesseY = vitessey || 1;
         this.vitesseYMin = 25;
     }
 
     draw(){
         ctx.save();
-
-        ctx.strokeStyle = this.couleur;
         this.r = this.life * 20;
         /*
         ctx.beginPath();

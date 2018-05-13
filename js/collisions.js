@@ -147,7 +147,12 @@ function bubbleSplit(bubble) {
     if (bubble.vitesseY > 0) { // descente
         bubble.vitesseY = - bubble.vitesseY;
     }
-    rejeton = new Bubble(bubble.x, bubble.y, bubble.life, bubble.couleur, - bubble.vitesseX, bubble.vitesseY);
+
+    if (bubble.vitesseX == 0) {
+        bubble.vitesseX = 2;
+    }
+
+    rejeton = new Bubble(bubble.x, bubble.y, bubble.life, - bubble.vitesseX, bubble.vitesseY);
     bubbles.push(rejeton);
 }
 
