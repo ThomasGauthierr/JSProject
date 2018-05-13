@@ -67,6 +67,7 @@ function keyDown(evt) {
 
             } else if (state == STATE_TRANSITION_OVER) {
                 stopSound(gameOverSound);
+                stopSound(congratzSound);
                 state = STATE_MAIN_MENU;
                 playSound(menuMusic);
                 requestAnimationFrame(mainMenuAnimation);

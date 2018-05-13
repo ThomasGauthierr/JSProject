@@ -28,6 +28,10 @@ function loadSoundEffects() {
         },
     })
 
+    congratzSound =new Howl ({
+        urls: ['sounds/happykids.mp3']
+    })
+
     menuMusic = new Howl({
         urls: ['sounds/introMusic.mp3'],
         loop: true,
@@ -40,6 +44,8 @@ function loadSoundEffects() {
         urls: ['sounds/inGame.wav'],
         loop: true
     })
+
+
 }
 
 function playSound(soundEffect) {

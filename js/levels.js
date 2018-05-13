@@ -1,5 +1,5 @@
 let levelTime = 10000;
-let maxLevel = 3;
+let maxLevel = 1;
 
 function initlevel() {
     bubbles = [];

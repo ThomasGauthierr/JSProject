@@ -223,6 +223,7 @@ function winGame() {
 
     if (currentLevel > maxLevel) {
         stopSound(inGameMusic);
+        playSound(congratzSound);
         state = STATE_TRANSITION_OVER;
         drawTransition(checkHighScore(currentLevel > maxLevel));
     } else {        
