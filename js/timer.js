@@ -53,10 +53,23 @@ function chronoStart(){
 }
 
 function chronoStop(){
-    convertToScore();
+    //convertToScore();
 	clearTimeout(timerID);
 }
 
 function convertToScore(){
-    
+    let remainingTime = (levelTime - currentTime) / 1000;
+    let addedScore;
+
+    if (remainingTime > 0) {
+        addedScore = Math.floor(remainingTime * 20);
+    }
+
+    //console.log(addedScore);
+
+    players.forEach(player => {
+        if (player.dead == false) {
+            player.score += addedScore;
+        }
+    });
 }

@@ -102,7 +102,7 @@ function bubblePlayerCollisionHandler(player, bubble) {
     */
     player.lives -= 1;
     player.dead = true;
-    player.score -= 100 * bubbles.length;;
+    player.score -= 100 * bubbles.length * currentLevel;
     playSound(playerHit);
 
     loseGame();

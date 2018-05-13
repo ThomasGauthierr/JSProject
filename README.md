@@ -43,8 +43,8 @@ Percez et evitez les bulles pour survivre !!!
     2. ecran scindé ?
 
 ## Contrôles
-- Joueur 1 : flèche gauche (gauche), flèche droite (droite), numpad + (tirer)
-- Joueur 2 : A (gauche), E (droite), espace (tirer)
+- Joueur 1 : Q (gauche), D (droite), espace (tirer)
+- Joueur 2 : flèche gauche (gauche), flèche droite (droite), ctrl droit (tirer)
 
 ## Rendu
 
@@ -61,7 +61,7 @@ demo
 - Affichage :
     - [ ] score : ajouter temps restant au score (implique animation)
     - [x] afficher temps restant
-    - [ ] afficher commandes (nouvel ecran ou a cote du canvas ?)
+    - [x] afficher commandes (nouvel ecran ou a cote du canvas ?)
     - [ ] bouton mute ?
 
 - Bugs à corriger :
