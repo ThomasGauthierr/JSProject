@@ -9,6 +9,8 @@ window.onload = init;
 
 let posXButton1P,posYButton1P,widthButton1P,heightButton1P,posXButton2P,posYButton2P,widthButton2P, heightButton2P;
 let posXButtonControls, posYButtonControls, widthButtonControls, heightButtonControls;
+let posXmuteButton,posYmuteButton,widthMuteButton,heightMuteButton;
+let mute = false;
 
 let numberOfPlayers = 0;
 
@@ -52,7 +54,7 @@ function init() {
         canvasTimer.width = canvas.width;
         canvasTimer.height = "25";
     }
-
+    
     buttonsPositionning();
 
     canvasBottom = canvas.getBoundingClientRect().bottom;
@@ -119,6 +121,19 @@ function drawMainMenu() {
 
     ctx.fillText("Controls", posXButtonControls + 20, posYButtonControls + 37);
     
+
+    // mute button
+    ctx.fillStyle = 'black';
+    ctx.fillRect(posXmuteButton - 3 ,posYmuteButton - 3, widthMuteButton + 6, heightMuteButton + 6);
+
+    ctx.fillStyle = 'orange';
+    ctx.fillRect(posXmuteButton ,posYmuteButton, widthMuteButton, heightMuteButton);
+
+    ctx.fillStyle = 'black';
+    ctx.font = '13pt "Press Start 2P"';
+    ctx.fillText ("Mute Musics", posXmuteButton + 5 , posYmuteButton + 30);
+
+
     ctx.restore();
 }
 
@@ -147,7 +162,7 @@ function buttonsPositionning(){
 
     //Button 1P
     posXButton1P = canvas.width / 2 - widthButton /2;
-    posYButton1P = 290; 
+    posYButton1P = 260; 
     widthButton1P = widthButton;
     heightButton1P = heightButton;
 
@@ -162,6 +177,12 @@ function buttonsPositionning(){
     posYButtonControls = posYButton2P + heightButton + gap;
     widthButtonControls = widthButton1P;
     heightButtonControls = heightButton1P;
+
+    //Mute Button
+    posXmuteButton = posXButton1P;
+    posYmuteButton = posYButtonControls + gap + heightButton;
+    widthMuteButton = widthButton1P ;
+    heightMuteButton = heightButton;
 }
 
 function drawBackGround() {

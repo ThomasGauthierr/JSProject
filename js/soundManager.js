@@ -1,3 +1,5 @@
+let bubblePop,playerHit,gameOverSound,congratzSound,menuMusic,inGameMusic;
+let vol;
 
 function sound(src, bool) {
     this.sound = document.createElement("audio");
@@ -6,6 +8,7 @@ function sound(src, bool) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     this.sound.loop = bool || false;
+    this.sound.volume = 1.0;
     document.body.appendChild(this.sound);
     this.play = function(){
         this.sound.play();
@@ -15,6 +18,9 @@ function sound(src, bool) {
     }
     this.reset = function(){
         this.sound.load();
+    }
+    this.mute = function(){
+        this.sound.muted = mute;
     }
 }
 
@@ -34,6 +40,11 @@ function playSound(soundEffect) {
 function stopSound(soundEffect){
     soundEffect.stop();
     soundEffect.reset();
+}
+
+function muteMusic(bool){
+    menuMusic.mute();
+    inGameMusic.mute();
 }
 
 /*        if online

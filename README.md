@@ -55,19 +55,6 @@ demo
 
 ## ToDo :
 
-- [ ] Génération de niveaux (15)
-- [ ] jouabilité (vitesse balles, difficulté des niveaux, bonus ?)
-
-- Affichage :
-    - [x] score : ajouter temps restant au score (implique animation)
-    - [x] afficher temps restant
-    - [x] afficher commandes (nouvel ecran ou a cote du canvas ?)
-    - [ ] bouton mute ?
-
-- Bugs à corriger :
-    - [x] bug collision joueur bleu en mode 2 joueurs
-    - [ ] bug des hooks lancés apres arret du level
-    
 
 ##Done
 
@@ -77,6 +64,8 @@ demo
 - [x] Chrono/score
 - [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
 - [x] Sauvegarde meilleurs scores
+- [x] Génération de niveaux 
+- [x] jouabilité (vitesse balles, difficulté des niveaux, bonus ?)
 
 - Collisions :
     - [x] bulle/joueur
@@ -97,3 +86,7 @@ demo
     - [x] vie
     - [x] afficher si win ou pas a la fin d'un niveau
     - [x] Design général
+    - [x] score : ajouter temps restant au score (implique animation)
+    - [x] afficher temps restant
+    - [x] afficher commandes (nouvel ecran ou a cote du canvas ?)
+    - [ ] bouton mute ?

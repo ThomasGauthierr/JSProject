@@ -171,5 +171,15 @@ function mouseMenu(evt) {
         {
             state = STATE_CONTROLS;
         }
+
+        //Clic Mute
+        if (posX >= posXmuteButton &&
+            posX <= posXmuteButton + widthMuteButton &&
+            posY >= posYmuteButton &&
+            posY <= posYmuteButton + heightMuteButton){
+                muteMusic(!mute);
+                mute = !mute;
+                console.log(mute);
+            }
     }
 }
