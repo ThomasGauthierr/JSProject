@@ -21,7 +21,7 @@ function initGame1Player() {
     // Constructor takes number of hooks (1 by default),
     // then optionnaly the initial x coord
     // a body color and the hook color
-    players.push(new Player(1, 2, canvas.width / 2, '#7572ff'));
+    players.push(new Player(1, canvas.width / 2, '#7572ff'));
 
     //Initiating level
     level1();
@@ -32,7 +32,7 @@ function initGame1Player() {
     requestAnimationFrame(gameAnimation);
 }
 
-function initGame2Players() {
+function initGame2Players(posXP1, posXP2) {
     currentLevel = 1;
     state = STATE_GAME;
     playSound(inGameMusic);
@@ -44,8 +44,8 @@ function initGame2Players() {
     // Constructor takes player number, number of hooks (1 by default),
     // then optionnaly the initial x coord
     // a body color and the hook color
-    players.push(new Player(1, 2, canvas.width / 2 - 80, '#7572ff'));
-    players.push(new Player(2, 2, canvas.width / 2 + 80, 'orange'));
+    players.push(new Player(1, canvas.width / 2 - 80, '#7572ff'));
+    players.push(new Player(2, canvas.width / 2 + 80, 'orange'));
 
     //Initiating level
     level1();
@@ -261,6 +261,12 @@ function resetLevel() {
         case (3):
             level3();
             break;
+        case (4):
+            level4();
+            break;
+        case (5):
+            level5();
+            break;
         default:
             //endGame();
             state = STATE_TRANSITION_OVER;
@@ -309,4 +315,25 @@ function checkHighScore(final) {
 
     }
     return highscorePlayer;
+}
+
+
+//posX for 1 player or if you want to get a symetrical disposition
+//posX if you want to specify the 2 different positions for 2P mode
+function setPosXPlayers(posX, posXDiff) {
+    players[0].x = posX;
+
+    if (numberOfPlayers == 2) {
+        if (posXDiff != undefined) {
+            players[0].x = posX;
+            players[1].x = posXDiff;
+        } else {            
+            players[0].x = posX;
+            players[1].x = canvas.width - players[1].width - posX;
+        }
+    }
+}
+
+function setDefaultPosXPlayers() {
+    setPosXPlayers(canvas.width / 2 - 80, canvas.width / 2 + 80)
 }
