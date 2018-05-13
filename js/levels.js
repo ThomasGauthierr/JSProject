@@ -22,7 +22,7 @@ function level1() {
     ceiling.moving = false;
     // Bubble creation
     bubbles.push(new Bubble(200, 100, 2));
-    //decor.push(new Wall(canvas.width / 2, 0, 40, canvas.height, "blue"));
+    decor.push(new Wall(canvas.width - 50, 0, 40, canvas.height, "blue",true, 2));
 }
 
 function level2() {
