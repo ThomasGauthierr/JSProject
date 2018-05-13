@@ -267,6 +267,9 @@ function resetLevel() {
         case (5):
             level5();
             break;
+        case (6):
+            level6();
+            break;
         default:
             //endGame();
             state = STATE_TRANSITION_OVER;
@@ -288,7 +291,6 @@ function nextLevel() {
 function checkHighScore(final) {
     let highscorePlayer;
 
-    //ToDo : final sert juste à savoir si on a fini le jeu, à voir si c'est vraiment utile (si on le met pas le highscore sera actualisé à la fin de chaque niveau ou à chaque mort)
     if (final == true) {
 
         if (numberOfPlayers == 1) {
