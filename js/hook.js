@@ -1,3 +1,5 @@
+let hookHeadSize = 50;
+
 class Hook {
     // WARNING : each hook number of one player has to be different
     // and have to correspond with its index in his hooks array
@@ -12,12 +14,14 @@ class Hook {
         this.number = number;
         this.damage = 1;
         this.throwSound = new sound('hookDeploy.mp3');
-        this.img = new Image();
+        this.hookBody = new Image();
         if (this.player.playerNumber == 1) {
-            this.img.src = "assets/hook_P1.png";
-        }else {
-            this.img.src = "assets/hook_P2.png";
+            this.hookBody.src = "assets/hook_body_P1.png";
+        } else {
+            this.hookBody.src = "assets/hook_body_P2.png";
         }
+        this.hookHeadImage = new Image();
+        this.hookHeadImage.src = "assets/hook_head.png"
     }
 
     draw(ctx) {
@@ -27,7 +31,8 @@ class Hook {
             ctx.fillStyle = this.color;
             
            // ctx.fillRect(this.x,canvas.height - this.size - 3,this.width, this.size);
-            ctx.drawImage(this.img, this.x, canvas.height - this.size, this.width, this.size);
+            ctx.drawImage(this.hookBody, this.x, canvas.height - this.size + hookHeadSize, this.width, this.size);
+            ctx.drawImage(this.hookHeadImage, this.x, canvas.height - this.size, this.width, hookHeadSize);
             ctx.restore();
         }
     }
