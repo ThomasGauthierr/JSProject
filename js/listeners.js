@@ -71,7 +71,9 @@ function keyDown(evt) {
 
         case 'Semicolon' : 
             if (state == STATE_TRANSITION_LOSE) {
+                stopSound(inGameMusic);
                 state = STATE_MAIN_MENU;
+                playSound(menuMusic);
                 requestAnimationFrame(mainMenuAnimation);
             }
             break;

@@ -54,14 +54,29 @@ code source
 demo
 
 ## ToDo :
+
+- [ ] Génération de niveaux (15)
+- [ ] jouabilité (vitesse balles, difficulté des niveaux, bonus ?)
+
+- Affichage :
+    - [ ] score : ajouter temps restant au score (implique animation)
+    - [ ] afficher temps restant
+    - [ ] afficher commandes (nouvel ecran ou a cote du canvas ?)
+    - [ ] bouton mute ?
+
+- Bugs à corriger :
+    - [ ] bug collision joueur bleu en mode 2 joueurs
+    - [ ] bug des hooks lancés apres arret du level
+    
+
+##Done
+
 - [x] Menus
 - [x] Mouvement bulle rebondissante
-- [ ] Génération de niveaux
 - [x] transition de niveaux
 - [x] Chrono/score
 - [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
 - [x] Sauvegarde meilleurs scores
-- [ ] jouabilité (vitesse balles, difficulté des niveaux, bonus ?)
 
 - Collisions :
     - [x] bulle/joueur
@@ -70,12 +85,6 @@ demo
     - [x] Division bulles
     - [x] All / Murs
 
-- Affichage :
-    - [x] vie
-    - [ ] score : ajouter temps restant au score (implique animation)
-    - [x] afficher si win ou pas a la fin d'un niveau
-    - [x] Design général
-
 - Sons :
     - [x] balle/harpon
     - [x] joueur/balle
@@ -83,7 +92,8 @@ demo
     - [x] musique de fond partie
     - [x] musique fin de level
     - [x] musique fin de game
-    - [ ] bouton mute ?
 
-- Bugs à corriger :
-    - [ ] 
+- Affichage :
+    - [x] vie
+    - [x] afficher si win ou pas a la fin d'un niveau
+    - [x] Design général

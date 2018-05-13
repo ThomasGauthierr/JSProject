@@ -80,7 +80,7 @@ function gameAnimation() {
         // Clearing the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctxTimer.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
-
+        
         // check bubblecount
         if (bubbles.length <= 0) {
             winGame();
@@ -110,9 +110,11 @@ function drawAndMoveObjects() {
         element.draw(ctx);
     });
 
-    // ceiling 
-    ceiling.draw(ctx);
-    ceiling.move();
+    // ceiling
+    if (ceiling.height >= 1){
+        ceiling.draw(ctx);
+        ceiling.move();
+    }
 
     // Drawing and moving bubbles
     bubbles.forEach((bub) => {

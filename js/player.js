@@ -58,7 +58,7 @@ class Player {
 
     // Shooting the hook
     shoot() {
-        if (!this.dead) {    
+        if (!this.dead && state == STATE_GAME) {    
             if (this.hookNumber >= 1) {
                 this.hooks[this.findAvailableHook()].shoot(this.x + (this.width - this.hooks[0].width)/2);
                 this.hookNumber--;

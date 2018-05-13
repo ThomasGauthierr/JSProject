@@ -4,10 +4,11 @@ let end = 0
 let currentTime = 0
 let timerID = 0
 let chronoEnd;
+let diff;
 
 function chrono() {
     if (state == STATE_GAME) {
-        let diff = new Date() - start;
+        diff = new Date() - start;
         diff = new Date(diff);
         currentTime = (60000 * diff.getMinutes() +
             1000 * diff.getSeconds() + 
@@ -37,6 +38,10 @@ function drawTimer() {
         canvasTimer.length * (1 - currentTime / levelTime ));
 
     ctxTimer.fillRect(0,0,canvasTimer.width * (1 - currentTime/levelTime),canvasTimer.height);
+    
+    ctxTimer.fillStyle = 'black';
+    ctxTimer.font = "18pt Calibri bold";
+    ctxTimer.fillText(diff,canvas.width/2,18);
 
     ctxTimer.restore();
 }

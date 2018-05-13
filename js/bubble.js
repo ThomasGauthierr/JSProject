@@ -6,7 +6,7 @@ class Bubble {
         this.x = x || 0;
         this.y = y || 0;
         this.life = life || 1;
-        this.r = life * 10;
+        this.r = this.life * 20;
         this.couleur = couleur ||'red';
         this.vitesseX = vitessex || 2;
         this.vitesseY = vitessey || 1;
