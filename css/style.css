@@ -19,6 +19,10 @@
   src: url("../assets/Bubble3D.ttf");
 }
 
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../assets/PressStart2P-Regular.ttf");
+}
 
 body {
   background-color: rgb(172, 114, 87);

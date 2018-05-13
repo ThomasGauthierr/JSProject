@@ -46,7 +46,10 @@ function playerBubbleCollisionTest(player) {
                 let y1 = playr.y - playr.totalHeight;
 
                 if (bubl.x + bubl.r >= x0 && bubl.x - bubl.r <= x1 &&
-                    bubl.y <= y0 && bubl.y + bubl.r >= y1) {
+                    //To be exact, the second formula of the following line should be 
+                    //bubl.y + bubl.r >= y1, but it looks better this way in 1P mode
+                    //because if not the game seems to stop before the bubble hit the player
+                    bubl.y <= y0 && bubl.y >= y1) {   
                     bubblePlayerCollisionHandler(playr, bubl);
                 }
             }
@@ -99,7 +102,7 @@ function bubblePlayerCollisionHandler(player, bubble) {
     */
     player.lives -= 1;
     player.dead = true;
-    player.score -= 100;
+    player.score -= 100 * bubbles.length;;
     playSound(playerHit);
 
     loseGame();
