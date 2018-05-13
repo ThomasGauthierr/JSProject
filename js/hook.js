@@ -6,13 +6,18 @@ class Hook {
         this.player = player;
         this.size = this.player.totalHeight;
         this.color = this.player.hookColor;
-        this.width = 5;
+        this.width = 10;
         this.speed = 8;
         this.isShot = false;
         this.number = number;
         this.damage = 1;
         this.throwSound = new sound('hookDeploy.mp3');
-
+        this.img = new Image();
+        if (this.player.playerNumber == 1) {
+            this.img.src = "assets/hook_P1.png";
+        }else {
+            this.img.src = "assets/hook_P2.png";
+        }
     }
 
     draw(ctx) {
@@ -21,7 +26,8 @@ class Hook {
 
             ctx.fillStyle = this.color;
             
-            ctx.fillRect(this.x,canvas.height - this.size,this.width, this.size);
+           // ctx.fillRect(this.x,canvas.height - this.size - 3,this.width, this.size);
+            ctx.drawImage(this.img, this.x, canvas.height - this.size, this.width, this.size);
             ctx.restore();
         }
     }
