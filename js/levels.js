@@ -54,9 +54,10 @@ function level3() {
 
     initlevel();
     // Bubble creation
-    bubbles.push(new Bubble(60, 60, 2));
-    bubbles.push(new Bubble(canvas.width - 50, 30, 1));
+    bubbles.push(new Bubble(90, 60, 2));
     bubbles.push(new Bubble(30, 50, 1));
+    bubbles.push(new Bubble(canvas.width - 30, 50, 1, -2));
+    bubbles.push(new Bubble(canvas.width - 90, 60, 2, -2));
 }
 
 function level4() {

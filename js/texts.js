@@ -4,10 +4,14 @@ heartImage.src = "assets/heart.png";
 let emptyHeart = new Image();
 emptyHeart.src = "assets/empty_heart.png";
 
+let hookImage = new Image();
+hookImage.src = "assets/hook.png";
+
 function drawInGameTexts(ctx, playerIndex) {
     drawName(ctx, playerIndex);
     drawScore(ctx, playerIndex);
     drawLives(ctx, playerIndex);
+    drawHooks(ctx, playerIndex);
 }
 
 function drawName(ctx, playerIndex) {
@@ -90,4 +94,23 @@ function drawHighScore(ctx) {
 
     ctx.fillText(message, posX, posY);
     ctx.restore();
+}
+
+function drawHooks(cyx, playerIndex) {
+    let posX, posY;
+
+    if (playerIndex == 0) {
+        posX = 10;
+    } else {
+        posX = 790;
+    }
+
+    posY = 80;
+
+    players[playerIndex].hooks.forEach(hook => {
+        if (!hook.isShot) {
+            ctx.drawImage(hookImage, posX, posY, 90, 15);
+            posY += 10;
+        }
+    });
 }

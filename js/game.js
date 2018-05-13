@@ -32,7 +32,7 @@ function initGame1Player() {
     requestAnimationFrame(gameAnimation);
 }
 
-function initGame2Players(posXP1, posXP2) {
+function initGame2Players() {
     currentLevel = 1;
     state = STATE_GAME;
     playSound(inGameMusic);
