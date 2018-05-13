@@ -40,8 +40,8 @@ function drawTimer() {
     ctxTimer.fillRect(0,0,canvasTimer.width * (1 - currentTime/levelTime),canvasTimer.height);
     
     ctxTimer.fillStyle = 'black';
-    ctxTimer.font = "18pt Calibri bold";
-    ctxTimer.fillText(diff,canvas.width/2,18);
+    ctxTimer.font = '12pt "Press Start 2P"';
+    ctxTimer.fillText(((levelTime - currentTime)/1000).toString().slice(0,3),canvas.width/2 - 4,22);
 
     ctxTimer.restore();
 }

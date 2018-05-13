@@ -12,15 +12,15 @@ function drawInGameTexts(ctx, playerIndex) {
 
 function drawName(ctx, playerIndex) {
     ctx.save();
-    ctx.font = "16pt Calibri bold";
-    ctx.fillStyle = 'yellow';
+    ctx.font = '12pt "Press Start 2P"';
+    ctx.fillStyle = 'white';
 
-    let posX, posY = 15;
+    let posX, posY = 25;
 
     if (playerIndex == 0) {
         posX = 10;
     } else {
-        posX = 925;
+        posX = 790;
     }
 
     ctx.fillText("Player " + (playerIndex + 1), posX, posY);
@@ -29,15 +29,15 @@ function drawName(ctx, playerIndex) {
 
 function drawScore(ctx, playerIndex) {
     ctx.save();
-    ctx.font = "16pt Calibri";
-    ctx.fillStyle = 'yellow';
+    ctx.font = '12pt "Press Start 2P"';
+    ctx.fillStyle = 'white';
 
-    let posX, posY = 30;
+    let posX, posY = 45;
 
     if (playerIndex == 0) {
         posX = 10;
     } else {
-        posX = 925;
+        posX = 790;
     }
 
     ctx.fillText("score : " + players[playerIndex].score, posX, posY);
@@ -56,7 +56,7 @@ function drawLives(ctx, playerIndex) {
     if (playerIndex == 0) {
         posX = 10;
     } else {
-        posX = 810;
+        posX = 790;
     }
 
     for (let i = 1; i <= 5; i++) {
@@ -75,9 +75,9 @@ function drawLives(ctx, playerIndex) {
 
 function drawHighScore(ctx) {
     ctx.save();
-    ctx.font = "24pt Calibri";
-    ctx.fillStyle = 'yellow';
-    let posX = canvas.width / 2 - 70;
+    ctx.font = '14pt "Press Start 2P"';
+    ctx.fillStyle = 'white';
+    let posX = canvas.width / 2 - 140;
     let posY = 25;
 
     let message = "Highscore : ";
