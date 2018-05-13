@@ -5,6 +5,7 @@ let currentTime = 0
 let timerID = 0
 let chronoEnd;
 let diff;
+let addedScore;
 
 function chrono() {
     if (state == STATE_GAME) {
@@ -14,8 +15,11 @@ function chrono() {
             1000 * diff.getSeconds() + 
             diff.getMilliseconds());
 
+        addedScore = Math.floor((levelTime - currentTime) * 20 / 1000);
+
         if (currentTime - levelTime >= 0 && !chronoEnd) {
             chronoEnd = true;
+            addedScore = 0;
             players.forEach(p => {
                 if (!p.dead) {
                     p.lives--;
@@ -23,7 +27,6 @@ function chrono() {
             });
 
             loseGame(0);
-            //requestAnimationFrame(mainMenuAnimation);
         } else {    
             timerID = setTimeout("chrono()", 1);
         }
@@ -53,23 +56,5 @@ function chronoStart(){
 }
 
 function chronoStop(){
-    //convertToScore();
 	clearTimeout(timerID);
-}
-
-function convertToScore(){
-    let remainingTime = (levelTime - currentTime) / 1000;
-    let addedScore;
-
-    if (remainingTime > 0) {
-        addedScore = Math.floor(remainingTime * 20);
-    }
-
-    //console.log(addedScore);
-
-    players.forEach(player => {
-        if (player.dead == false) {
-            player.score += addedScore;
-        }
-    });
 }

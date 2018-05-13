@@ -59,7 +59,7 @@ demo
 - [ ] jouabilité (vitesse balles, difficulté des niveaux, bonus ?)
 
 - Affichage :
-    - [ ] score : ajouter temps restant au score (implique animation)
+    - [x] score : ajouter temps restant au score (implique animation)
     - [x] afficher temps restant
     - [x] afficher commandes (nouvel ecran ou a cote du canvas ?)
     - [ ] bouton mute ?

@@ -11,6 +11,7 @@ function drawTransition(newHighScore) {
 
     let title, instructions1, instructions2, instructions3;
     let instructions1posX, instructions2posX, instructions3posX;
+    let addedScoreString, addedScorePosX, addedScorePosY;
     let posXTitle, posYTitle;
 
     ctx.font = '80px "Press Start 2P"';
@@ -18,11 +19,22 @@ function drawTransition(newHighScore) {
     
     posYTitle = 200;
 
+    if (addedScore > 0) {
+        players.forEach(player => {
+            if (player.dead == false) player.score += addedScore;
+        });
+        addedScoreString = "Living players won " + addedScore + " points";
+    } else {
+        addedScoreString = "";
+    }
+    addedScorePosX = 150;
+    addedScorePosY = 300;
+
     if (state == STATE_TRANSITION_WIN) {
         title = "  Success !";
         posXTitle = 20;
         instructions1 = "Next level : " + currentLevel;
-        instructions1posX = 380;
+        instructions1posX = 350;
         instructions2 = "Press enter when ready";
         instructions2posX = 250;
     } else if (state == STATE_TRANSITION_LOSE) {
@@ -66,12 +78,15 @@ function drawTransition(newHighScore) {
     }
     ctx.fillText(title, posXTitle, posYTitle);
 
-    
+
     ctx.font = '25px "Press Start 2P"';
     ctx.fillStyle = "white";
-    let posYInstructions = 300;
+
+    ctx.fillText(addedScoreString, addedScorePosX, addedScorePosY);
+
+    let posYInstructions = 380;
     ctx.fillText(instructions1, instructions1posX, posYInstructions);
-    posYInstructions += 40;
+    posYInstructions += 80;
 
     if (instructions2 != undefined) {
         ctx.fillText(instructions2, instructions2posX, posYInstructions);
