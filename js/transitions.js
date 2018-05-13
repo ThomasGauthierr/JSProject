@@ -8,6 +8,7 @@ function drawTransition(newHighScore) {
     ctx.save();
 
     drawBackGround();
+    ctx.save();
 
     let title, instructions1, instructions2, instructions3;
     let instructions1posX, instructions2posX, instructions3posX;
@@ -38,8 +39,10 @@ function drawTransition(newHighScore) {
         instructions2 = "Press enter when ready";
         instructions2posX = 250;
     } else if (state == STATE_TRANSITION_LOSE) {
-        title = "  Failure !";
+        ctx.fillStyle = 'red';
+        title = "  You died  ";
         posXTitle = 20;
+        ctx.fillstyle = 'white';
         instructions1 = "Press enter to restart";
         instructions1posX = 230;
         instructions2 = "Press M to stop";

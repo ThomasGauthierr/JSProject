@@ -1,10 +1,48 @@
 
+function sound(src, bool) {
+    this.sound = document.createElement("audio");
+    this.sound.src = "sounds/" + src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    this.sound.loop = bool || false;
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+    this.reset = function(){
+        this.sound.load();
+    }
+}
 
+function loadSoundEffects() {
+    bubblePop = new sound('plop.mp3');
+    playerHit = new sound('hit.mp3');
+    gameOverSound = new sound('hellodarkness.mp3');
+    congratzSound = new sound('happykids.mp3');
+    menuMusic = new sound('introMusic.mp3',true);
+    inGameMusic = new sound('inGame.wav',true);
+}
+
+function playSound(soundEffect) {
+    soundEffect.play();
+}
+
+function stopSound(soundEffect){
+    soundEffect.stop();
+    soundEffect.reset();
+}
+
+/*        if online
+            
 function loadSoundEffects() {
     // load all little sound effects for fast use
 
     bubblePop = new Howl({
-        urls: ['https://mainline.i3s.unice.fr/mooc/SkywardBound/assets/sounds/plop.mp3'],
+        urls: ['sounds/plop.mp3'],
         onload: function () {
             console.log("Loaded bubblepop ");
         }
@@ -47,18 +85,5 @@ function loadSoundEffects() {
 
 
 }
-
-function playSound(soundEffect) {
-    soundEffect.play();
-}
-
-function stopSound(soundEffect){
-    soundEffect.stop();
-}
-
-function muteAll() {
-    // mute all sound after click on button "mute"
-
-    // TODO
-}
+*/
 

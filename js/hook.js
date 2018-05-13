@@ -11,6 +11,8 @@ class Hook {
         this.isShot = false;
         this.number = number;
         this.damage = 1;
+        this.throwSound = new sound('hookDeploy.mp3');
+
     }
 
     draw(ctx) {
@@ -40,13 +42,13 @@ class Hook {
     shoot(x) {
         this.x = x;
         this.isShot = true;
-        playSound(throwSound);
+        playSound(this.throwSound);
     }
 
     // Function to call when the hook has to be removed, so when
     // it touches the sky, a ball, or the player dies
     remove() {
-        stopSound(throwSound);
+        stopSound(this.throwSound);
         this.isShot = false;
         this.player.hookNumber ++;
         this.size = this.player.totalHeight;
