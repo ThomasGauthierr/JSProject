@@ -60,12 +60,12 @@ demo
 
 - Affichage :
     - [ ] score : ajouter temps restant au score (implique animation)
-    - [ ] afficher temps restant
+    - [x] afficher temps restant
     - [ ] afficher commandes (nouvel ecran ou a cote du canvas ?)
     - [ ] bouton mute ?
 
 - Bugs à corriger :
-    - [ ] bug collision joueur bleu en mode 2 joueurs
+    - [x] bug collision joueur bleu en mode 2 joueurs
     - [ ] bug des hooks lancés apres arret du level
     
 

@@ -43,10 +43,10 @@ function playerBubbleCollisionTest(player) {
                 let x0 = playr.x;
                 let y0 = playr.y;
                 let x1 = playr.x + playr.width;
-                let y1 = playr.y + playr.totalHeight;
+                let y1 = playr.y - playr.totalHeight;
 
                 if (bubl.x + bubl.r >= x0 && bubl.x - bubl.r <= x1 &&
-                    bubl.y + bubl.r >= y0 && bubl.x - bubl.r <= y1) {
+                    bubl.y <= y0 && bubl.y + bubl.r >= y1) {
                     bubblePlayerCollisionHandler(playr, bubl);
                 }
             }
@@ -99,7 +99,7 @@ function bubblePlayerCollisionHandler(player, bubble) {
     */
     player.lives -= 1;
     player.dead = true;
-    player.score -= 100 * bubbles.length;
+    player.score -= 100;
     playSound(playerHit);
 
     loseGame();
