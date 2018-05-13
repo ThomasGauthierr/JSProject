@@ -5,47 +5,58 @@ function keyDown(evt) {
         //** Player 1 **//
         // Left arrow => moving left
         case 'KeyA':
-            players[0].speed = - players[0].maxSpeed;
-            players[0].dir = DIR_LEFT;
+            if (state == STATE_GAME) {
+                players[0].speed = - players[0].maxSpeed;
+                players[0].dir = DIR_LEFT;
+            }
             break;
         // Right arrow => moving right
         case 'KeyD':
-            if (players[0].x <= canvas.width - players[0].width) {
-                players[0].speed = players[0].maxSpeed; 
-                players[0].dir = DIR_RIGHT;
-            } else {
-                x = canvas.width - players[0].width;
+            if (state == STATE_GAME) {
+                if (players[0].x <= canvas.width - players[0].width) {
+                    players[0].speed = players[0].maxSpeed; 
+                    players[0].dir = DIR_RIGHT;
+                } else {
+                    x = canvas.width - players[0].width;
+                }
             }
             break;
         // Numpad + => Shooting the hook
         case 'Space':
-            players[0].shoot();
+            if (state == STATE_GAME)
+                players[0].shoot();
             break;
 
 
         //** Player 2 **//
         // A (azerty) or Q (qwerty) => moving left
-        case 'ArrowLeft':            
-            if (numberOfPlayers == 2) {
-                players[1].speed = - players[1].maxSpeed;
-                players[1].dir = DIR_LEFT;
+        case 'ArrowLeft':        
+            if (state == STATE_GAME) {          
+                if (numberOfPlayers == 2) {
+                    players[1].speed = - players[1].maxSpeed;
+                    players[1].dir = DIR_LEFT;
+                }
             }
             break;
         // E => moving right
-        case 'ArrowRight':            
-            if (numberOfPlayers == 2) { 
-                if (players[1].x <= canvas.width - players[1].width) {
-                    players[1].speed = players[1].maxSpeed; 
-                    players[1].dir = DIR_RIGHT;
-                } else {
-                    x = canvas.width - players[1].width;
+        case 'ArrowRight':        
+            if (state == STATE_GAME) {          
+                if (numberOfPlayers == 2) { 
+                    if (players[1].x <= canvas.width - players[1].width) {
+                        players[1].speed = players[1].maxSpeed; 
+                        players[1].dir = DIR_RIGHT;
+                    } else {
+                        x = canvas.width - players[1].width;
+                    }
                 }
             }
             break;
         // Spacebar => Shooting the hook
         case 'ControlRight':        
-            if (numberOfPlayers == 2) {
-                players[1].shoot(); 
+            if (state == STATE_GAME) {      
+                if (numberOfPlayers == 2) {
+                    players[1].shoot(); 
+                }
             }
             break;
 
@@ -69,11 +80,17 @@ function keyDown(evt) {
             break;
         }
 
+        // M => back to menu
         case 'Semicolon' : 
             if (state == STATE_TRANSITION_LOSE) {
                 stopSound(inGameMusic);
                 state = STATE_MAIN_MENU;
                 playSound(menuMusic);
+                requestAnimationFrame(mainMenuAnimation);
+            }
+
+            if (state == STATE_CONTROLS) {
+                state = STATE_MAIN_MENU;
                 requestAnimationFrame(mainMenuAnimation);
             }
             break;
@@ -90,11 +107,13 @@ function keyUp(evt) {
         //** Player 1 **//
         // Left Arrow
         case 'KeyA':
-        players[0].speed = 0;
+            if (state == STATE_GAME)
+                players[0].speed = 0;
         break;
         // Right arrow
         case 'KeyD':
-            players[0].speed = 0; 
+            if (state == STATE_GAME)
+                players[0].speed = 0; 
             break;
 
         //** Player 2 **//
@@ -121,24 +140,35 @@ function mouseMenu(evt) {
     let posX = evt.clientX - rect.left;
     let posY = evt.clientY - rect.top;
     if (state == STATE_MAIN_MENU) {
+        //Clic 1P button
         if (posX >= posXButton1P &&
             posX <= posXButton1P + widthButton1P &&
             posY >= posYButton1P &&
-            posY <= posYButton1P + heighthButton1P)
+            posY <= posYButton1P + heightButton1P)
         {
             numberOfPlayers = 1;
             stopSound(menuMusic);
             initGame1Player();
         }
 
+        //Clic 2P button
         if (posX >= posXButton2P &&
             posX <= posXButton2P + widthButton2P &&
             posY >= posYButton2P &&
-            posY <= posYButton2P + heighthButton2P)
+            posY <= posYButton2P + heightButton2P)
         {
             numberOfPlayers = 2;
             stopSound(menuMusic);
             initGame2Players();
+        }
+
+        //Clic Controls button
+        if (posX >= posXButtonControls &&
+            posX <= posXButtonControls + widthButtonControls &&
+            posY >= posYButtonControls &&
+            posY <= posYButtonControls + heightButtonControls)
+        {
+            state = STATE_CONTROLS;
         }
     }
 }

@@ -7,7 +7,8 @@ let ctx, ctxTimer;
 
 window.onload = init;
 
-let posXButton1P,posYButton1P,widthButton1P,heighthButton1P,posXButton2P,posYButton2P,widthButton2P, heighthButton2P;
+let posXButton1P,posYButton1P,widthButton1P,heightButton1P,posXButton2P,posYButton2P,widthButton2P, heightButton2P;
+let posXButtonControls, posYButtonControls, widthButtonControls, heightButtonControls;
 
 let numberOfPlayers = 0;
 
@@ -18,13 +19,14 @@ let STATE_GAME = 1;
 let STATE_TRANSITION_WIN = 2;
 let STATE_TRANSITION_LOSE = 3;
 let STATE_TRANSITION_OVER = 4;
-
-
+let STATE_CONTROLS = 5;
 
 let highscore1P;
 let highscore2P;
 loadSoundEffects();
 
+let imageControls = new Image();
+imageControls.src = "assets/controlsPanel/controlsPanel.png";
 
 function init() {
     initCookies();
@@ -55,9 +57,11 @@ function init() {
 
     canvasBottom = canvas.getBoundingClientRect().bottom;
 
-    window.onkeydown = null;
-    window.onkeyup = null;
+    // Keyboard listeners
+    window.onkeydown = keyDown;
+    window.onkeyup = keyUp;
     
+    //Mouse listeners
     window.onmousedown = mouseMenu;
 
     canvas.style.visibility = "visible";  
@@ -74,31 +78,46 @@ function drawMainMenu() {
 
     drawBackGround();
     
+    //Title
     ctx.fillStyle = 'black';
     ctx.font = '80pt bubble';
     ctx.fillText("Bubble", 290, 120);
     ctx.fillText("Trouble", 250, 230)
     
-    ctx.fillRect(posXButton1P - 3, posYButton1P - 3, widthButton1P + 6, heighthButton1P + 6);
+    //Button 1P
+    ctx.fillRect(posXButton1P - 3, posYButton1P - 3, widthButton1P + 6, heightButton1P + 6);
     
     ctx.fillStyle = 'orange';
-    ctx.fillRect(posXButton1P, posYButton1P, widthButton1P, heighthButton1P);
+    ctx.fillRect(posXButton1P, posYButton1P, widthButton1P, heightButton1P);
     
     ctx.fillStyle = 'black';
     ctx.font = '15pt "Press Start 2P"';
 
     ctx.fillText("1 player", posXButton1P + 25, posYButton1P + 35);
 
+    //Button 2P
     ctx.fillStyle = 'black';
-    ctx.fillRect(posXButton2P - 3, posYButton2P - 3, widthButton2P + 6, heighthButton2P + 6);
+    ctx.fillRect(posXButton2P - 3, posYButton2P - 3, widthButton2P + 6, heightButton2P + 6);
     
     ctx.fillStyle = 'orange';
-    ctx.fillRect(posXButton2P, posYButton2P, widthButton2P, heighthButton2P);
+    ctx.fillRect(posXButton2P, posYButton2P, widthButton2P, heightButton2P);
     
     ctx.fillStyle = 'black';
     ctx.font = '15pt "Press Start 2P"';
 
     ctx.fillText("2 players", posXButton2P + 15, posYButton2P + 35);
+    
+    //Button Controls
+    ctx.fillStyle = 'black';
+    ctx.fillRect(posXButtonControls - 3, posYButtonControls - 3, widthButtonControls + 6, heightButtonControls + 6);
+    
+    ctx.fillStyle = 'orange';
+    ctx.fillRect(posXButtonControls, posYButtonControls, widthButtonControls, heightButtonControls);
+    
+    ctx.fillStyle = 'black';
+    ctx.font = '15pt "Press Start 2P"';
+
+    ctx.fillText("Controls", posXButtonControls + 20, posYButtonControls + 37);
     
     ctx.restore();
 }
@@ -114,26 +133,40 @@ function mainMenuAnimation() {
     if (state == STATE_MAIN_MENU) {
         requestAnimationFrame(mainMenuAnimation);
     }
+    
+    if (state == STATE_CONTROLS) {
+        drawnControls();
+    }
 }
 
 function buttonsPositionning(){
-    let gap = 60;
+    let gap = 40;
     let nbButtons = 2;
     let widthButton = 200;
     let heightButton = 50;
 
+    //Button 1P
     posXButton1P = canvas.width / 2 - widthButton /2;
-    posYButton1P = 310; 
+    posYButton1P = 290; 
     widthButton1P = widthButton;
-    heighthButton1P = heightButton;
+    heightButton1P = heightButton;
 
+    //Button 2P
     posXButton2P = posXButton1P;
     posYButton2P = posYButton1P + heightButton + gap;
     widthButton2P = widthButton1P;
-    heighthButton2P = heighthButton1P;
+    heightButton2P = heightButton1P;
+
+    //Button Controls
+    posXButtonControls = posXButton1P;
+    posYButtonControls = posYButton2P + heightButton + gap;
+    widthButtonControls = widthButton1P;
+    heightButtonControls = heightButton1P;
 }
 
 function drawBackGround() {
+    ctx.save();
+
     //First row
     ctx.drawImage(bricksBackground, 0, 0, canvas.width/4, canvas.height/4)
     ctx.drawImage(bricksBackground, 0, canvas.height/4, canvas.width/4, canvas.height/4) 
@@ -158,5 +191,13 @@ function drawBackGround() {
     ctx.drawImage(bricksBackground, 3*canvas.width/4, canvas.height/2, canvas.width/4, canvas.height/4)
     ctx.drawImage(bricksBackground, 3*canvas.width/4, 3*canvas.height/4, canvas.width/4, canvas.height/4)
 
+    ctx.restore();
+}
+
+function drawnControls() {
+    ctx.save();
+    drawBackGround();
     
+    ctx.drawImage(imageControls, 0, 0, canvas.width, canvas.height);
+    ctx.restore();
 }

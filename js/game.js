@@ -16,9 +16,6 @@ function initGame1Player() {
 
     players = [];
     ceiling = new Ceiling();
-    // Keyboard listeners
-    window.onkeydown = keyDown;
-    window.onkeyup = keyUp;
 
     // Player creation
     // Constructor takes number of hooks (1 by default),
@@ -42,10 +39,6 @@ function initGame2Players() {
 
     players = [];
     ceiling = new Ceiling();
-
-    // Keyboard listeners
-    window.onkeydown = keyDown;
-    window.onkeyup = keyUp;
 
     // Player creation
     // Constructor takes player number, number of hooks (1 by default),
