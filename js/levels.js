@@ -93,7 +93,7 @@ function level5() {
 
 function level6() {
     hookNumber = 0;
-    levelTime = 10000;
+    levelTime = 12000;
     setPosXPlayers(250);
     ceiling.moving = true;
 
