@@ -23,7 +23,7 @@ function initlevel() {
 
 function level1() {
     initlevel();
-    ceiling.moving = false;
+    ceiling.moving = true;
     // Bubble creation
     //bubbles.push(new Bubble(200, 100, 2));
     bubbles.push(new Bubble(canvas.width - 200, 100, 1));

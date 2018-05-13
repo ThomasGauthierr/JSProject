@@ -104,7 +104,7 @@ function drawAndMoveObjects() {
     });
 
     // ceiling
-    if (ceiling.height >= 1){
+    if (ceiling.moving){
         ceiling.draw(ctx);
         ceiling.move();
     }
