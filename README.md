@@ -47,7 +47,7 @@ Il y aussi possibilité de mute uniquement les musiques de fond avec les boutons
 ## Fonctionnalités diverses ##
 - Les highscores sont différents entre le mode 1 et 2 joueurs. Ils sont sauvegardés dans des cookies.
 - Il est possible (comme montré dans le niveau 6) de rajouter des murs et de faire descendre le plafond.
-- Un timer est dessiné quand une partie est en cours. Il se trouve dans un canvas différent du canvas de jeu. La partie se temrine quand le timer arrive à 0. Si le joueur éclate tous les bulles avant la fin du chrono et qu'il est toujours vivant, on lui augmente son score en fonction du temps restant.
+- Un timer est dessiné quand une partie est en cours. Il se trouve dans un canvas différent du canvas de jeu. La partie se termine quand le timer arrive à 0. Si le joueur éclate toutes les bulles avant la fin du chrono et qu'il est toujours vivant, on lui augmente son score en fonction du temps restant.
 
 ## Différents composants & caractéristiques ##
 
@@ -75,7 +75,7 @@ Il y aussi possibilité de mute uniquement les musiques de fond avec les boutons
     3. Position des joueurs
     4. Spécifications des éléments du décor (murs, plafond se déplaçant...)
     
-## Ameliorations envisagables ##
+## Améliorations envisagables ##
 - Les événements clavier rapides sont mal gérés, le personnage s'arrête si on alterne rapidement les mouvements gauche droite : réfléchir à une solution
 - Améliorer l'architecture en réorganisant le code, par exemple en découpant mieux les fichiers, en créant plus de classes, ou en simplifiant le fil d'exécution
 - Ajout d'un bouton pause 
