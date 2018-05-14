@@ -179,7 +179,12 @@ function mouseMenu(evt) {
             posY <= posYmuteButton + heightMuteButton){
                 muteMusic(!mute);
                 mute = !mute;
-                console.log(mute);
+
+                if (!mute) {                    
+                    muteImage.src = "assets/muted.png";
+                } else {
+                    muteImage.src = "assets/unmuted.png";
+                }
             }
     }
 }

@@ -30,6 +30,9 @@ loadSoundEffects();
 let imageControls = new Image();
 imageControls.src = "assets/controlsPanel/controlsPanel.png";
 
+let muteImage = new Image();
+muteImage.src = "assets/unmuted.png";
+
 function init() {
     initCookies();
 
@@ -123,6 +126,7 @@ function drawMainMenu() {
     
 
     // mute button
+    /*
     ctx.fillStyle = 'black';
     ctx.fillRect(posXmuteButton - 3 ,posYmuteButton - 3, widthMuteButton + 6, heightMuteButton + 6);
 
@@ -132,7 +136,9 @@ function drawMainMenu() {
     ctx.fillStyle = 'black';
     ctx.font = '13pt "Press Start 2P"';
     ctx.fillText ("Mute Musics", posXmuteButton + 5 , posYmuteButton + 30);
+    */
 
+    ctx.drawImage(muteImage, posXmuteButton, posYmuteButton, widthMuteButton, heightMuteButton);
 
     ctx.restore();
 }
@@ -179,10 +185,10 @@ function buttonsPositionning(){
     heightButtonControls = heightButton1P;
 
     //Mute Button
-    posXmuteButton = posXButton1P;
+    posXmuteButton = canvas.width / 2 - 35;
     posYmuteButton = posYButtonControls + gap + heightButton;
-    widthMuteButton = widthButton1P ;
-    heightMuteButton = heightButton;
+    widthMuteButton = 70 ;
+    heightMuteButton = 50;
 }
 
 function drawBackGround() {
