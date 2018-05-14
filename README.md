@@ -2,7 +2,7 @@
  
 ## Intro 
 Percez et évitez les bulles dans le temps imparti pour gagner !
-Pour cela, déplacez votre personage de gauche a droite et tirer des harpons, si disponibles, pour percer les bulles ! 
+Pour cela, déplacez votre personage de gauche à droite et tirer des harpons, si disponibles, pour percer les bulles ! 
 
 6 niveaux sont disponibles :
 - Niveau 1 : 2 bulles, 1 harpon par joueur
@@ -29,20 +29,20 @@ Pour cela, déplacez votre personage de gauche a droite et tirer des harpons, si
  Les personnages sont dessinés avec des sprites.
 
 ### Transitions ###
-A chaque fin de niveau, on affiche un message différent en fonction de la situation (échec du niveau, niveau réussi, victoire ou défaite). On affiche aussi si le highscore à été établi.
+A chaque fin de niveau, on affiche un message différent en fonction de la situation (échec du niveau, niveau réussi, victoire ou défaite). On affiche aussi si le highscore a été établi.
 
 ### Ecran des contrôles ###
 Il s'agit simplement d'une image au fond transparent qui décrit les touches.
 
 ## Sons utilisés ##
-Il y a 2 musiques de fond qui bouclent.<br/>
+Il y a 2 musiques de fond qui tournent en boucle.<br/>
 Nous avons aussi mis en place plusieurs sound effects : 
 - Lorsqu'on jette un harpon
 - Quand une bulle eclate
 - Quand une bulle touche un joueur
 - Une musique de fin de jeu si le joueur a perdu
 - Une musique de fin de jeu si le joueur a fini le dernier niveau<br/>
-Il y aussi possibilité de mute uniquement les musiques de fond avec les boutons du menu principal.
+Il y a aussi possibilité de mute uniquement les musiques de fond avec le bouton du menu principal.
 
 ## Fonctionnalités diverses ##
 - Les highscores sont différents entre le mode 1 et 2 joueurs. Ils sont sauvegardés dans des cookies.
@@ -75,7 +75,7 @@ Il y aussi possibilité de mute uniquement les musiques de fond avec les boutons
     3. Position des joueurs
     4. Spécifications des éléments du décor (murs, plafond se déplaçant...)
     
-## Améliorations envisagables ##
+## Améliorations envisageables ##
 - Les événements clavier rapides sont mal gérés, le personnage s'arrête si on alterne rapidement les mouvements gauche droite : réfléchir à une solution
 - Améliorer l'architecture en réorganisant le code, par exemple en découpant mieux les fichiers, en créant plus de classes, ou en simplifiant le fil d'exécution
 - Ajout d'un bouton pause 
