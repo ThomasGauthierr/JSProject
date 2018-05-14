@@ -88,7 +88,7 @@ Il y a aussi possibilité de mute uniquement les musiques de fond avec le bouton
 - Design original et gameplay amusant
 - Propose un vrai défi au joueur au fil des niveaux, sans pour autant être impossible
 
-##Done
+## Done ##
 - [x] Menus
 - [x] Mouvement bulle rebondissante
 - [x] transition de niveaux
