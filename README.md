@@ -13,8 +13,8 @@ Pour cela, déplacez votre personage de gauche a droite et tirer des harpons, si
  - Niveau 6 : 4 bulles et pas de harpon. 2 murs qui restreignent l'espace et un plafond qui descend. Le but est de survivre jusqu'à ce que le plafond touche les bulles. Bonne chance pour ce dernier niveau !
 
 ## Contrôles
-- Joueur 1 : Q (gauche), D (droite), espace (tirer)
-- Joueur 2 : flèche gauche (gauche), flèche droite (droite), ctrl droit (tirer)
+- Joueur 1 : Q (gauche, A en QWERTY), D (droite), espace (tirer)
+- Joueur 2 : flèche gauche (gauche), flèche droite (droite), shift droit (tirer)
 
  ## Interfaces ##
  ### Menu principal ###
@@ -77,15 +77,17 @@ il y aussi possibilité de mute uniquement les musiques de fond
     4. Spécifications des éléments du décor (murs, plafond se déplaçant...)
     
 ## Ameliorations envisagables ##
-- Les événements clavier rapides sont mal gérés, le personnage s'arrête si on alterne rapidement les mouvements gauche droite : reflechir à une solution
+- Les événements clavier rapides sont mal gérés, le personnage s'arrête si on alterne rapidement les mouvements gauche droite : réfléchir à une solution
 - Améliorer l'architecture en réorganisant le code, par exemple en découpant mieux les fichiers, en créant plus de classes, ou en simplifiant le fil d'exécution
 - Ajout d'un bouton pause 
 - Ajout de bonus et de power-ups
+- Ajout d'un asset loader
 
 ## Points positifs ##
 - Il est facile d'ajouter et de modifier les niveaux
+- Présence d'un mode 2 joueurs
 - Design original et gameplay amusant
-- Propose un vrai défi au joueur au fil des niveaux
+- Propose un vrai défi au joueur au fil des niveaux, sans pour autant être impossible
 
 ##Done
 

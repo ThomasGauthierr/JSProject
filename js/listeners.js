@@ -51,8 +51,8 @@ function keyDown(evt) {
                 }
             }
             break;
-        // Spacebar => Shooting the hook
-        case 'ControlRight':        
+        // Righr Shift => Shooting the hook
+        case 'ShiftRight':        
             if (state == STATE_GAME) {      
                 if (numberOfPlayers == 2) {
                     players[1].shoot(); 
