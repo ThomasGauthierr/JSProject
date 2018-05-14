@@ -86,6 +86,10 @@ function level5() {
     setPosXPlayers(100);
     ceiling.moving = false;
 
+    if (numberOfPlayers == 2) {
+        levelTime = 7000;
+    }
+
     initlevel();
     // Bubble creation
     bubbles.push(new Bubble(200, 250, 1));
@@ -94,8 +98,6 @@ function level5() {
     bubbles.push(new Bubble(canvas.width - 340, 250, 1, -2));
     bubbles.push(new Bubble(480, 250, 1));
     bubbles.push(new Bubble(canvas.width - 480, 250, 1, -2));
-    
-    decor.push(new Ceiling(true));
 }
 
 function level6() {

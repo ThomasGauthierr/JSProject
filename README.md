@@ -1,60 +1,91 @@
 # Web Project : Bubble Trouble
  
 ## Intro 
-Percez et evitez les bulles pour survivre !!!
+Percez et évitez les bulles dans le temps imparti pour gagner !
+Pour cela, déplacez votre personage de gauche a droite et tirer des harpons, si disponibles, pour percer les bulles ! 
 
-## Différents composants & charactéristiques
-
-- Personnage : 
-    1. bouge de gauche a droite
-    2. tire un harpon vers le haut SEULEMENT
-    3. si touché par bulle : DEAD
-
-- Harpon : 
-    1. longueur l
-    2. vitesse v
-    3. dès que contact / fin de l :  reviens dans le gun
-    4. contact si bulle touche cable
-
-- Bulle : 
-    1. vie
-    2. si touchee par harpon : split en deux bulles avec vie = mere.vie -1
-    3. rebondit sur tout les cotés
-    4. vitesse v constante
-
-- niveau :
-    1. nombre de bulles
-    2. temps imparti
-
-- joueur :
-    1. score ( temps restant a la completion du niveau )
-    2. nombre de vies
-
-- Bonus / Malus ?
-    1. vitesse harpon
-    2. vigne si harpon touche plafond
-    3. nombre de harpons par joueur
-
-- Fenetre :
-    Taille fixe dans un premier temps, toutes les cooronnees en pourcent ensuite pour gerer le resize
-
-- Mode deux joueurs :
-    1. deux joueurs sur le meme ecran ?
-    2. ecran scindé ?
+6 niveaux sont disponibles :
+- Niveau 1 : 2 bulles, 1 harpon par joueur
+- Niveau 2 : 1 bulle pour 1 joueur, 2 si 2 joueurs. Les bulles ont 2 vies, les joueurs 2 harpons
+- Niveau 3 : 2 bulles à 2 vies, 2 à 1 vie. 2 harpons par joueur, moins de temps en mode 2 joueurs
+- Niveau 4 : 1 grosse bulle à 4 vies au centre du canvas. 2 harpons par joueur. Moins de temps si 2 joueurs
+ - Niveau 5 : 6 bulles à 1 vie, 3 vont dans un sens, 3 dans l'autre. 1 harpon par joueur, moins de temps si 2 joueurs
+ - Niveau 6 : 4 bulles et pas de harpon. 2 murs qui restreignent l'espace et un plafond qui descend. Le but est de survivre jusqu'à ce que le plafond touche les bulles. Bonne chance pour ce dernier niveau !
 
 ## Contrôles
 - Joueur 1 : Q (gauche), D (droite), espace (tirer)
 - Joueur 2 : flèche gauche (gauche), flèche droite (droite), ctrl droit (tirer)
 
-## Rendu
+ ## Interfaces ##
+ ### Menu principal ###
+ 4 boutons :
+ - 2 pour les modes 1 et 2 joueurs
+ - Un pour afficher les contrôles
+ - Un pour mute/demute la musique
 
-15/05 
-presentation orale
-code source
-demo
+ ### En jeu ###
+ Pour chaque personage, on affiche son score avec du texte, et avec des icônes le nombre de vies et celui de harpons disponibles.
+ Le meilleur score est affiché au centre.
+ Les personnages sont dessinés avec des sprites.
 
-## ToDo :
+### Transitions ###
+A chaque fin de niveau, on affiche un message différent en fonction de la situation (échec du niveau, niveau réussi, victoire ou défaite).
 
+### Ecran des contrôles ###
+Il s'agit simplement d'une image au fond transparent qui décrit les touches pour les différents joueurs.
+
+## Sons utilisés ##
+2 musiques de fond qui bouclent
+PLusieurs sound effects : 
+    - lorsqu'on jette un harpon
+    - quand une bulle eclate
+    - quand une bulle touche un joueur
+    - une musique de fin de jeu, differente selon le resultat, c'est a dire si le joueur est mort
+        ou si il a reussi a finir tout les niveaux
+il y aussi possibilité de mute uniquement les musiques de fond 
+
+## Foncitonnalités diverses ##
+- Les highscores sont différents entre le mode 1 et 2 joueurs. Ils sont sauvegardés dans des cookies.
+- Il est possible (comme montré dans ke niveau 6) de rajouter des murs et de faire descendre le plafond.
+- Un timer est dessiné quand une partie est en cours. Il se trouve dans un canvas différent du canvas de jeu. La partie se temrine quand le timer arrive à 0. Si le joueur éclate tous les bulles avant la fin du chrono, on lui augmente son score en fonction du temps restant.
+
+
+## Différents composants & caractéristiques
+
+- Personnage : 
+    1. Bouge de gauche à droite
+    2. Tire un harpon vers le haut
+    3. Meurt si touché par une bulle 
+    4. Nombre de harpons limité
+
+- Harpon : 
+    1. Longueur l
+    2. Vitesse v
+    3. Dès que contact (plafond ou bulle), il est supprimé et redisponible pour le joueur
+    4. Contact si bulle touche cable
+
+- Bulle : 
+    1. Vie
+    2. Si touché par harpon : split en deux bulles avec vie = mere.vie -1
+    3. Rebondit contre le sol, les limites du canvas et les murs
+    4. Vitesse v constante
+
+- Niveau :
+    1. Nombre de bulles
+    2. Temps imparti
+    3. Position des joueurs
+    4. Spécifications des éléments du décor (murs, plafond se déplaçant...)
+    
+## Ameliorations envisagables ##
+- Les événements clavier rapides sont mal gérés, le personnage s'arrête si on alterne rapidement les mouvements gauche droite : reflechir à une solution
+- Améliorer l'architecture en réorganisant le code, par exemple en découpant mieux les fichiers, en créant plus de classes, ou en simplifiant le fil d'exécution
+- Ajout d'un bouton pause 
+- Ajout de bonus et de power-ups
+
+## Points positifs ##
+- Il est facile d'ajouter et de modifier les niveaux
+- Design original et gameplay amusant
+- Propose un vrai défi au joueur au fil des niveaux
 
 ##Done
 
@@ -89,4 +120,4 @@ demo
     - [x] score : ajouter temps restant au score (implique animation)
     - [x] afficher temps restant
     - [x] afficher commandes (nouvel ecran ou a cote du canvas ?)
-    - [ ] bouton mute ?
+    - [x] bouton mute
