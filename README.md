@@ -35,13 +35,13 @@ A chaque fin de niveau, on affiche un message différent en fonction de la situa
 Il s'agit simplement d'une image au fond transparent qui décrit les touches.
 
 ## Sons utilisés ##
-Il y a 2 musiques de fond qui bouclent.
-Nous avons mis en place plusieurs sound effects : 
-    - lorsqu'on jette un harpon,
-    - quand une bulle eclate,
-    - quand une bulle touche un joueur,
-    - une musique de fin de jeu si le joueur a perdu
-    - une musique de fin de jeu si le joueur a fini le dernier niveau
+Il y a 2 musiques de fond qui bouclent.<br/>
+Nous avons aussi mis en place plusieurs sound effects : 
+- lorsqu'on jette un harpon,
+- quand une bulle eclate,
+- quand une bulle touche un joueur,
+- une musique de fin de jeu si le joueur a perdu
+- une musique de fin de jeu si le joueur a fini le dernier niveau
 Il y aussi possibilité de mute uniquement les musiques de fond avec les boutons du menu principal.
 
 ## Foncitonnalités diverses ##
