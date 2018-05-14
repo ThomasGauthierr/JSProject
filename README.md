@@ -37,14 +37,14 @@ Il s'agit simplement d'une image au fond transparent qui décrit les touches.
 ## Sons utilisés ##
 Il y a 2 musiques de fond qui bouclent.<br/>
 Nous avons aussi mis en place plusieurs sound effects : 
-- lorsqu'on jette un harpon,
-- quand une bulle eclate,
-- quand une bulle touche un joueur,
-- une musique de fin de jeu si le joueur a perdu
-- une musique de fin de jeu si le joueur a fini le dernier niveau
+- Lorsqu'on jette un harpon
+- Quand une bulle eclate
+- Quand une bulle touche un joueur
+- Une musique de fin de jeu si le joueur a perdu
+- Une musique de fin de jeu si le joueur a fini le dernier niveau<br/>
 Il y aussi possibilité de mute uniquement les musiques de fond avec les boutons du menu principal.
 
-## Foncitonnalités diverses ##
+## Fonctionnalités diverses ##
 - Les highscores sont différents entre le mode 1 et 2 joueurs. Ils sont sauvegardés dans des cookies.
 - Il est possible (comme montré dans le niveau 6) de rajouter des murs et de faire descendre le plafond.
 - Un timer est dessiné quand une partie est en cours. Il se trouve dans un canvas différent du canvas de jeu. La partie se temrine quand le timer arrive à 0. Si le joueur éclate tous les bulles avant la fin du chrono et qu'il est toujours vivant, on lui augmente son score en fonction du temps restant.
