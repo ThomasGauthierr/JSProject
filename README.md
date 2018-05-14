@@ -1,8 +1,9 @@
 # Web Project : Bubble Trouble
- 
+Réalisé par Alexandre GREAU et Thomas GAUTHIER
+
 ## Intro 
 Percez et évitez les bulles dans le temps imparti pour gagner !
-Pour cela, déplacez votre personage de gauche à droite et tirer des harpons, si disponibles, pour percer les bulles ! 
+Pour cela, déplacez votre personage de gauche à droite et tirer des harpons pour percer les bulles ! 
 
 6 niveaux sont disponibles :
 - Niveau 1 : 2 bulles, 1 harpon par joueur
