@@ -24,33 +24,32 @@ Pour cela, déplacez votre personage de gauche a droite et tirer des harpons, si
  - Un pour mute/demute la musique
 
  ### En jeu ###
- Pour chaque personage, on affiche son score avec du texte, et avec des icônes le nombre de vies et celui de harpons disponibles.
+ Pour chaque personage, on affiche son score avec du texte, et avec des icônes le nombre de vies et de harpons disponibles.
  Le meilleur score est affiché au centre.
  Les personnages sont dessinés avec des sprites.
 
 ### Transitions ###
-A chaque fin de niveau, on affiche un message différent en fonction de la situation (échec du niveau, niveau réussi, victoire ou défaite).
+A chaque fin de niveau, on affiche un message différent en fonction de la situation (échec du niveau, niveau réussi, victoire ou défaite). On affiche aussi si le highscore à été établi.
 
 ### Ecran des contrôles ###
-Il s'agit simplement d'une image au fond transparent qui décrit les touches pour les différents joueurs.
+Il s'agit simplement d'une image au fond transparent qui décrit les touches.
 
 ## Sons utilisés ##
-2 musiques de fond qui bouclent
-PLusieurs sound effects : 
-    - lorsqu'on jette un harpon
-    - quand une bulle eclate
-    - quand une bulle touche un joueur
-    - une musique de fin de jeu, differente selon le resultat, c'est a dire si le joueur est mort
-        ou si il a reussi a finir tout les niveaux
-il y aussi possibilité de mute uniquement les musiques de fond 
+Il y a 2 musiques de fond qui bouclent.
+Nous avons mis en place plusieurs sound effects : 
+    - lorsqu'on jette un harpon,
+    - quand une bulle eclate,
+    - quand une bulle touche un joueur,
+    - une musique de fin de jeu si le joueur a perdu
+    - une musique de fin de jeu si le joueur a fini le dernier niveau
+Il y aussi possibilité de mute uniquement les musiques de fond avec les boutons du menu principal.
 
 ## Foncitonnalités diverses ##
 - Les highscores sont différents entre le mode 1 et 2 joueurs. Ils sont sauvegardés dans des cookies.
-- Il est possible (comme montré dans ke niveau 6) de rajouter des murs et de faire descendre le plafond.
-- Un timer est dessiné quand une partie est en cours. Il se trouve dans un canvas différent du canvas de jeu. La partie se temrine quand le timer arrive à 0. Si le joueur éclate tous les bulles avant la fin du chrono, on lui augmente son score en fonction du temps restant.
+- Il est possible (comme montré dans le niveau 6) de rajouter des murs et de faire descendre le plafond.
+- Un timer est dessiné quand une partie est en cours. Il se trouve dans un canvas différent du canvas de jeu. La partie se temrine quand le timer arrive à 0. Si le joueur éclate tous les bulles avant la fin du chrono et qu'il est toujours vivant, on lui augmente son score en fonction du temps restant.
 
-
-## Différents composants & caractéristiques
+## Différents composants & caractéristiques ##
 
 - Personnage : 
     1. Bouge de gauche à droite
@@ -62,7 +61,7 @@ il y aussi possibilité de mute uniquement les musiques de fond
     1. Longueur l
     2. Vitesse v
     3. Dès que contact (plafond ou bulle), il est supprimé et redisponible pour le joueur
-    4. Contact si bulle touche cable
+    4. Contact si une bulle touche un harpon
 
 - Bulle : 
     1. Vie
@@ -90,7 +89,6 @@ il y aussi possibilité de mute uniquement les musiques de fond
 - Propose un vrai défi au joueur au fil des niveaux, sans pour autant être impossible
 
 ##Done
-
 - [x] Menus
 - [x] Mouvement bulle rebondissante
 - [x] transition de niveaux
@@ -98,7 +96,7 @@ il y aussi possibilité de mute uniquement les musiques de fond
 - [x] Conditions de fin de niveau (pas de bulles restantes || joueur dead)
 - [x] Sauvegarde meilleurs scores
 - [x] Génération de niveaux 
-- [x] jouabilité (vitesse balles, difficulté des niveaux, bonus ?)
+- [x] jouabilité (vitesse balles, difficulté des niveaux)
 
 - Collisions :
     - [x] bulle/joueur
