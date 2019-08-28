@@ -1,0 +1,24 @@
+{
+  "name": "bubble-troube",
+  "version": "1.0.0",
+  "description": "Réalisé par Alexandre GREAU et Thomas GAUTHIER",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "game": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasGauthierr/JSProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasGauthierr/JSProject/issues"
+  },
+  "homepage": "https://github.com/ThomasGauthierr/JSProject#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
