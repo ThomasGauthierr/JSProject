@@ -17,6 +17,9 @@ Pour cela, déplacez votre personage de gauche à droite et tirer des harpons po
 - Joueur 1 : Q (gauche, A en QWERTY), D (droite), espace (tirer)
 - Joueur 2 : flèche gauche (gauche), flèche droite (droite), shift droit (tirer)
 
+## Lancement du jeu
+```npm run game```
+
  ## Interfaces ##
  ### Menu principal ###
  4 boutons :
